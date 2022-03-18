@@ -22,13 +22,6 @@ struct iOS_ExerciseListView: View {
           text: viewStore.binding(\.$searchText),
           placement: .navigationBarDrawer(displayMode: .always)
         )
-        .toolbar {
-          ToolbarItemGroup {
-            Button("Save") {
-              viewStore.send(.save)
-            }
-          }
-        }
       }
     }
   }
