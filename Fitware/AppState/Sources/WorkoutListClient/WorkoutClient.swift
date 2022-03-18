@@ -13,13 +13,13 @@ public struct Workout: Equatable, Identifiable, Codable {
   public var done: Bool = false
 }
 
-public struct WorkoutClient {
+public struct WorkoutListClient {
   public let fetchWorkouts: () -> Effect<[Workout], Failure>
-  public let create: () -> Effect<Never, Failure>
-  public let remove : ([Workout]) -> Effect<Never, Failure>
+  public let createWorkout: () -> Effect<Never, Failure>
+  public let removeWorkout : ([Workout]) -> Effect<Never, Failure>
 }
 
-public extension WorkoutClient {
+public extension WorkoutListClient {
   static let live = Self(
     fetchWorkouts: {
       Firestore
@@ -31,7 +31,7 @@ public extension WorkoutClient {
         .mapError(Failure.init)
         .eraseToEffect()
     },
-    create: {
+    createWorkout: {
       Effect.future { callback in
         do {
           let _ = try Firestore
@@ -43,7 +43,7 @@ public extension WorkoutClient {
         }
       }
     },
-    remove: { workouts in
+    removeWorkout: { workouts in
       Effect.future { callback in
         workouts.compactMap(\.id).forEach {
           Firestore

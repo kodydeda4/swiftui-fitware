@@ -5,7 +5,7 @@ import ExerciseListClient
 import Failure
 import Firebase
 import WorkoutList
-import WorkoutClient
+import WorkoutListClient
 
 public struct UserState {
   public var user: User
@@ -40,16 +40,16 @@ public enum UserAction {
 public struct UserEnvironment {
   public let mainQueue: AnySchedulerOf<DispatchQueue>
   public let exerciseClient: ExerciseListClient
-  public let workoutClient: WorkoutClient
+  public let workoutListClient: WorkoutListClient
   
   public init(
     mainQueue: AnySchedulerOf<DispatchQueue>,
     exerciseClient: ExerciseListClient,
-    workoutClient: WorkoutClient
+    workoutListClient: WorkoutListClient
   ) {
     self.mainQueue = mainQueue
     self.exerciseClient = exerciseClient
-    self.workoutClient = workoutClient
+    self.workoutListClient = workoutListClient
   }
 }
 
@@ -64,7 +64,7 @@ public let userReducer = Reducer<UserState, UserAction, UserEnvironment>.combine
     WorkoutListEnvironment(
       mainQueue: $0.mainQueue,
       exerciseClient: $0.exerciseClient,
-      workoutClient: $0.workoutClient
+      workoutListClient: $0.workoutListClient
     )
   }),
   Reducer { state, action, environment in
@@ -93,7 +93,7 @@ public extension UserState {
     environment: UserEnvironment(
       mainQueue: .main,
       exerciseClient: .live,
-      workoutClient: .live
+      workoutListClient: .live
     )
   )
 }

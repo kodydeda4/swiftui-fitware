@@ -41,7 +41,7 @@ let package = Package(
     .exerciseList,
     .exerciseListClient,
     .workoutList,
-    .workoutClient
+    .workoutListClient
   ]),
   Source(name: "ExerciseList", dependencies: [
     .composableArchitecture,
@@ -56,7 +56,7 @@ let package = Package(
   Source(name: "WorkoutList", dependencies: [
     .composableArchitecture,
     .failure,
-    .workoutClient
+    .workoutListClient
   ]),
   
   // MARK: Client
@@ -70,7 +70,7 @@ let package = Package(
     .failure,
     .exercise,
   ]),
-  Source(name: "WorkoutClient", dependencies: [
+  Source(name: "WorkoutListClient", dependencies: [
     .composableArchitecture,
     .failure,
     .firebase,
@@ -113,7 +113,7 @@ extension Target.Dependency {
 extension Target.Dependency {
   static let authClient: Self = "AuthClient"
   static let exerciseListClient: Self = "ExerciseListClient"
-  static let workoutClient: Self = "WorkoutClient"
+  static let workoutListClient: Self = "WorkoutListClient"
 }
 
 // Core

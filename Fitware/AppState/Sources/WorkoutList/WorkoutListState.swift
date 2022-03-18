@@ -4,7 +4,7 @@ import IdentifiedCollections
 import Exercise
 import Failure
 import ExerciseListClient
-import WorkoutClient
+import WorkoutListClient
 
 public struct WorkoutListState {
   public var workouts: IdentifiedArrayOf<Workout>
@@ -40,12 +40,12 @@ public enum WorkoutListAction {
 public struct WorkoutListEnvironment {
   public let mainQueue: AnySchedulerOf<DispatchQueue>
   public let exerciseClient: ExerciseListClient
-  public let workoutClient: WorkoutClient
+  public let workoutListClient: WorkoutListClient
   
-  public init(mainQueue: AnySchedulerOf<DispatchQueue>, exerciseClient: ExerciseListClient, workoutClient: WorkoutClient) {
+  public init(mainQueue: AnySchedulerOf<DispatchQueue>, exerciseClient: ExerciseListClient, workoutListClient: WorkoutListClient) {
     self.mainQueue = mainQueue
     self.exerciseClient = exerciseClient
-    self.workoutClient = workoutClient
+    self.workoutListClient = workoutListClient
   }
 }
 
@@ -78,7 +78,7 @@ public let workoutListReducer = Reducer<
       return .none
       
     case .createWorkout:
-      return environment.workoutClient.create()
+      return environment.workoutListClient.createWorkout()
         .receive(on: environment.mainQueue)
         .catchToEffect(WorkoutListAction.createWorkoutResult)
     
@@ -97,7 +97,7 @@ public let workoutListReducer = Reducer<
       return .none
       
     case .fetchWorkouts:
-      return environment.workoutClient.fetchWorkouts()
+      return environment.workoutListClient.fetchWorkouts()
         .receive(on: environment.mainQueue)
         .catchToEffect(WorkoutListAction.fetchWorkoutsResult)
 
@@ -125,7 +125,7 @@ public extension WorkoutListState {
     environment: WorkoutListEnvironment(
       mainQueue: .main,
       exerciseClient: .live,
-      workoutClient: .live
+      workoutListClient: .live
     )
   )
 }
