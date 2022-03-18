@@ -8,10 +8,7 @@ public struct AuthState: Equatable {
   @BindableState public var email: String
   @BindableState public var password: String
   
-  public init(
-    email: String = "",
-    password: String = ""
-  ) {
+  public init(email: String = "", password: String = "") {
     self.email = email
     self.password = password
   }
