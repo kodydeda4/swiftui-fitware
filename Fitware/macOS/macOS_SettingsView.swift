@@ -7,7 +7,16 @@ struct macOS_SettingsView: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      Text(viewStore.user.displayName ?? "Unknown")
+      List {
+        Text(viewStore.user.displayName ?? "unknown")
+        Text(viewStore.user.email ?? "unknown")
+      }
+      .navigationTitle("Settings")
+      .toolbar {
+        Button("Sign out") {
+          viewStore.send(.signoutButtonTapped)
+        }
+      }
     }
   }
 }

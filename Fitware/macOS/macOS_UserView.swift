@@ -34,7 +34,7 @@ struct macOS_UserView: View {
             label: { Label("Exercises", systemImage: "doc.plaintext") }
           )
           NavigationLink(
-            tag: UserState.Route.exerciseList,
+            tag: UserState.Route.settings,
             selection: viewStore.binding(\.$route),
             destination: {
               macOS_SettingsView(store: store.scope(

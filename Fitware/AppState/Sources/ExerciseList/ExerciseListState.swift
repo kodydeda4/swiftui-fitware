@@ -24,11 +24,9 @@ public struct ExerciseListState {
 public enum ExerciseListAction {
   case binding(BindingAction<ExerciseListState>)
   case exercises(id: ExerciseState.ID, action: ExerciseAction)
-  case save
-  case load
-  case didSave(Result<Never, Failure>)
-  case didLoad(Result<[ExerciseState], Failure>)
   case dismissAlert
+  case fetchExercises
+  case fetchExercisesResult(Result<[ExerciseState], Failure>)
 }
 
 public struct ExerciseListEnvironment {
@@ -53,30 +51,18 @@ public let exerciseListReducer = Reducer<
   ),
   Reducer { state, action, environment in
     switch action {
-      
-    case .save:
-      return environment.exerciseClient.saveJSON(Array(state.exercises))
+            
+    case .fetchExercises:
+      guard state.exercises.isEmpty else { return .none }
+      return environment.exerciseClient.fetchExercises()
         .receive(on: environment.mainQueue)
-        .catchToEffect(ExerciseListAction.didSave)
+        .catchToEffect(ExerciseListAction.fetchExercisesResult)
       
-    case .load:
-      return environment.exerciseClient.loadJSON()
-        .receive(on: environment.mainQueue)
-        .catchToEffect(ExerciseListAction.didLoad)
-      
-    case let .didLoad(.success(success)):
+    case let .fetchExercisesResult(.success(success)):
       state.exercises = IdentifiedArrayOf(uniqueElements: success)
       return .none
       
-    case let .didLoad(.failure(error)):
-      state.alert = AlertState(title: TextState(error.localizedDescription))
-      return .none
-      
-    case .didSave(.success):
-      state.alert = AlertState(title: TextState("Success"))
-      return .none
-      
-    case let .didSave(.failure(error)):
+    case let .fetchExercisesResult(.failure(error)):
       state.alert = AlertState(title: TextState(error.localizedDescription))
       return .none
       

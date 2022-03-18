@@ -15,12 +15,12 @@ struct iOS_ExerciseListView: View {
             action: ExerciseListAction.exercises
           ), content: iOS_ExerciseView.init(store:))
         }
-        .navigationTitle("Exercises")
         .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
-        .onAppear { viewStore.send(.load) }
+        .navigationTitle("Exercises")
+        .onAppear { viewStore.send(.fetchExercises) }
         .searchable(
-          text: viewStore.binding(\.$searchText)//,
-          //          placement: .navigationBarDrawer(displayMode: .always)
+          text: viewStore.binding(\.$searchText),
+          placement: .navigationBarDrawer(displayMode: .always)
         )
         .toolbar {
           ToolbarItemGroup {

@@ -13,6 +13,7 @@ public struct SettingsState {
 
 public enum SettingsAction {
   case binding(BindingAction<SettingsState>)
+  case signoutButtonTapped
 }
 
 public struct SettingsEnvironment {
@@ -36,6 +37,9 @@ public let settingsReducer = Reducer<
   switch action {
     
   case .binding:
+    return .none
+    
+  case .signoutButtonTapped:
     return .none
     
   }

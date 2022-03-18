@@ -15,20 +15,10 @@ struct macOS_ExerciseListView: View {
             action: ExerciseListAction.exercises
           ), content: macOS_ExerciseView.init(store:))
         }
-        .navigationTitle("Exercises")
         .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
-        .onAppear { viewStore.send(.load) }
-        .searchable(
-          text: viewStore.binding(\.$searchText)//,
-          //          placement: .navigationBarDrawer(displayMode: .always)
-        )
-        .toolbar {
-          ToolbarItemGroup {
-            Button("Save") {
-              viewStore.send(.save)
-            }
-          }
-        }
+        .navigationTitle("Exercises")
+        .onAppear { viewStore.send(.fetchExercises) }
+        .searchable(text: viewStore.binding(\.$searchText))
       }
     }
   }

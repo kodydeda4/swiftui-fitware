@@ -119,9 +119,9 @@
 				3328D27827E4F01E00A7F871 /* macOS_ExerciseListView.swift */,
 				3328D28427E4F4AF00A7F871 /* macOS_ExerciseView.swift */,
 				3370446027E5134F000E0154 /* macOS_WorkoutListView.swift */,
+				331F95B127E53EB800863C09 /* macOS_SettingsView.swift */,
 				3328D28C27E4F6BE00A7F871 /* macOS_UserView.swift */,
 				334E419727E4C6D9006AD09D /* macOS.entitlements */,
-				331F95B127E53EB800863C09 /* macOS_SettingsView.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -135,9 +135,9 @@
 				3328D27627E4EFEA00A7F871 /* iOS_ExerciseListView.swift */,
 				3328D28227E4F4A200A7F871 /* iOS_ExerciseView.swift */,
 				3328D28627E4F4C600A7F871 /* iOS_UserView.swift */,
+				331F95AF27E53E1500863C09 /* iOS_SettingsView.swift */,
 				3383958227E4CBE9000376BF /* Fitware--iOS--Info.plist */,
 				3383959527E4CD6E000376BF /* iOS.entitlements */,
-				331F95AF27E53E1500863C09 /* iOS_SettingsView.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";

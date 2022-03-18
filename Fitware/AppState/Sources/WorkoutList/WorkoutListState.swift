@@ -63,7 +63,7 @@ public let workoutListReducer = Reducer<
     switch action {
       
     case .fetchExercises:
-      return environment.exerciseClient.loadJSON()
+      return environment.exerciseClient.fetchExercises()
         .receive(on: environment.mainQueue)
         .catchToEffect(WorkoutListAction.fetchExercisesResult)
       
