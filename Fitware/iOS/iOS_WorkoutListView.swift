@@ -11,15 +11,14 @@ struct iOS_WorkoutListView: View {
     WithViewStore(store) { viewStore in
       NavigationView {
         List {
-          Text("Workouts")
-//          ForEachStore(store.scope(
-//            state: \.exercises,
-//            action: WorkoutAction.exercises
-//          ), content: iOS_ExerciseView.init(store:))
+          ForEach(viewStore.workouts) { workout in
+            Text(workout.timestamp.description)
+          }
         }
-        .navigationTitle("Workouts")
-        .onAppear { viewStore.send(.load) }
-        .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
+        .navigationTitle("Workouts \(viewStore.workouts.count.description)")
+        .onAppear { viewStore.send(.fetchWorkouts) }
+        .refreshable { viewStore.send(.fetchWorkouts) }
+//        .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
         .toolbar {
           ToolbarItemGroup {
             Button("Create Workout") {

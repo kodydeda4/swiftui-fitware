@@ -7,26 +7,34 @@ import ExerciseListClient
 import WorkoutClient
 
 public struct WorkoutListState {
+  public var workouts: IdentifiedArrayOf<Workout>
   public var exercises: IdentifiedArrayOf<ExerciseState>
   public var alert: AlertState<WorkoutListAction>?
 
   public init(
+    workouts: IdentifiedArrayOf<Workout> = [],
     exercises: IdentifiedArrayOf<ExerciseState> = [],
     alert: AlertState<WorkoutListAction>? = nil
   ) {
+    self.workouts = workouts
     self.exercises = exercises
     self.alert = alert
   }
 }
 
 public enum WorkoutListAction {
+  case dismissAlert
   case binding(BindingAction<WorkoutListState>)
   case exercises(id: ExerciseState.ID, action: ExerciseAction)
-  case load
-  case didLoad(Result<[ExerciseState], Failure>)
+  
+  case fetchExercises
+  case fetchExercisesResult(Result<[ExerciseState], Failure>)
+  
+  case fetchWorkouts
+  case fetchWorkoutsResult(Result<[Workout], Failure>)
+  
   case createWorkout
-  case didCreateWorkout(Result<Never, Failure>)
-  case dismissAlert
+  case createWorkoutResult(Result<Never, Failure>)
 }
 
 public struct WorkoutListEnvironment {
@@ -54,16 +62,16 @@ public let workoutListReducer = Reducer<
   Reducer { state, action, environment in
     switch action {
       
-    case .load:
+    case .fetchExercises:
       return environment.exerciseClient.loadJSON()
         .receive(on: environment.mainQueue)
-        .catchToEffect(WorkoutListAction.didLoad)
+        .catchToEffect(WorkoutListAction.fetchExercisesResult)
       
-    case let .didLoad(.success(success)):
+    case let .fetchExercisesResult(.success(success)):
       state.exercises = IdentifiedArrayOf(uniqueElements: success)
       return .none
       
-    case let .didLoad(.failure(error)):
+    case let .fetchExercisesResult(.failure(error)):
       return .none
       
     case .exercises:
@@ -72,13 +80,13 @@ public let workoutListReducer = Reducer<
     case .createWorkout:
       return environment.workoutClient.create()
         .receive(on: environment.mainQueue)
-        .catchToEffect(WorkoutListAction.didCreateWorkout)
+        .catchToEffect(WorkoutListAction.createWorkoutResult)
     
-    case .didCreateWorkout(.success):
+    case .createWorkoutResult(.success):
       state.alert = AlertState(title: TextState("Success"))
       return .none
       
-    case let .didCreateWorkout(.failure(error)):
+    case let .createWorkoutResult(.failure(error)):
       state.alert = AlertState(title: TextState(error.localizedDescription))
       return .none
 
@@ -87,6 +95,21 @@ public let workoutListReducer = Reducer<
       
     case .binding:
       return .none
+      
+    case .fetchWorkouts:
+      return environment.workoutClient.fetchWorkouts()
+        .receive(on: environment.mainQueue)
+        .catchToEffect(WorkoutListAction.fetchWorkoutsResult)
+
+    case let .fetchWorkoutsResult(.success(success)):
+      state.workouts = IdentifiedArrayOf(uniqueElements: success)
+      state.alert = AlertState(title: TextState("Success"))
+      return .none
+      
+    case let .fetchWorkoutsResult(.failure(error)):
+      state.alert = AlertState(title: TextState(error.localizedDescription))
+      return .none
+
     }
   }.binding()
 )
