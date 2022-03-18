@@ -9,7 +9,11 @@ struct FitwareApp: App {
   }
   var body: some Scene {
     WindowGroup {
-      AppView(store: AppState.defaultStore)
+      #if os(iOS)
+      iOS_AppView()
+      #elseif os(macOS)
+      macOS_AppView()
+      #endif
     }
   }
 }

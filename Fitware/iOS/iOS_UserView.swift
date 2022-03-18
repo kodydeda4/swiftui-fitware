@@ -1,13 +1,15 @@
 import SwiftUI
+import ExerciseList
 import ComposableArchitecture
+import App
 import User
 
-struct UserView: View {
+struct iOS_UserView: View {
   let store: Store<UserState, UserAction>
-  
+
   var body: some View {
     TabView {
-      ExerciseListView(store: store.scope(
+      iOS_ExerciseListView(store: store.scope(
         state: \.exerciseList,
         action: UserAction.exerciseList
       ))
@@ -18,8 +20,9 @@ struct UserView: View {
   }
 }
 
-struct UserView_Previews: PreviewProvider {
+// MARK: SwiftUI Previews
+struct iOS_UserView_Previews: PreviewProvider {
   static var previews: some View {
-    UserView(store: UserState.defaultStore)
+    iOS_UserView(store: UserState.defaultStore)
   }
 }

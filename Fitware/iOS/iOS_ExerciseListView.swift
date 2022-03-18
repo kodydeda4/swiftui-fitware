@@ -3,7 +3,7 @@ import ExerciseList
 import ComposableArchitecture
 import App
 
-struct ExerciseListView: View {
+struct iOS_ExerciseListView: View {
   let store: Store<ExerciseListState, ExerciseListAction>
   
   var body: some View {
@@ -13,14 +13,14 @@ struct ExerciseListView: View {
           ForEachStore(store.scope(
             state: \.searchResults,
             action: ExerciseListAction.exercises
-          ), content: ExerciseView.init(store:))
+          ), content: iOS_ExerciseView.init(store:))
         }
         .navigationTitle("Exercises")
         .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
         .onAppear { viewStore.send(.load) }
         .searchable(
           text: viewStore.binding(\.$searchText)//,
-//          placement: .navigationBarDrawer(displayMode: .always)
+          //          placement: .navigationBarDrawer(displayMode: .always)
         )
         .toolbar {
           ToolbarItemGroup {
@@ -35,9 +35,8 @@ struct ExerciseListView: View {
 }
 
 // MARK: SwiftUI Previews
-struct ExerciseView_Previews: PreviewProvider {
+struct iOS_ExerciseListView_Previews: PreviewProvider {
   static var previews: some View {
-    ExerciseListView(store: ExerciseListState.defaultStore)
-      .preferredColorScheme(.dark)
+    iOS_ExerciseListView(store: ExerciseListState.defaultStore)
   }
 }

@@ -2,7 +2,7 @@ import SwiftUI
 import Exercise
 import ComposableArchitecture
 
-struct ExerciseView: View {
+struct macOS_ExerciseView: View {
   let store: Store<ExerciseState, ExerciseAction>
   let url = "https://www.id-design.com/videos/21021201-Sitting-Toe-Pull-Calf-Stretch_Calves_.mp4"
   
@@ -37,8 +37,8 @@ struct ExerciseView: View {
 }
 
 // MARK: SwiftUI Previews
-//struct ExerciseView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    ExerciseView()
-//  }
-//}
+struct macOS_ExerciseView_Previews: PreviewProvider {
+  static var previews: some View {
+    macOS_ExerciseView(store: ExerciseState.defaultStore)
+  }
+}

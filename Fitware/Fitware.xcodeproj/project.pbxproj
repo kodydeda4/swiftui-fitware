@@ -7,26 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3328D26727E4EA6D00A7F871 /* AuthView+macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D26627E4EA6D00A7F871 /* AuthView+macOS.swift */; };
-		3328D26827E4EA6D00A7F871 /* AuthView+macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D26627E4EA6D00A7F871 /* AuthView+macOS.swift */; };
-		3328D26A27E4EAC800A7F871 /* AuthView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D26927E4EAC800A7F871 /* AuthView+iOS.swift */; };
-		3328D26B27E4EAC800A7F871 /* AuthView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D26927E4EAC800A7F871 /* AuthView+iOS.swift */; };
+		3328D27027E4EDE300A7F871 /* macOS_AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D26F27E4EDE300A7F871 /* macOS_AuthView.swift */; };
+		3328D27427E4EE3B00A7F871 /* iOS_AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D27327E4EE3B00A7F871 /* iOS_AuthView.swift */; };
+		3328D27527E4EF2200A7F871 /* iOS_AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D27327E4EE3B00A7F871 /* iOS_AuthView.swift */; };
+		3328D27727E4EFEA00A7F871 /* iOS_ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D27627E4EFEA00A7F871 /* iOS_ExerciseListView.swift */; };
+		3328D27927E4F01E00A7F871 /* macOS_ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D27827E4F01E00A7F871 /* macOS_ExerciseListView.swift */; };
+		3328D28127E4F40B00A7F871 /* iOS_AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D28027E4F40B00A7F871 /* iOS_AppView.swift */; };
+		3328D28327E4F4A200A7F871 /* iOS_ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D28227E4F4A200A7F871 /* iOS_ExerciseView.swift */; };
+		3328D28527E4F4AF00A7F871 /* macOS_ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D28427E4F4AF00A7F871 /* macOS_ExerciseView.swift */; };
+		3328D28727E4F4C600A7F871 /* iOS_UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D28627E4F4C600A7F871 /* iOS_UserView.swift */; };
+		3328D28B27E4F50A00A7F871 /* macOS_AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D28A27E4F50A00A7F871 /* macOS_AppView.swift */; };
+		3328D28D27E4F6BE00A7F871 /* macOS_UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D28C27E4F6BE00A7F871 /* macOS_UserView.swift */; };
 		334E419827E4C6D9006AD09D /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E418827E4C6D8006AD09D /* Main.swift */; };
 		334E419927E4C6D9006AD09D /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E418827E4C6D8006AD09D /* Main.swift */; };
 		334E419C27E4C6D9006AD09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 334E418A27E4C6D8006AD09D /* Assets.xcassets */; };
 		334E419D27E4C6D9006AD09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 334E418A27E4C6D8006AD09D /* Assets.xcassets */; };
 		3383958027E4C7A9000376BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3383957F27E4C7A9000376BF /* GoogleService-Info.plist */; };
 		3383958127E4C7A9000376BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3383957F27E4C7A9000376BF /* GoogleService-Info.plist */; };
-		3383958727E4CC6E000376BF /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383958627E4CC6E000376BF /* AppView.swift */; };
-		3383958827E4CC6E000376BF /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383958627E4CC6E000376BF /* AppView.swift */; };
-		3383958A27E4CC82000376BF /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383958927E4CC82000376BF /* AuthView.swift */; };
-		3383958B27E4CC82000376BF /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383958927E4CC82000376BF /* AuthView.swift */; };
-		3383958D27E4CC95000376BF /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383958C27E4CC95000376BF /* ExerciseListView.swift */; };
-		3383958E27E4CC95000376BF /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383958C27E4CC95000376BF /* ExerciseListView.swift */; };
-		3383959027E4CCA1000376BF /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383958F27E4CCA1000376BF /* ExerciseView.swift */; };
-		3383959127E4CCA1000376BF /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383958F27E4CCA1000376BF /* ExerciseView.swift */; };
-		3383959327E4CCAC000376BF /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383959227E4CCAC000376BF /* UserView.swift */; };
-		3383959427E4CCAC000376BF /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383959227E4CCAC000376BF /* UserView.swift */; };
 		3383959727E4CFFD000376BF /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 3383959627E4CFFD000376BF /* App */; };
 		3383959927E4D111000376BF /* ExerciseList in Resources */ = {isa = PBXBuildFile; fileRef = 3383959827E4D111000376BF /* ExerciseList */; };
 		3383959A27E4D111000376BF /* ExerciseList in Resources */ = {isa = PBXBuildFile; fileRef = 3383959827E4D111000376BF /* ExerciseList */; };
@@ -34,8 +31,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3328D26627E4EA6D00A7F871 /* AuthView+macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthView+macOS.swift"; sourceTree = "<group>"; };
-		3328D26927E4EAC800A7F871 /* AuthView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthView+iOS.swift"; sourceTree = "<group>"; };
+		3328D26F27E4EDE300A7F871 /* macOS_AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_AuthView.swift; sourceTree = "<group>"; };
+		3328D27327E4EE3B00A7F871 /* iOS_AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_AuthView.swift; sourceTree = "<group>"; };
+		3328D27627E4EFEA00A7F871 /* iOS_ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_ExerciseListView.swift; sourceTree = "<group>"; };
+		3328D27827E4F01E00A7F871 /* macOS_ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_ExerciseListView.swift; sourceTree = "<group>"; };
+		3328D28027E4F40B00A7F871 /* iOS_AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_AppView.swift; sourceTree = "<group>"; };
+		3328D28227E4F4A200A7F871 /* iOS_ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_ExerciseView.swift; sourceTree = "<group>"; };
+		3328D28427E4F4AF00A7F871 /* macOS_ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_ExerciseView.swift; sourceTree = "<group>"; };
+		3328D28627E4F4C600A7F871 /* iOS_UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_UserView.swift; sourceTree = "<group>"; };
+		3328D28A27E4F50A00A7F871 /* macOS_AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_AppView.swift; sourceTree = "<group>"; };
+		3328D28C27E4F6BE00A7F871 /* macOS_UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_UserView.swift; sourceTree = "<group>"; };
 		334E418827E4C6D8006AD09D /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		334E418A27E4C6D8006AD09D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		334E418F27E4C6D9006AD09D /* Fitware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitware.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,11 +48,6 @@
 		334E419727E4C6D9006AD09D /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		3383957F27E4C7A9000376BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3383958227E4CBE9000376BF /* Fitware--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fitware--iOS--Info.plist"; sourceTree = "<group>"; };
-		3383958627E4CC6E000376BF /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
-		3383958927E4CC82000376BF /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
-		3383958C27E4CC95000376BF /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
-		3383958F27E4CCA1000376BF /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
-		3383959227E4CCAC000376BF /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		3383959527E4CD6E000376BF /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
 		3383959827E4D111000376BF /* ExerciseList */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExerciseList; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -72,48 +72,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3328D26127E4EA2500A7F871 /* AppView */ = {
-			isa = PBXGroup;
-			children = (
-				3383958627E4CC6E000376BF /* AppView.swift */,
-			);
-			path = AppView;
-			sourceTree = "<group>";
-		};
-		3328D26227E4EA2E00A7F871 /* AuthView */ = {
-			isa = PBXGroup;
-			children = (
-				3383958927E4CC82000376BF /* AuthView.swift */,
-				3328D26927E4EAC800A7F871 /* AuthView+iOS.swift */,
-				3328D26627E4EA6D00A7F871 /* AuthView+macOS.swift */,
-			);
-			path = AuthView;
-			sourceTree = "<group>";
-		};
-		3328D26327E4EA3700A7F871 /* ExerciseListView */ = {
-			isa = PBXGroup;
-			children = (
-				3383958C27E4CC95000376BF /* ExerciseListView.swift */,
-			);
-			path = ExerciseListView;
-			sourceTree = "<group>";
-		};
-		3328D26427E4EA3D00A7F871 /* ExerciseView */ = {
-			isa = PBXGroup;
-			children = (
-				3383958F27E4CCA1000376BF /* ExerciseView.swift */,
-			);
-			path = ExerciseView;
-			sourceTree = "<group>";
-		};
-		3328D26527E4EA4F00A7F871 /* UserView */ = {
-			isa = PBXGroup;
-			children = (
-				3383959227E4CCAC000376BF /* UserView.swift */,
-			);
-			path = UserView;
-			sourceTree = "<group>";
-		};
 		334E418227E4C6D8006AD09D = {
 			isa = PBXGroup;
 			children = (
@@ -128,15 +86,10 @@
 		334E418727E4C6D8006AD09D /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				334E418827E4C6D8006AD09D /* Main.swift */,
 				3383959827E4D111000376BF /* ExerciseList */,
 				3383957F27E4C7A9000376BF /* GoogleService-Info.plist */,
-				334E418827E4C6D8006AD09D /* Main.swift */,
 				334E418A27E4C6D8006AD09D /* Assets.xcassets */,
-				3328D26127E4EA2500A7F871 /* AppView */,
-				3328D26227E4EA2E00A7F871 /* AuthView */,
-				3328D26327E4EA3700A7F871 /* ExerciseListView */,
-				3328D26427E4EA3D00A7F871 /* ExerciseView */,
-				3328D26527E4EA4F00A7F871 /* UserView */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -153,6 +106,11 @@
 		334E419627E4C6D9006AD09D /* macOS */ = {
 			isa = PBXGroup;
 			children = (
+				3328D28A27E4F50A00A7F871 /* macOS_AppView.swift */,
+				3328D26F27E4EDE300A7F871 /* macOS_AuthView.swift */,
+				3328D27827E4F01E00A7F871 /* macOS_ExerciseListView.swift */,
+				3328D28427E4F4AF00A7F871 /* macOS_ExerciseView.swift */,
+				3328D28C27E4F6BE00A7F871 /* macOS_UserView.swift */,
 				334E419727E4C6D9006AD09D /* macOS.entitlements */,
 			);
 			path = macOS;
@@ -161,8 +119,13 @@
 		334E41A627E4C70B006AD09D /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				3383959527E4CD6E000376BF /* iOS.entitlements */,
+				3328D28027E4F40B00A7F871 /* iOS_AppView.swift */,
+				3328D27327E4EE3B00A7F871 /* iOS_AuthView.swift */,
+				3328D27627E4EFEA00A7F871 /* iOS_ExerciseListView.swift */,
+				3328D28227E4F4A200A7F871 /* iOS_ExerciseView.swift */,
+				3328D28627E4F4C600A7F871 /* iOS_UserView.swift */,
 				3383958227E4CBE9000376BF /* Fitware--iOS--Info.plist */,
+				3383959527E4CD6E000376BF /* iOS.entitlements */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -282,14 +245,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3328D26A27E4EAC800A7F871 /* AuthView+iOS.swift in Sources */,
-				3383958D27E4CC95000376BF /* ExerciseListView.swift in Sources */,
-				3383959327E4CCAC000376BF /* UserView.swift in Sources */,
-				3383958727E4CC6E000376BF /* AppView.swift in Sources */,
+				3328D28327E4F4A200A7F871 /* iOS_ExerciseView.swift in Sources */,
 				334E419827E4C6D9006AD09D /* Main.swift in Sources */,
-				3328D26727E4EA6D00A7F871 /* AuthView+macOS.swift in Sources */,
-				3383958A27E4CC82000376BF /* AuthView.swift in Sources */,
-				3383959027E4CCA1000376BF /* ExerciseView.swift in Sources */,
+				3328D28727E4F4C600A7F871 /* iOS_UserView.swift in Sources */,
+				3328D27427E4EE3B00A7F871 /* iOS_AuthView.swift in Sources */,
+				3328D27727E4EFEA00A7F871 /* iOS_ExerciseListView.swift in Sources */,
+				3328D28127E4F40B00A7F871 /* iOS_AppView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,14 +258,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3328D26B27E4EAC800A7F871 /* AuthView+iOS.swift in Sources */,
-				3383958E27E4CC95000376BF /* ExerciseListView.swift in Sources */,
-				3383959427E4CCAC000376BF /* UserView.swift in Sources */,
-				3383958827E4CC6E000376BF /* AppView.swift in Sources */,
+				3328D28527E4F4AF00A7F871 /* macOS_ExerciseView.swift in Sources */,
+				3328D28D27E4F6BE00A7F871 /* macOS_UserView.swift in Sources */,
 				334E419927E4C6D9006AD09D /* Main.swift in Sources */,
-				3328D26827E4EA6D00A7F871 /* AuthView+macOS.swift in Sources */,
-				3383958B27E4CC82000376BF /* AuthView.swift in Sources */,
-				3383959127E4CCA1000376BF /* ExerciseView.swift in Sources */,
+				3328D28B27E4F50A00A7F871 /* macOS_AppView.swift in Sources */,
+				3328D27527E4EF2200A7F871 /* iOS_AuthView.swift in Sources */,
+				3328D27927E4F01E00A7F871 /* macOS_ExerciseListView.swift in Sources */,
+				3328D27027E4EDE300A7F871 /* macOS_AuthView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

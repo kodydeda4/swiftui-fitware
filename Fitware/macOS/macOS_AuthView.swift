@@ -1,13 +1,19 @@
-#if os(iOS)
 import SwiftUI
 import ComposableArchitecture
 import Auth
 import AuthenticationServices
 
-extension AuthView {
-  var iOS: some View {
+struct macOS_AuthView: View {
+  let store: Store<AuthState, AuthAction>
+
+  var body: some View {
     WithViewStore(store) { viewStore in
       NavigationView {
+        List {
+          
+        }
+        .listStyle(.sidebar)
+        
         List {
           Section("Email") {
             TextField("Email", text: viewStore.binding(\.$email))
@@ -32,9 +38,8 @@ extension AuthView {
   }
 }
 
-struct AuthView_iOS_Previews: PreviewProvider {
+struct macOS_AuthView_Previews: PreviewProvider {
   static var previews: some View {
-    AuthView(store: AuthState.defaultStore)
+    macOS_AuthView(store: AuthState.defaultStore)
   }
 }
-#endif
