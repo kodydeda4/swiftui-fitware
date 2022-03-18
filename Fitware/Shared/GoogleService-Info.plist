@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>339441178683-h9l6kmsko7dfutf89ofe10kc4soak8pg.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.339441178683-h9l6kmsko7dfutf89ofe10kc4soak8pg</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDG9mS-RPLrmGSADKsX-zcxa_rQRAMCq2c</string>
+	<key>GCM_SENDER_ID</key>
+	<string>339441178683</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>deda.Fitware</string>
+	<key>PROJECT_ID</key>
+	<string>fitware-dc7ae</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fitware-dc7ae.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:339441178683:ios:3d4e7d12352f747fb6241e</string>
+</dict>
+</plist>

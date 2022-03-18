@@ -1,0 +1,536 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		334E419827E4C6D9006AD09D /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E418827E4C6D8006AD09D /* Main.swift */; };
+		334E419927E4C6D9006AD09D /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E418827E4C6D8006AD09D /* Main.swift */; };
+		334E419C27E4C6D9006AD09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 334E418A27E4C6D8006AD09D /* Assets.xcassets */; };
+		334E419D27E4C6D9006AD09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 334E418A27E4C6D8006AD09D /* Assets.xcassets */; };
+		3383958027E4C7A9000376BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3383957F27E4C7A9000376BF /* GoogleService-Info.plist */; };
+		3383958127E4C7A9000376BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3383957F27E4C7A9000376BF /* GoogleService-Info.plist */; };
+		3383958727E4CC6E000376BF /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383958627E4CC6E000376BF /* AppView.swift */; };
+		3383958827E4CC6E000376BF /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383958627E4CC6E000376BF /* AppView.swift */; };
+		3383958A27E4CC82000376BF /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383958927E4CC82000376BF /* AuthView.swift */; };
+		3383958B27E4CC82000376BF /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383958927E4CC82000376BF /* AuthView.swift */; };
+		3383958D27E4CC95000376BF /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383958C27E4CC95000376BF /* ExerciseListView.swift */; };
+		3383958E27E4CC95000376BF /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383958C27E4CC95000376BF /* ExerciseListView.swift */; };
+		3383959027E4CCA1000376BF /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383958F27E4CCA1000376BF /* ExerciseView.swift */; };
+		3383959127E4CCA1000376BF /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383958F27E4CCA1000376BF /* ExerciseView.swift */; };
+		3383959327E4CCAC000376BF /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383959227E4CCAC000376BF /* UserView.swift */; };
+		3383959427E4CCAC000376BF /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3383959227E4CCAC000376BF /* UserView.swift */; };
+		3383959727E4CFFD000376BF /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 3383959627E4CFFD000376BF /* App */; };
+		3383959927E4D111000376BF /* ExerciseList in Resources */ = {isa = PBXBuildFile; fileRef = 3383959827E4D111000376BF /* ExerciseList */; };
+		3383959A27E4D111000376BF /* ExerciseList in Resources */ = {isa = PBXBuildFile; fileRef = 3383959827E4D111000376BF /* ExerciseList */; };
+		3396A0FC27E4D9DA008B5F68 /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 3396A0FB27E4D9DA008B5F68 /* App */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		334E418827E4C6D8006AD09D /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		334E418A27E4C6D8006AD09D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		334E418F27E4C6D9006AD09D /* Fitware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitware.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		334E419527E4C6D9006AD09D /* Fitware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitware.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		334E419727E4C6D9006AD09D /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		3383957F27E4C7A9000376BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3383958227E4CBE9000376BF /* Fitware--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fitware--iOS--Info.plist"; sourceTree = "<group>"; };
+		3383958627E4CC6E000376BF /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		3383958927E4CC82000376BF /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
+		3383958C27E4CC95000376BF /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
+		3383958F27E4CCA1000376BF /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
+		3383959227E4CCAC000376BF /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		3383959527E4CD6E000376BF /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
+		3383959827E4D111000376BF /* ExerciseList */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExerciseList; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		334E418C27E4C6D9006AD09D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3396A0FC27E4D9DA008B5F68 /* App in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		334E419227E4C6D9006AD09D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3383959727E4CFFD000376BF /* App in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		334E418227E4C6D8006AD09D = {
+			isa = PBXGroup;
+			children = (
+				3383958327E4CBF2000376BF /* Frameworks */,
+				334E41A627E4C70B006AD09D /* iOS */,
+				334E419627E4C6D9006AD09D /* macOS */,
+				334E419027E4C6D9006AD09D /* Products */,
+				334E418727E4C6D8006AD09D /* Shared */,
+			);
+			sourceTree = "<group>";
+		};
+		334E418727E4C6D8006AD09D /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				334E418827E4C6D8006AD09D /* Main.swift */,
+				3383958627E4CC6E000376BF /* AppView.swift */,
+				3383958927E4CC82000376BF /* AuthView.swift */,
+				3383958C27E4CC95000376BF /* ExerciseListView.swift */,
+				3383958F27E4CCA1000376BF /* ExerciseView.swift */,
+				3383959227E4CCAC000376BF /* UserView.swift */,
+				3383959827E4D111000376BF /* ExerciseList */,
+				334E418A27E4C6D8006AD09D /* Assets.xcassets */,
+				3383957F27E4C7A9000376BF /* GoogleService-Info.plist */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		334E419027E4C6D9006AD09D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				334E418F27E4C6D9006AD09D /* Fitware.app */,
+				334E419527E4C6D9006AD09D /* Fitware.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		334E419627E4C6D9006AD09D /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				334E419727E4C6D9006AD09D /* macOS.entitlements */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
+		334E41A627E4C70B006AD09D /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				3383959527E4CD6E000376BF /* iOS.entitlements */,
+				3383958227E4CBE9000376BF /* Fitware--iOS--Info.plist */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		3383958327E4CBF2000376BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		334E418E27E4C6D9006AD09D /* Fitware (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 334E41A027E4C6D9006AD09D /* Build configuration list for PBXNativeTarget "Fitware (iOS)" */;
+			buildPhases = (
+				334E418B27E4C6D9006AD09D /* Sources */,
+				334E418C27E4C6D9006AD09D /* Frameworks */,
+				334E418D27E4C6D9006AD09D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fitware (iOS)";
+			packageProductDependencies = (
+				3396A0FB27E4D9DA008B5F68 /* App */,
+			);
+			productName = "Fitware (iOS)";
+			productReference = 334E418F27E4C6D9006AD09D /* Fitware.app */;
+			productType = "com.apple.product-type.application";
+		};
+		334E419427E4C6D9006AD09D /* Fitware (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 334E41A327E4C6D9006AD09D /* Build configuration list for PBXNativeTarget "Fitware (macOS)" */;
+			buildPhases = (
+				334E419127E4C6D9006AD09D /* Sources */,
+				334E419227E4C6D9006AD09D /* Frameworks */,
+				334E419327E4C6D9006AD09D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Fitware (macOS)";
+			packageProductDependencies = (
+				3383959627E4CFFD000376BF /* App */,
+			);
+			productName = "Fitware (macOS)";
+			productReference = 334E419527E4C6D9006AD09D /* Fitware.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		334E418327E4C6D8006AD09D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					334E418E27E4C6D9006AD09D = {
+						CreatedOnToolsVersion = 13.3;
+					};
+					334E419427E4C6D9006AD09D = {
+						CreatedOnToolsVersion = 13.3;
+					};
+				};
+			};
+			buildConfigurationList = 334E418627E4C6D8006AD09D /* Build configuration list for PBXProject "Fitware" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 334E418227E4C6D8006AD09D;
+			productRefGroup = 334E419027E4C6D9006AD09D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				334E418E27E4C6D9006AD09D /* Fitware (iOS) */,
+				334E419427E4C6D9006AD09D /* Fitware (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		334E418D27E4C6D9006AD09D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				334E419C27E4C6D9006AD09D /* Assets.xcassets in Resources */,
+				3383958027E4C7A9000376BF /* GoogleService-Info.plist in Resources */,
+				3383959927E4D111000376BF /* ExerciseList in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		334E419327E4C6D9006AD09D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				334E419D27E4C6D9006AD09D /* Assets.xcassets in Resources */,
+				3383958127E4C7A9000376BF /* GoogleService-Info.plist in Resources */,
+				3383959A27E4D111000376BF /* ExerciseList in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		334E418B27E4C6D9006AD09D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3383958D27E4CC95000376BF /* ExerciseListView.swift in Sources */,
+				3383959327E4CCAC000376BF /* UserView.swift in Sources */,
+				3383958727E4CC6E000376BF /* AppView.swift in Sources */,
+				334E419827E4C6D9006AD09D /* Main.swift in Sources */,
+				3383958A27E4CC82000376BF /* AuthView.swift in Sources */,
+				3383959027E4CCA1000376BF /* ExerciseView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		334E419127E4C6D9006AD09D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3383958E27E4CC95000376BF /* ExerciseListView.swift in Sources */,
+				3383959427E4CCAC000376BF /* UserView.swift in Sources */,
+				3383958827E4CC6E000376BF /* AppView.swift in Sources */,
+				334E419927E4C6D9006AD09D /* Main.swift in Sources */,
+				3383958B27E4CC82000376BF /* AuthView.swift in Sources */,
+				3383959127E4CCA1000376BF /* ExerciseView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		334E419E27E4C6D9006AD09D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		334E419F27E4C6D9006AD09D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		334E41A127E4C6D9006AD09D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ME637H7ZM9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS/Fitware--iOS--Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = deda.Fitware;
+				PRODUCT_NAME = Fitware;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		334E41A227E4C6D9006AD09D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ME637H7ZM9;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS/Fitware--iOS--Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = deda.Fitware;
+				PRODUCT_NAME = Fitware;
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		334E41A427E4C6D9006AD09D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ME637H7ZM9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = deda.Fitware;
+				PRODUCT_NAME = Fitware;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		334E41A527E4C6D9006AD09D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = ME637H7ZM9;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = deda.Fitware;
+				PRODUCT_NAME = Fitware;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		334E418627E4C6D8006AD09D /* Build configuration list for PBXProject "Fitware" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				334E419E27E4C6D9006AD09D /* Debug */,
+				334E419F27E4C6D9006AD09D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		334E41A027E4C6D9006AD09D /* Build configuration list for PBXNativeTarget "Fitware (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				334E41A127E4C6D9006AD09D /* Debug */,
+				334E41A227E4C6D9006AD09D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		334E41A327E4C6D9006AD09D /* Build configuration list for PBXNativeTarget "Fitware (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				334E41A427E4C6D9006AD09D /* Debug */,
+				334E41A527E4C6D9006AD09D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3383959627E4CFFD000376BF /* App */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = App;
+		};
+		3396A0FB27E4D9DA008B5F68 /* App */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = App;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 334E418327E4C6D8006AD09D /* Project object */;
+}
