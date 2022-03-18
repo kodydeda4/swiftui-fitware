@@ -33,6 +33,18 @@ struct macOS_UserView: View {
             },
             label: { Label("Exercises", systemImage: "doc.plaintext") }
           )
+          NavigationLink(
+            tag: UserState.Route.exerciseList,
+            selection: viewStore.binding(\.$route),
+            destination: {
+              macOS_SettingsView(store: store.scope(
+                state: \.settings,
+                action: UserAction.settings
+              ))
+            },
+            label: { Label("Settings", systemImage: "gear") }
+          )
+
         }
         .listStyle(.sidebar)
       }

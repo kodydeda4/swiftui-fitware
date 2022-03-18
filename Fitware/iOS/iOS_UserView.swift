@@ -21,7 +21,12 @@ struct iOS_UserView: View {
       ))
       .tabItem { Label("Exercises", systemImage: "doc.plaintext") }
       
-      Text("Not Implemented").tabItem { Label("Settings", systemImage: "gear") }
+      
+      iOS_SettingsView(store: store.scope(
+        state: \.settings,
+        action: UserAction.settings
+      ))
+      .tabItem { Label("Settings", systemImage: "gear") }
     }
   }
 }
