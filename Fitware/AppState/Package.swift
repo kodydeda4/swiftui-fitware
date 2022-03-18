@@ -40,6 +40,8 @@ let package = Package(
     .failure,
     .exerciseList,
     .exerciseListClient,
+    .workoutList,
+    .workoutClient
   ]),
   Source(name: "ExerciseList", dependencies: [
     .composableArchitecture,
@@ -50,6 +52,11 @@ let package = Package(
   Source(name: "Exercise", dependencies: [
     .composableArchitecture,
     .failure
+  ]),
+  Source(name: "WorkoutList", dependencies: [
+    .composableArchitecture,
+    .failure,
+    .workoutClient
   ]),
   
   // MARK: Client
@@ -62,6 +69,13 @@ let package = Package(
     .composableArchitecture,
     .failure,
     .exercise,
+  ]),
+  Source(name: "WorkoutClient", dependencies: [
+    .composableArchitecture,
+    .failure,
+    .firebase,
+    .firebaseFirestoreSwift,
+    .exercise
   ]),
   
   // MARK: General
@@ -92,12 +106,14 @@ extension Target.Dependency {
   static let user: Self = "User"
   static let exerciseList: Self = "ExerciseList"
   static let exercise: Self = "Exercise"
+  static let workoutList: Self = "WorkoutList"
 }
 
 // Clients
 extension Target.Dependency {
   static let authClient: Self = "AuthClient"
   static let exerciseListClient: Self = "ExerciseListClient"
+  static let workoutClient: Self = "WorkoutClient"
 }
 
 // Core
@@ -114,5 +130,9 @@ extension Target.Dependency {
   static let firebase: Self = .product(
     name: "FirebaseAuth",
     package: "Firebase"
+  )
+  static let firebaseFirestoreSwift: Self = .product(
+    name: "FirebaseFirestoreSwift-Beta",
+    package: "Firebase"//"firebase-ios-sdk"
   )
 }

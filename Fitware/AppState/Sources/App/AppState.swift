@@ -7,6 +7,7 @@ import User
 import ExerciseList
 import ExerciseListClient
 import AuthClient
+import WorkoutClient
 
 public enum AppState: Equatable {
   case auth(AuthState)
@@ -22,15 +23,18 @@ public struct AppEnvironment {
   public let mainQueue: AnySchedulerOf<DispatchQueue>
   public let authClient: AuthClient
   public let exerciseClient: ExerciseListClient
+  public let workoutClient: WorkoutClient
   
   public init(
     mainQueue: AnySchedulerOf<DispatchQueue>,
     authClient: AuthClient,
-    exerciseClient: ExerciseListClient
+    exerciseClient: ExerciseListClient,
+    workoutClient: WorkoutClient
   ) {
     self.mainQueue = mainQueue
     self.authClient = authClient
     self.exerciseClient = exerciseClient
+    self.workoutClient = workoutClient
   }
 }
 
@@ -43,7 +47,7 @@ public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
   userReducer.pullback(
     state: /AppState.user,
     action: /AppAction.user,
-    environment: { UserEnvironment(mainQueue: $0.mainQueue, exerciseClient: $0.exerciseClient) }
+    environment: { UserEnvironment(mainQueue: $0.mainQueue, exerciseClient: $0.exerciseClient, workoutClient: $0.workoutClient) }
   ),
   Reducer { state, action, environment in
     switch action {
@@ -69,7 +73,8 @@ public extension AppState {
     environment: AppEnvironment(
       mainQueue: .main,
       authClient: .live,
-      exerciseClient: .live
+      exerciseClient: .live,
+      workoutClient: .live
     )
   )
 }
