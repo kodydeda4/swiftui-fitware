@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3328D26727E4EA6D00A7F871 /* AuthView+macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D26627E4EA6D00A7F871 /* AuthView+macOS.swift */; };
+		3328D26827E4EA6D00A7F871 /* AuthView+macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D26627E4EA6D00A7F871 /* AuthView+macOS.swift */; };
+		3328D26A27E4EAC800A7F871 /* AuthView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D26927E4EAC800A7F871 /* AuthView+iOS.swift */; };
+		3328D26B27E4EAC800A7F871 /* AuthView+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D26927E4EAC800A7F871 /* AuthView+iOS.swift */; };
 		334E419827E4C6D9006AD09D /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E418827E4C6D8006AD09D /* Main.swift */; };
 		334E419927E4C6D9006AD09D /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E418827E4C6D8006AD09D /* Main.swift */; };
 		334E419C27E4C6D9006AD09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 334E418A27E4C6D8006AD09D /* Assets.xcassets */; };
@@ -30,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3328D26627E4EA6D00A7F871 /* AuthView+macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthView+macOS.swift"; sourceTree = "<group>"; };
+		3328D26927E4EAC800A7F871 /* AuthView+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthView+iOS.swift"; sourceTree = "<group>"; };
 		334E418827E4C6D8006AD09D /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		334E418A27E4C6D8006AD09D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		334E418F27E4C6D9006AD09D /* Fitware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitware.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +72,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3328D26127E4EA2500A7F871 /* AppView */ = {
+			isa = PBXGroup;
+			children = (
+				3383958627E4CC6E000376BF /* AppView.swift */,
+			);
+			path = AppView;
+			sourceTree = "<group>";
+		};
+		3328D26227E4EA2E00A7F871 /* AuthView */ = {
+			isa = PBXGroup;
+			children = (
+				3383958927E4CC82000376BF /* AuthView.swift */,
+				3328D26927E4EAC800A7F871 /* AuthView+iOS.swift */,
+				3328D26627E4EA6D00A7F871 /* AuthView+macOS.swift */,
+			);
+			path = AuthView;
+			sourceTree = "<group>";
+		};
+		3328D26327E4EA3700A7F871 /* ExerciseListView */ = {
+			isa = PBXGroup;
+			children = (
+				3383958C27E4CC95000376BF /* ExerciseListView.swift */,
+			);
+			path = ExerciseListView;
+			sourceTree = "<group>";
+		};
+		3328D26427E4EA3D00A7F871 /* ExerciseView */ = {
+			isa = PBXGroup;
+			children = (
+				3383958F27E4CCA1000376BF /* ExerciseView.swift */,
+			);
+			path = ExerciseView;
+			sourceTree = "<group>";
+		};
+		3328D26527E4EA4F00A7F871 /* UserView */ = {
+			isa = PBXGroup;
+			children = (
+				3383959227E4CCAC000376BF /* UserView.swift */,
+			);
+			path = UserView;
+			sourceTree = "<group>";
+		};
 		334E418227E4C6D8006AD09D = {
 			isa = PBXGroup;
 			children = (
@@ -80,15 +128,15 @@
 		334E418727E4C6D8006AD09D /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				334E418827E4C6D8006AD09D /* Main.swift */,
-				3383958627E4CC6E000376BF /* AppView.swift */,
-				3383958927E4CC82000376BF /* AuthView.swift */,
-				3383958C27E4CC95000376BF /* ExerciseListView.swift */,
-				3383958F27E4CCA1000376BF /* ExerciseView.swift */,
-				3383959227E4CCAC000376BF /* UserView.swift */,
 				3383959827E4D111000376BF /* ExerciseList */,
-				334E418A27E4C6D8006AD09D /* Assets.xcassets */,
 				3383957F27E4C7A9000376BF /* GoogleService-Info.plist */,
+				334E418827E4C6D8006AD09D /* Main.swift */,
+				334E418A27E4C6D8006AD09D /* Assets.xcassets */,
+				3328D26127E4EA2500A7F871 /* AppView */,
+				3328D26227E4EA2E00A7F871 /* AuthView */,
+				3328D26327E4EA3700A7F871 /* ExerciseListView */,
+				3328D26427E4EA3D00A7F871 /* ExerciseView */,
+				3328D26527E4EA4F00A7F871 /* UserView */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -234,10 +282,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3328D26A27E4EAC800A7F871 /* AuthView+iOS.swift in Sources */,
 				3383958D27E4CC95000376BF /* ExerciseListView.swift in Sources */,
 				3383959327E4CCAC000376BF /* UserView.swift in Sources */,
 				3383958727E4CC6E000376BF /* AppView.swift in Sources */,
 				334E419827E4C6D9006AD09D /* Main.swift in Sources */,
+				3328D26727E4EA6D00A7F871 /* AuthView+macOS.swift in Sources */,
 				3383958A27E4CC82000376BF /* AuthView.swift in Sources */,
 				3383959027E4CCA1000376BF /* ExerciseView.swift in Sources */,
 			);
@@ -247,10 +297,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3328D26B27E4EAC800A7F871 /* AuthView+iOS.swift in Sources */,
 				3383958E27E4CC95000376BF /* ExerciseListView.swift in Sources */,
 				3383959427E4CCAC000376BF /* UserView.swift in Sources */,
 				3383958827E4CC6E000376BF /* AppView.swift in Sources */,
 				334E419927E4C6D9006AD09D /* Main.swift in Sources */,
+				3328D26827E4EA6D00A7F871 /* AuthView+macOS.swift in Sources */,
 				3383958B27E4CC82000376BF /* AuthView.swift in Sources */,
 				3383959127E4CCA1000376BF /* ExerciseView.swift in Sources */,
 			);
@@ -439,6 +491,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -467,6 +520,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
