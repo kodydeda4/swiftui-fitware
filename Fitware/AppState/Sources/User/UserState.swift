@@ -8,32 +8,33 @@ import WorkoutList
 import WorkoutClient
 
 public struct UserState {
+  public var user: User
   @BindableState public var route: Route?
   public var exerciseList = ExerciseListState()
-  public var workout = WorkoutListState()
-  public var user: User
-  
+  public var workoutList = WorkoutListState()
   
   public enum Route {
-    case workout
+    case workoutList
     case exerciseList
   }
   
   public init(
-    route: Route? = .exerciseList,
+    user: User = Auth.auth().currentUser!,
+    route: Route? = .workoutList,
     exerciseList: ExerciseListState = .init(),
-    user: User = Auth.auth().currentUser!
+    workoutList: WorkoutListState = .init()
   ) {
+    self.user = user
     self.route = route
     self.exerciseList = exerciseList
-    self.user = user
+    self.workoutList = workoutList
   }
 }
 
 public enum UserAction {
   case binding(BindingAction<UserState>)
   case exerciseList(ExerciseListAction)
-  case workout(WorkoutListAction)
+  case workoutList(WorkoutListAction)
 }
 
 public struct UserEnvironment {
@@ -59,7 +60,7 @@ public let userReducer = Reducer<UserState, UserAction, UserEnvironment>.combine
       exerciseClient: $0.exerciseClient
     )
   }),
-  workoutListReducer.pullback(state: \.workout, action: /UserAction.workout, environment: {
+  workoutListReducer.pullback(state: \.workoutList, action: /UserAction.workoutList, environment: {
     WorkoutListEnvironment(
       mainQueue: $0.mainQueue,
       exerciseClient: $0.exerciseClient,
@@ -72,7 +73,7 @@ public let userReducer = Reducer<UserState, UserAction, UserEnvironment>.combine
     case .exerciseList:
       return .none
       
-    case .workout:
+    case .workoutList:
       return .none
       
     case .binding:

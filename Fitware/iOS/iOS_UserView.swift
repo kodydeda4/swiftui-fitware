@@ -9,17 +9,17 @@ struct iOS_UserView: View {
   
   var body: some View {
     TabView {
+      iOS_WorkoutListView(store: store.scope(
+        state: \.workoutList,
+        action: UserAction.workoutList
+      ))
+      .tabItem { Label("Workouts", systemImage: "house") }
+      
       iOS_ExerciseListView(store: store.scope(
         state: \.exerciseList,
         action: UserAction.exerciseList
       ))
       .tabItem { Label("Exercises", systemImage: "doc.plaintext") }
-      
-      iOS_WorkoutListView(store: store.scope(
-        state: \.workout,
-        action: UserAction.workout
-      ))
-      .tabItem { Label("Workouts", systemImage: "house") }
       
       Text("Not Implemented").tabItem { Label("Settings", systemImage: "gear") }
     }

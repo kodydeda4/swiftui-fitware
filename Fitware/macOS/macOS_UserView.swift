@@ -12,6 +12,17 @@ struct macOS_UserView: View {
       NavigationView {
         List {
           NavigationLink(
+            tag: UserState.Route.workoutList,
+            selection: viewStore.binding(\.$route),
+            destination: {
+              macOS_WorkoutListView(store: store.scope(
+                state: \.workoutList,
+                action: UserAction.workoutList
+              ))
+            },
+            label: { Label("Workouts", systemImage: "doc.text.image") }
+          )
+          NavigationLink(
             tag: UserState.Route.exerciseList,
             selection: viewStore.binding(\.$route),
             destination: {

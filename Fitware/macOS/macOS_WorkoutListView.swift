@@ -4,7 +4,7 @@ import ComposableArchitecture
 import App
 import WorkoutList
 
-struct iOS_WorkoutListView: View {
+struct macOS_WorkoutListView: View {
   let store: Store<WorkoutListState, WorkoutListAction>
   
   var body: some View {
@@ -12,7 +12,7 @@ struct iOS_WorkoutListView: View {
       NavigationView {
         List {
           ForEach(viewStore.workouts) { workout in
-            Text(workout.timestamp.description)
+            Text(workout.timestamp.formatted())
           }
         }
         .navigationTitle("Workouts \(viewStore.workouts.count.description)")
@@ -32,8 +32,8 @@ struct iOS_WorkoutListView: View {
 }
 
 // MARK: SwiftUI Previews
-struct iOS_WorkoutListView_Previews: PreviewProvider {
+struct macOS_WorkoutListView_Previews: PreviewProvider {
   static var previews: some View {
-    iOS_WorkoutListView(store: WorkoutListState.defaultStore)
+    macOS_WorkoutListView(store: WorkoutListState.defaultStore)
   }
 }
