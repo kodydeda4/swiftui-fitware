@@ -12,18 +12,15 @@ public struct CreateWorkoutState {
   public let user: User
   public var exercises: IdentifiedArrayOf<ExerciseState>
   @BindableState public var name: String
-  @BindableState public var selection: Set<ExerciseState>
   
   public init(
     user: User = Auth.auth().currentUser!,
     exercises: IdentifiedArrayOf<ExerciseState> = [],
-    name: String = "Untitled",
-    selection: Set<ExerciseState> = Set()
+    name: String = "Untitled"
   ) {
     self.user = user
     self.exercises = exercises
     self.name = name
-    self.selection = selection
   }
 }
 
@@ -68,17 +65,7 @@ public let createWorkoutReducer = Reducer<
   ),
   Reducer { state, action, environment in
     switch action {
-      
-    case let .exercises(id, .addButtonTapped):
-      let exercise = state.exercises[id: id]!
-      
-      if state.selection.contains(exercise) {
-        state.selection.remove(exercise)
-      } else {
-        state.selection.insert(exercise)
-      }
-      return .none
-      
+            
     case .fetchExercises:
       return environment.exerciseClient.fetchExercises()
         .receive(on: environment.mainQueue)
@@ -92,15 +79,13 @@ public let createWorkoutReducer = Reducer<
       return .none
       
     case .createWorkout:
-      return environment.workoutListClient.createWorkout(
-        WorkoutState(
-          userID: state.user.uid,
-          timestamp: Date(),
-          text: state.name,
-          done: false,
-          exercises: IdentifiedArrayOf(uniqueElements: state.selection)
-        )
-      )
+      return environment.workoutListClient.createWorkout(WorkoutState(
+        userID: state.user.uid,
+        timestamp: Date(),
+        text: state.name,
+        done: false,
+        exercises: IdentifiedArrayOf(uniqueElements: state.exercises.filter(\.selected))
+      ))
       .receive(on: environment.mainQueue)
       .catchToEffect(CreateWorkoutAction.createWorkoutResult)
       
@@ -131,48 +116,3 @@ public extension CreateWorkoutState {
     )
   )
 }
-
-
-
-let randomExercises = [
-  ExerciseState(
-    id: "556612",
-    name: "Sitting Shoulder Press Toe Touch on a padded stool",
-    type: "Strength",
-    bodypart: "Shoulders",
-    equipment: "Body weight",
-    gender: "Male",
-    target: "",
-    synergist: ""
-  ),
-  ExerciseState(
-    id: "556712",
-    name: "Sitting Lateral Raise StepOut on a padded stool",
-    type: "Strength",
-    bodypart: "Shoulders",
-    equipment: "Body weight",
-    gender: "Male",
-    target: "",
-    synergist: ""
-  ),
-  ExerciseState(
-    id: "556812",
-    name: "Training Level (male)",
-    type: "",
-    bodypart: "Full body",
-    equipment: "Body weight",
-    gender: "Male",
-    target: "",
-    synergist: ""
-  ),
-  ExerciseState(
-    id: "557612",
-    name: "Lever One Arm Incline Chest Press (plate loaded)",
-    type: "Strength",
-    bodypart: "Chest",
-    equipment: "Leverage machine",
-    gender: "Male",
-    target: "",
-    synergist: ""
-  )
-]

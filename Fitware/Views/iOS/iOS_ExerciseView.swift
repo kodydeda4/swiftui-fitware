@@ -8,19 +8,19 @@ struct iOS_ExerciseView: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      NavigationLink(viewStore.name) {
+      NavigationLink(viewStore.model.name) {
         List {
           //          VideoPlayer(player: AVPlayer(url: URL(string: url)!))
           //            .aspectRatio(1920/1080, contentMode: .fit)
           Section("Details") {
             prompt("ID", "\(viewStore.id)")
-            prompt("Name", viewStore.name)
-            prompt("Type", viewStore.type)
-            prompt("Bodypart", viewStore.bodypart)
-            prompt("Equipment", viewStore.equipment)
-            prompt("Gender", viewStore.gender)
-            prompt("Target", viewStore.target)
-            prompt("Synergist", viewStore.synergist)
+            prompt("Name", viewStore.model.name)
+            prompt("Type", viewStore.model.type)
+            prompt("Bodypart", viewStore.model.bodypart)
+            prompt("Equipment", viewStore.model.equipment)
+            prompt("Gender", viewStore.model.gender)
+            prompt("Target", viewStore.model.target)
+            prompt("Synergist", viewStore.model.synergist)
           }
         }
         .lineLimit(1)

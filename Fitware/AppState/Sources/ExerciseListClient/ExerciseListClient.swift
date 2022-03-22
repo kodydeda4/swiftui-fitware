@@ -12,7 +12,10 @@ public extension ExerciseListClient {
     fetchExercises: {
       Effect.future { callback in
         do {
-          let rv = try JSONDecoder().decode([ExerciseState].self, from: Data(contentsOf: url))
+          let rv = try JSONDecoder()
+            .decode([ExerciseModel].self, from: Data(contentsOf: url))
+            .map { ExerciseState(model: $0) }
+          
           return callback(.success(rv))
         }
         catch {

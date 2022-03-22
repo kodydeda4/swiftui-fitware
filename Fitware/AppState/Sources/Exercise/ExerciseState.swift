@@ -2,28 +2,21 @@ import ComposableArchitecture
 import Failure
 
 public struct ExerciseState {
-  public let id: String
-  public let name: String
-  public let type: String
-  public let bodypart: String
-  public let equipment: String
-  public let gender: String
-  public let target: String
-  public let synergist: String
+  public var id: String { model.id }
+  public let model: ExerciseModel
+  @BindableState public var selected: Bool
   
-  public init(id: String, name: String, type: String, bodypart: String, equipment: String, gender: String, target: String, synergist: String) {
-    self.id = id
-    self.name = name
-    self.type = type
-    self.bodypart = bodypart
-    self.equipment = equipment
-    self.gender = gender
-    self.target = target
-    self.synergist = synergist
+  public init(
+    model: ExerciseModel,
+    selected: Bool = false
+  ) {
+    self.model = model
+    self.selected = selected
   }
 }
 
 public enum ExerciseAction {
+  case binding(BindingAction<ExerciseState>)
   case addButtonTapped
 }
 
@@ -41,28 +34,36 @@ public let exerciseReducer = Reducer<
   ExerciseEnvironment
 > { state, action, environment in
   switch action {
+    
+  case .binding:
+    return .none
+    
   case .addButtonTapped:
     return .none
+    
   }
-}
+}.binding()
 
 extension ExerciseState: Codable {}
 extension ExerciseState: Identifiable {}
 extension ExerciseState: Equatable {}
 extension ExerciseState: Hashable {}
 extension ExerciseAction: Equatable {}
+extension ExerciseAction: BindableAction {}
 
 public extension ExerciseState {
   static let defaultStore = Store(
     initialState: ExerciseState(
-      id: "510112",
-      name: "Dumbbell Single Power Clean",
-      type: "Strength",
-      bodypart: "Weightlifting",
-      equipment: "Dumbbell",
-      gender: "Male",
-      target: "Adductor Magnus, Biceps Brachii, Clavicular Head",
-      synergist: ""
+      model: ExerciseModel(
+        id: "510112",
+        name: "Dumbbell Single Power Clean",
+        type: "Strength",
+        bodypart: "Weightlifting",
+        equipment: "Dumbbell",
+        gender: "Male",
+        target: "Adductor Magnus, Biceps Brachii, Clavicular Head",
+        synergist: ""
+      )
     ),
     reducer: exerciseReducer,
     environment: ExerciseEnvironment(

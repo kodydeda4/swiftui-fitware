@@ -21,14 +21,7 @@ struct iOS_CreateWorkoutView: View {
             ForEachStore(store.scope(
               state: \.exercises,
               action: CreateWorkoutAction.exercises
-            )) { childStore in
-              WithViewStore(childStore) { childViewStore in
-                CellView(
-                  store: childStore,
-                  selected: viewStore.selection.contains(childViewStore.state)
-                )
-              }
-            }
+            ),content: CellView.init(store:))
           }
         }
         .buttonStyle(.plain)
@@ -48,27 +41,32 @@ struct iOS_CreateWorkoutView: View {
 
 private struct CellView: View {
   let store: Store<ExerciseState, ExerciseAction>
-  let selected: Bool
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      Button(action: {
-        viewStore.send(.addButtonTapped)
-      }) {
+      ToggleButton(toggle: viewStore.binding(\.$selected)) {
         HStack {
-          Image(systemName: selected ? "minus" : "plus")
+          Image(systemName: viewStore.selected ? "minus" : "plus")
             .frame(width: 20, height: 20)
-            .background(selected ? Color.red : Color.green)
+            .background(viewStore.selected ? Color.red : Color.green)
             .foregroundColor(.white)
             .clipShape(Circle())
           
-          Text(viewStore.name)
+          Text(viewStore.model.name)
         }
       }
-      .opacity(selected ? 1 : 0.5)
+      .opacity(viewStore.selected ? 1 : 0.5)
     }
   }
 }
+
+
+struct ToggleButton<Label>: View where Label: View {
+  @Binding var toggle: Bool
+  @ViewBuilder let label: () -> Label
+  var body: some View { Button(action: { toggle.toggle() }, label: label) }
+}
+
 
 struct iOS_CreateWorkoutView_Previews: PreviewProvider {
   static var previews: some View {
