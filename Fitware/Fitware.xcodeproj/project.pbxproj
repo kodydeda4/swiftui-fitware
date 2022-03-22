@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		331F92FF27EA32CA00AD6772 /* iOS_WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F92FE27EA32CA00AD6772 /* iOS_WorkoutView.swift */; };
+		331F930427EA3BC900AD6772 /* ExerciseList in Resources */ = {isa = PBXBuildFile; fileRef = 331F930327EA3BC900AD6772 /* ExerciseList */; };
+		331F930527EA3BC900AD6772 /* ExerciseList in Resources */ = {isa = PBXBuildFile; fileRef = 331F930327EA3BC900AD6772 /* ExerciseList */; };
 		331F95B027E53E1500863C09 /* iOS_SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F95AF27E53E1500863C09 /* iOS_SettingsView.swift */; };
 		331F95B227E53EB800863C09 /* macOS_SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F95B127E53EB800863C09 /* macOS_SettingsView.swift */; };
 		3328D27027E4EDE300A7F871 /* macOS_AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D26F27E4EDE300A7F871 /* macOS_AuthView.swift */; };
@@ -30,13 +32,12 @@
 		3383958027E4C7A9000376BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3383957F27E4C7A9000376BF /* GoogleService-Info.plist */; };
 		3383958127E4C7A9000376BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3383957F27E4C7A9000376BF /* GoogleService-Info.plist */; };
 		3383959727E4CFFD000376BF /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 3383959627E4CFFD000376BF /* App */; };
-		3383959927E4D111000376BF /* ExerciseList in Resources */ = {isa = PBXBuildFile; fileRef = 3383959827E4D111000376BF /* ExerciseList */; };
-		3383959A27E4D111000376BF /* ExerciseList in Resources */ = {isa = PBXBuildFile; fileRef = 3383959827E4D111000376BF /* ExerciseList */; };
 		3396A0FC27E4D9DA008B5F68 /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 3396A0FB27E4D9DA008B5F68 /* App */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		331F92FE27EA32CA00AD6772 /* iOS_WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_WorkoutView.swift; sourceTree = "<group>"; };
+		331F930327EA3BC900AD6772 /* ExerciseList */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExerciseList; sourceTree = "<group>"; };
 		331F95AF27E53E1500863C09 /* iOS_SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_SettingsView.swift; sourceTree = "<group>"; };
 		331F95B127E53EB800863C09 /* macOS_SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_SettingsView.swift; sourceTree = "<group>"; };
 		3328D26F27E4EDE300A7F871 /* macOS_AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_AuthView.swift; sourceTree = "<group>"; };
@@ -57,9 +58,8 @@
 		3370445C27E506CE000E0154 /* iOS_WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_WorkoutListView.swift; sourceTree = "<group>"; };
 		3370446027E5134F000E0154 /* macOS_WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_WorkoutListView.swift; sourceTree = "<group>"; };
 		3383957F27E4C7A9000376BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		3383958227E4CBE9000376BF /* Fitware--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Fitware--iOS--Info.plist"; sourceTree = "<group>"; };
+		3383958227E4CBE9000376BF /* iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS-Info.plist"; sourceTree = "<group>"; };
 		3383959527E4CD6E000376BF /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
-		3383959827E4D111000376BF /* ExerciseList */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExerciseList; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,26 +82,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		334E418227E4C6D8006AD09D = {
+		331F930627EA3DAE00AD6772 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3383958327E4CBF2000376BF /* Frameworks */,
 				334E41A627E4C70B006AD09D /* iOS */,
 				334E419627E4C6D9006AD09D /* macOS */,
-				334E419027E4C6D9006AD09D /* Products */,
-				334E418727E4C6D8006AD09D /* Shared */,
 			);
+			path = Views;
 			sourceTree = "<group>";
 		};
-		334E418727E4C6D8006AD09D /* Shared */ = {
+		331F930727EA3DC700AD6772 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				334E418827E4C6D8006AD09D /* Main.swift */,
-				3383959827E4D111000376BF /* ExerciseList */,
-				3383957F27E4C7A9000376BF /* GoogleService-Info.plist */,
 				334E418A27E4C6D8006AD09D /* Assets.xcassets */,
+				334E419727E4C6D9006AD09D /* macOS.entitlements */,
+				3383959527E4CD6E000376BF /* iOS.entitlements */,
+				3383958227E4CBE9000376BF /* iOS-Info.plist */,
+				3383957F27E4C7A9000376BF /* GoogleService-Info.plist */,
+				331F930327EA3BC900AD6772 /* ExerciseList */,
 			);
-			path = Shared;
+			path = Main;
+			sourceTree = "<group>";
+		};
+		334E418227E4C6D8006AD09D = {
+			isa = PBXGroup;
+			children = (
+				331F930727EA3DC700AD6772 /* Main */,
+				331F930627EA3DAE00AD6772 /* Views */,
+				334E419027E4C6D9006AD09D /* Products */,
+			);
 			sourceTree = "<group>";
 		};
 		334E419027E4C6D9006AD09D /* Products */ = {
@@ -123,7 +133,6 @@
 				3370446027E5134F000E0154 /* macOS_WorkoutListView.swift */,
 				331F95B127E53EB800863C09 /* macOS_SettingsView.swift */,
 				3328D28C27E4F6BE00A7F871 /* macOS_UserView.swift */,
-				334E419727E4C6D9006AD09D /* macOS.entitlements */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -139,17 +148,8 @@
 				3328D28227E4F4A200A7F871 /* iOS_ExerciseView.swift */,
 				3328D28627E4F4C600A7F871 /* iOS_UserView.swift */,
 				331F95AF27E53E1500863C09 /* iOS_SettingsView.swift */,
-				3383959527E4CD6E000376BF /* iOS.entitlements */,
-				3383958227E4CBE9000376BF /* Fitware--iOS--Info.plist */,
 			);
 			path = iOS;
-			sourceTree = "<group>";
-		};
-		3383958327E4CBF2000376BF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,7 +239,7 @@
 			files = (
 				334E419C27E4C6D9006AD09D /* Assets.xcassets in Resources */,
 				3383958027E4C7A9000376BF /* GoogleService-Info.plist in Resources */,
-				3383959927E4D111000376BF /* ExerciseList in Resources */,
+				331F930427EA3BC900AD6772 /* ExerciseList in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +249,7 @@
 			files = (
 				334E419D27E4C6D9006AD09D /* Assets.xcassets in Resources */,
 				3383958127E4C7A9000376BF /* GoogleService-Info.plist in Resources */,
-				3383959A27E4D111000376BF /* ExerciseList in Resources */,
+				331F930527EA3BC900AD6772 /* ExerciseList in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,13 +405,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Main/iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ME637H7ZM9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS/Fitware--iOS--Info.plist";
+				INFOPLIST_FILE = "Main/iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -437,13 +437,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Main/iOS.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ME637H7ZM9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS/Fitware--iOS--Info.plist";
+				INFOPLIST_FILE = "Main/iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -470,7 +470,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Main/macOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -499,7 +499,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = macOS/macOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Main/macOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;

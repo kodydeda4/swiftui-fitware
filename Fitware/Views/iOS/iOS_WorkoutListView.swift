@@ -5,6 +5,7 @@ import App
 import Workout
 import WorkoutList
 import WorkoutListClient
+import Exercise
 
 struct iOS_WorkoutListView: View {
   let store: Store<WorkoutListState, WorkoutListAction>
@@ -64,6 +65,17 @@ struct iOS_WorkoutNavigationLinkView: View {
           Label("Delete", systemImage: "trash")
         }
       }
+    }
+  }
+}
+
+private struct iOS_ExerciseCellView: View {
+  let store: Store<ExerciseState, ExerciseAction>
+  
+  var body: some View {
+    WithViewStore(store) { viewStore in
+      Text(viewStore.name)
+        .lineLimit(1)
     }
   }
 }
