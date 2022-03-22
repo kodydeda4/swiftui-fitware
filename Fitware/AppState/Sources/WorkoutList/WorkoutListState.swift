@@ -13,17 +13,20 @@ public struct WorkoutListState {
   public var workouts: IdentifiedArrayOf<WorkoutState>
   public var exercises: IdentifiedArrayOf<ExerciseState>
   public var alert: AlertState<WorkoutListAction>?
+  @BindableState public var sheet: Bool
   
   public init(
     user: User = Auth.auth().currentUser!,
     workouts: IdentifiedArrayOf<WorkoutState> = [],
     exercises: IdentifiedArrayOf<ExerciseState> = [],
-    alert: AlertState<WorkoutListAction>? = nil
+    alert: AlertState<WorkoutListAction>? = nil,
+    sheet: Bool = false
   ) {
     self.user = user
     self.workouts = workouts
     self.exercises = exercises
     self.alert = alert
+    self.sheet = sheet
   }
 }
 
