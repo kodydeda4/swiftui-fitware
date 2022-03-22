@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331F92FF27EA32CA00AD6772 /* iOS_WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F92FE27EA32CA00AD6772 /* iOS_WorkoutView.swift */; };
 		331F95B027E53E1500863C09 /* iOS_SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F95AF27E53E1500863C09 /* iOS_SettingsView.swift */; };
 		331F95B227E53EB800863C09 /* macOS_SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F95B127E53EB800863C09 /* macOS_SettingsView.swift */; };
 		3328D27027E4EDE300A7F871 /* macOS_AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D26F27E4EDE300A7F871 /* macOS_AuthView.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		331F92FE27EA32CA00AD6772 /* iOS_WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_WorkoutView.swift; sourceTree = "<group>"; };
 		331F95AF27E53E1500863C09 /* iOS_SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_SettingsView.swift; sourceTree = "<group>"; };
 		331F95B127E53EB800863C09 /* macOS_SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_SettingsView.swift; sourceTree = "<group>"; };
 		3328D26F27E4EDE300A7F871 /* macOS_AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_AuthView.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				3328D28027E4F40B00A7F871 /* iOS_AppView.swift */,
 				3328D27327E4EE3B00A7F871 /* iOS_AuthView.swift */,
 				3370445C27E506CE000E0154 /* iOS_WorkoutListView.swift */,
+				331F92FE27EA32CA00AD6772 /* iOS_WorkoutView.swift */,
 				3328D27627E4EFEA00A7F871 /* iOS_ExerciseListView.swift */,
 				3328D28227E4F4A200A7F871 /* iOS_ExerciseView.swift */,
 				3328D28627E4F4C600A7F871 /* iOS_UserView.swift */,
@@ -259,6 +262,7 @@
 			files = (
 				3328D28327E4F4A200A7F871 /* iOS_ExerciseView.swift in Sources */,
 				3370445D27E506CE000E0154 /* iOS_WorkoutListView.swift in Sources */,
+				331F92FF27EA32CA00AD6772 /* iOS_WorkoutView.swift in Sources */,
 				334E419827E4C6D9006AD09D /* Main.swift in Sources */,
 				3328D28727E4F4C600A7F871 /* iOS_UserView.swift in Sources */,
 				3328D27427E4EE3B00A7F871 /* iOS_AuthView.swift in Sources */,

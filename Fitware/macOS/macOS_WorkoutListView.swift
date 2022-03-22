@@ -20,7 +20,10 @@ struct macOS_WorkoutListView: View {
           }
         }
         .navigationTitle("Workouts \(viewStore.workouts.count.description)")
-        .onAppear { viewStore.send(.fetchWorkouts) }
+        .onAppear {
+          viewStore.send(.fetchWorkouts)
+          viewStore.send(.fetchExercises)
+        }
         .refreshable { viewStore.send(.fetchWorkouts) }
         //        .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
         .toolbar {

@@ -44,30 +44,13 @@ struct iOS_WorkoutNavigationLinkView: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      NavigationLink(destination: iOS_WorkoutDetailView(store: store)) {
+      NavigationLink(destination: iOS_WorkoutView(store: store)) {
         Text(viewStore.text)
       }
       .swipeActions(edge: .trailing) {
         Button(role: .destructive, action: { viewStore.send(.deleteButtonTapped) }) {
           Label("Delete", systemImage: "trash")
         }
-      }
-    }
-  }
-}
-
-
-struct iOS_WorkoutDetailView: View {
-  let store: Store<WorkoutState, WorkoutAction>
-  
-  var body: some View {
-    WithViewStore(store) { viewStore in
-      VStack {
-        Text("ID \(viewStore.id!)")
-        Text("timestamp \(viewStore.timestamp.formatted())")
-        Text("text \(viewStore.timestamp.formatted())")
-        Text("done \(viewStore.done.description)")
-        //      Text("exercises \(workout.exercises.count)")
       }
     }
   }

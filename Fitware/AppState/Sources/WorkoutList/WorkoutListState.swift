@@ -91,21 +91,21 @@ public let workoutListReducer = Reducer<
     case let .fetchExercisesResult(.failure(error)):
       return .none
       
-      //Workout(userID: Auth.auth().currentUser!.uid, timestamp: Date()
     case .createWorkout:
       return environment.workoutListClient.createWorkout(
         WorkoutState(
           userID: state.user.uid,
           timestamp: Date(),
           text: "Workout \(state.workouts.count)",
-          done: false
+          done: false,
+          exercises: [randomExercises.randomElement()!]
         )
       )
       .receive(on: environment.mainQueue)
       .catchToEffect(WorkoutListAction.createWorkoutResult)
       
     case let .createWorkoutResult(.success(message)):
-      state.alert = AlertState(title: TextState(message))
+      //state.alert = AlertState(title: TextState(message))
       return .none
       
     case let .createWorkoutResult(.failure(error)):
@@ -132,7 +132,7 @@ public let workoutListReducer = Reducer<
       return environment.workoutListClient.removeWorkout(workouts)
         .receive(on: environment.mainQueue)
         .catchToEffect(WorkoutListAction.deleteWorkoutResult)
-    
+      
     case .deleteWorkoutResult(.success):
       return .none
       
@@ -178,3 +178,48 @@ public extension WorkoutListState {
     )
   )
 }
+
+
+
+let randomExercises = [
+  ExerciseState(
+    id: "556612",
+    name: "Sitting Shoulder Press Toe Touch on a padded stool",
+    type: "Strength",
+    bodypart: "Shoulders",
+    equipment: "Body weight",
+    gender: "Male",
+    target: "",
+    synergist: ""
+  ),
+  ExerciseState(
+    id: "556712",
+    name: "Sitting Lateral Raise StepOut on a padded stool",
+    type: "Strength",
+    bodypart: "Shoulders",
+    equipment: "Body weight",
+    gender: "Male",
+    target: "",
+    synergist: ""
+  ),
+  ExerciseState(
+    id: "556812",
+    name: "Training Level (male)",
+    type: "",
+    bodypart: "Full body",
+    equipment: "Body weight",
+    gender: "Male",
+    target: "",
+    synergist: ""
+  ),
+  ExerciseState(
+    id: "557612",
+    name: "Lever One Arm Incline Chest Press (plate loaded)",
+    type: "Strength",
+    bodypart: "Chest",
+    equipment: "Leverage machine",
+    gender: "Male",
+    target: "",
+    synergist: ""
+  )
+]
