@@ -27,6 +27,7 @@ struct macOS_AuthView: View {
             }
           }
         }
+        .onAppear { viewStore.send(.signInCachedUser) }
         .navigationTitle("Sign In")
         .toolbar {
           Button("Guest") {

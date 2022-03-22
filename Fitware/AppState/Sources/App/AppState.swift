@@ -9,12 +9,12 @@ import ExerciseListClient
 import AuthClient
 import WorkoutListClient
 
-public enum AppState: Equatable {
+public enum AppState {
   case auth(AuthState)
   case user(UserState)
 }
 
-public enum AppAction: Equatable {
+public enum AppAction {
   case auth(AuthAction)
   case user(UserAction)
 }
@@ -38,22 +38,42 @@ public struct AppEnvironment {
   }
 }
 
-public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
+public let appReducer = Reducer<
+  AppState,
+  AppAction,
+  AppEnvironment
+>.combine(
   authReducer.pullback(
     state: /AppState.auth,
     action: /AppAction.auth,
-    environment: { AuthEnvironment(mainQueue: $0.mainQueue, authClient: $0.authClient) }
+    environment: {
+      AuthEnvironment(
+        mainQueue: $0.mainQueue,
+        authClient: $0.authClient
+      )
+    }
   ),
   userReducer.pullback(
     state: /AppState.user,
     action: /AppAction.user,
-    environment: { UserEnvironment(mainQueue: $0.mainQueue, exerciseClient: $0.exerciseClient, workoutListClient: $0.workoutListClient) }
+    environment: {
+      UserEnvironment(
+        mainQueue: $0.mainQueue,
+        authClient: $0.authClient,
+        exerciseClient: $0.exerciseClient,
+        workoutListClient: $0.workoutListClient
+      )
+    }
   ),
   Reducer { state, action, environment in
     switch action {
       
     case let .auth(.signInResult(.success(user))):
-      state = .user(.init(user: user))
+      state = AppState.user(UserState(user: user))
+      return .none
+      
+    case .user(.settings(.signOutResult(.success))):
+      state = .auth(AuthState())
       return .none
       
     case .auth, .user:
@@ -61,6 +81,9 @@ public let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
     }
   }
 ).debug()
+
+extension AppState: Equatable {}
+extension AppAction: Equatable {}
 
 public extension AppState {
   static let defaultStore = Store(

@@ -7,6 +7,8 @@ public struct AuthClient {
   public let signInEmailPassword :  (_ email: String, _ password: String) -> Effect<User, Failure>
   public let signInApple         :  (SignInWithAppleToken) -> Effect<User, Failure>
   public let signInAnonymously   :  () -> Effect<User, Failure>
+  public let getPreviousLogin    :  () -> Effect<User, Failure>
+  public let signOut             :  () -> Effect<String, Failure>
 }
 
 public extension AuthClient {
@@ -32,6 +34,20 @@ public extension AuthClient {
       Effect
         .task { try await Auth.auth().signInAnonymously() }
         .map(\.user)
+        .mapError(Failure.init)
+        .eraseToEffect()
+    },
+    getPreviousLogin: {
+      Effect
+        .task { Auth.auth().currentUser }
+        .compactMap { $0 }
+        .mapError(Failure.init)
+        .eraseToEffect()
+    },
+    signOut: {
+      Effect
+        .task { try Auth.auth().signOut() }
+        .map { "Success" }
         .mapError(Failure.init)
         .eraseToEffect()
     }

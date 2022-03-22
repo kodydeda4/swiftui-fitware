@@ -23,6 +23,7 @@ struct iOS_AuthView: View {
           }
         }
         .navigationTitle("Sign In")
+        .onAppear { viewStore.send(.signInCachedUser) }
         .toolbar {
           Button("Guest") {
             viewStore.send(.signInAnonymously)

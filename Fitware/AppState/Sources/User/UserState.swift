@@ -7,6 +7,7 @@ import Firebase
 import WorkoutList
 import WorkoutListClient
 import Settings
+import AuthClient
 
 public struct UserState {
   public var user: User
@@ -38,22 +39,25 @@ public struct UserState {
 
 public enum UserAction {
   case binding(BindingAction<UserState>)
+  case settings(SettingsAction)
   case exerciseList(ExerciseListAction)
   case workoutList(WorkoutListAction)
-  case settings(SettingsAction)
 }
 
 public struct UserEnvironment {
   public let mainQueue: AnySchedulerOf<DispatchQueue>
+  public let authClient: AuthClient
   public let exerciseClient: ExerciseListClient
   public let workoutListClient: WorkoutListClient
   
   public init(
     mainQueue: AnySchedulerOf<DispatchQueue>,
+    authClient: AuthClient,
     exerciseClient: ExerciseListClient,
     workoutListClient: WorkoutListClient
   ) {
     self.mainQueue = mainQueue
+    self.authClient = authClient
     self.exerciseClient = exerciseClient
     self.workoutListClient = workoutListClient
   }
@@ -85,6 +89,16 @@ public let userReducer = Reducer<
       )
     }
   ),
+  settingsReducer.pullback(
+    state: \.settings,
+    action: /UserAction.settings,
+    environment: {
+      SettingsEnvironment(
+        mainQueue: $0.mainQueue,
+        authClient: $0.authClient
+      )
+    }
+  ),
   Reducer { state, action, environment in
     switch action {
       
@@ -108,11 +122,12 @@ extension UserAction: Equatable {}
 extension UserAction: BindableAction {}
 
 public extension UserState {
-  static let defaultStore = Store(
+  static let defaultStore = Store<UserState, UserAction>(
     initialState: UserState(),
     reducer: userReducer,
     environment: UserEnvironment(
       mainQueue: .main,
+      authClient: .live,
       exerciseClient: .live,
       workoutListClient: .live
     )

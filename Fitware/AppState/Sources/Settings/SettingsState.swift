@@ -14,6 +14,7 @@ public struct SettingsState {
 public enum SettingsAction {
   case binding(BindingAction<SettingsState>)
   case signoutButtonTapped
+  case signOutResult(Result<String, Failure>)
 }
 
 public struct SettingsEnvironment {
@@ -40,8 +41,12 @@ public let settingsReducer = Reducer<
     return .none
     
   case .signoutButtonTapped:
+    return environment.authClient.signOut()
+      .receive(on: environment.mainQueue)
+      .catchToEffect(SettingsAction.signOutResult)
+
+  case .signOutResult:
     return .none
-    
   }
 }.binding()
 

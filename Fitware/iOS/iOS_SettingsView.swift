@@ -12,8 +12,13 @@ struct iOS_SettingsView: View {
           Text(viewStore.user.displayName ?? "unknown")
           Text(viewStore.user.email ?? "unknown")
         }
+        .navigationTitle("Settings")
+        .toolbar {
+          Button("Sign Out") {
+            viewStore.send(.signoutButtonTapped)
+          }
+        }
       }
-      .navigationTitle("Settings")
     }
   }
 }
