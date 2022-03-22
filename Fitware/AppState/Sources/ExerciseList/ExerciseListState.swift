@@ -7,7 +7,7 @@ import ExerciseListClient
 public struct ExerciseListState {
   public var alert: AlertState<ExerciseListAction>?
   public var exercises: IdentifiedArrayOf<ExerciseState>
-  public var searchResults: IdentifiedArrayOf<ExerciseState> { exercises.search(\.model.name, for: searchText) }
+  public var searchResults: IdentifiedArrayOf<ExerciseState> { exercises.search(\.name, for: searchText) }
   @BindableState public var searchText: String
   
   public init(

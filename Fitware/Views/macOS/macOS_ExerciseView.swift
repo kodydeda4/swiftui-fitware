@@ -19,7 +19,7 @@ struct macOS_ExerciseView: View {
             prompt("Bodypart", viewStore.bodypart)
             prompt("Equipment", viewStore.equipment)
             prompt("Gender", viewStore.gender)
-            prompt("Target", viewStore.target)
+            prompt("Target", viewStore.primaryMuscle)
             prompt("Synergist", viewStore.synergist)
           }
         }

@@ -52,7 +52,7 @@ private struct CellView: View {
             .foregroundColor(.white)
             .clipShape(Circle())
           
-          Text(viewStore.model.name)
+          Text(viewStore.name)
         }
       }
       .opacity(viewStore.selected ? 1 : 0.5)

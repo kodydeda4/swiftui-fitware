@@ -1,6 +1,7 @@
 import SwiftUI
 import Exercise
 import ComposableArchitecture
+import AVKit
 
 struct iOS_ExerciseView: View {
   let store: Store<ExerciseState, ExerciseAction>
@@ -8,22 +9,32 @@ struct iOS_ExerciseView: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      NavigationLink(viewStore.model.name) {
+      NavigationLink(viewStore.name) {
         List {
-          //          VideoPlayer(player: AVPlayer(url: URL(string: url)!))
-          //            .aspectRatio(1920/1080, contentMode: .fit)
+          VideoPlayer(player: AVPlayer(url: URL(string: url)!))
+            .aspectRatio(1920/1080, contentMode: .fit)
           Section("Details") {
             prompt("ID", "\(viewStore.id)")
-            prompt("Name", viewStore.model.name)
-            prompt("Type", viewStore.model.type)
-            prompt("Bodypart", viewStore.model.bodypart)
-            prompt("Equipment", viewStore.model.equipment)
-            prompt("Gender", viewStore.model.gender)
-            prompt("Target", viewStore.model.target)
-            prompt("Synergist", viewStore.model.synergist)
+            prompt("Name", viewStore.name)
+            prompt("Type", viewStore.type)
+            prompt("Bodypart", viewStore.bodypart)
+            prompt("Equipment", viewStore.equipment)
+            prompt("Gender", viewStore.gender)
+          }
+          
+          Section("Primary") {
+            ForEach(viewStore.primaryMuscles, id: \.self) {
+              Text($0)
+            }
+          }
+          Section("Secondary") {
+            ForEach(viewStore.secondaryMuscles, id: \.self) {
+              Text($0)
+            }
           }
         }
         .lineLimit(1)
+        .navigationTitle(viewStore.name)
       }
     }
   }

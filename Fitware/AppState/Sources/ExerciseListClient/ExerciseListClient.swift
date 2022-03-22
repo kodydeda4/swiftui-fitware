@@ -14,7 +14,18 @@ public extension ExerciseListClient {
         do {
           let rv = try JSONDecoder()
             .decode([ExerciseModel].self, from: Data(contentsOf: url))
-            .map { ExerciseState(model: $0) }
+            .map {
+              ExerciseState.init(
+                id: $0.id,
+                name: $0.name,
+                type: $0.type,
+                bodypart: $0.bodypart,
+                equipment: $0.equipment,
+                gender: $0.gender,
+                primaryMuscles: Array($0.target.components(separatedBy: ", ")),
+                secondaryMuscles: Array($0.synergist.components(separatedBy: ", "))
+              )
+            }
           
           return callback(.success(rv))
         }

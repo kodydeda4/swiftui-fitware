@@ -78,7 +78,7 @@ private struct iOS_ExerciseCellView: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      Text(viewStore.model.name)
+      Text(viewStore.name)
         .lineLimit(1)
     }
   }
