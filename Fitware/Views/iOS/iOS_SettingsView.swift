@@ -8,16 +8,59 @@ struct iOS_SettingsView: View {
   var body: some View {
     WithViewStore(store) { viewStore in
       NavigationView {
-        Form {
-          Text(viewStore.user.displayName ?? "unknown")
-          Text(viewStore.user.email ?? "unknown")
-        }
-        .navigationTitle("Settings")
-        .toolbar {
-          Button("Sign Out") {
-            viewStore.send(.signoutButtonTapped)
+        List {
+          VStack(alignment: .center) {
+            AsyncImage(
+              url: viewStore.user.photoURL ?? URL(string: "https://www.google.com")!,
+              transaction: Transaction(animation: .spring())
+            ) { phase in
+              switch phase {
+                
+              case .empty:
+                ProgressView()
+                
+              case let .success(image):
+                image
+                  .resizable()
+                  .scaledToFill()
+                
+              case .failure:
+                Image(systemName: "person.crop.circle.fill")
+                  .resizable()
+                  .scaledToFit()
+                  .foregroundColor(.gray)
+                
+              @unknown default:
+                Image(systemName: "exclamationmark.icloud")
+                  .resizable()
+                  .scaledToFit()
+              }
+            }
+            .frame(width: 75, height: 75)
+            .background(GroupBox { Color.clear })
+            .clipShape(Circle())
+            
+            Text(viewStore.user.displayName ?? "Guest")
+              .font(.title2)
+            
+            Text(viewStore.user.email ?? "email@example.com")
+              .font(.caption)
+              .foregroundColor(.gray)
+          }
+          .frame(maxWidth: .infinity, alignment: .center)
+          .listRowSeparator(.hidden)
+          .listRowBackground(Color.clear)
+          
+          Section {
+            Button("Sign out") {
+              viewStore.send(.signoutButtonTapped)
+            }
+            .foregroundColor(.red)
           }
         }
+        .navigationTitle("Account")
+        .navigationBarTitleDisplayMode(.inline)
+        .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
       }
     }
   }

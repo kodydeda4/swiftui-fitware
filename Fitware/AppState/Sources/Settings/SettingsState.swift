@@ -5,6 +5,7 @@ import AuthClient
 
 public struct SettingsState {
   public var user: User
+  public var alert: AlertState<SettingsAction>?
   
   public init(user: User = Auth.auth().currentUser!) {
     self.user = user
@@ -14,7 +15,9 @@ public struct SettingsState {
 public enum SettingsAction {
   case binding(BindingAction<SettingsState>)
   case signoutButtonTapped
+  case signout
   case signOutResult(Result<String, Failure>)
+  case dismissAlert
 }
 
 public struct SettingsEnvironment {
@@ -41,12 +44,24 @@ public let settingsReducer = Reducer<
     return .none
     
   case .signoutButtonTapped:
+    state.alert = AlertState(
+      title: TextState("Sign Out?"),
+      primaryButton: .default(TextState("Confirm"), action: .send(.signout)),
+      secondaryButton: .cancel(TextState("Cancel"))
+    )
+    return .none
+    
+  case .signout:
     return environment.authClient.signOut()
       .receive(on: environment.mainQueue)
       .catchToEffect(SettingsAction.signOutResult)
 
   case .signOutResult:
     return .none
+  
+  case .dismissAlert:
+    return .none
+    
   }
 }.binding()
 
