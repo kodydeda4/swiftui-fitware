@@ -20,16 +20,13 @@ struct macOS_WorkoutListView: View {
           }
         }
         .navigationTitle("Workouts \(viewStore.workouts.count.description)")
-        .onAppear {
-          viewStore.send(.fetchWorkouts)
-          viewStore.send(.fetchExercises)
-        }
+        .onAppear { viewStore.send(.fetchWorkouts) }
         .refreshable { viewStore.send(.fetchWorkouts) }
         //        .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
         .toolbar {
           ToolbarItemGroup {
             Button("Create Workout") {
-              viewStore.send(.createWorkout)
+              viewStore.send(.createWorkoutButtonTapped)
             }
           }
         }

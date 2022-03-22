@@ -11,6 +11,7 @@ struct macOS_SettingsView: View {
         Text(viewStore.user.displayName ?? "unknown")
         Text(viewStore.user.email ?? "unknown")
       }
+      .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
       .navigationTitle("Settings")
       .toolbar {
         Button("Sign out") {
