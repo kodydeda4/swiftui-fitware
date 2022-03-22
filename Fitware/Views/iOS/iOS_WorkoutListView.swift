@@ -27,25 +27,23 @@ struct iOS_WorkoutListView: View {
         .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
         .toolbar {
           ToolbarItemGroup {
-            Toggle("Create Workout", isOn: viewStore.binding(\.$sheet))
+            Button("Create Workout") {
+              viewStore.send(.createWorkoutButtonTapped)
+            }
             //viewStore.send(.createWorkout)
             //            Button("Clear All") {
             //              viewStore.send(.clearAll)
             //            }
           }
         }
-        .sheet(isPresented: viewStore.binding(\.$sheet)) {
-          NavigationView {
-            List {
-              ForEachStore(store.scope(
-                state: \.exercises,
-                action: WorkoutListAction.exercises
-              ), content: iOS_ExerciseView.init(store:))
-            }
-            .onAppear {
-              viewStore.send(.fetchExercises)
-            }
-          }
+        .sheet(isPresented: viewStore.binding(
+          get: { $0.createWorkout != nil },
+          send: WorkoutListAction.createWorkoutButtonTapped
+        )) {
+          IfLetStore(store.scope(
+            state: \.createWorkout,
+            action: WorkoutListAction.createWorkout
+          ), then: iOS_CreateWorkoutView.init(store:))
         }
       }
     }

@@ -24,7 +24,7 @@ public struct ExerciseState {
 }
 
 public enum ExerciseAction {
-  case empty
+  case addButtonTapped
 }
 
 public struct ExerciseEnvironment {
@@ -41,7 +41,7 @@ public let exerciseReducer = Reducer<
   ExerciseEnvironment
 > { state, action, environment in
   switch action {
-  case .empty:
+  case .addButtonTapped:
     return .none
   }
 }
@@ -49,6 +49,7 @@ public let exerciseReducer = Reducer<
 extension ExerciseState: Codable {}
 extension ExerciseState: Identifiable {}
 extension ExerciseState: Equatable {}
+extension ExerciseState: Hashable {}
 extension ExerciseAction: Equatable {}
 
 public extension ExerciseState {

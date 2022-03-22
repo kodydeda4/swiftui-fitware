@@ -66,6 +66,15 @@ let package = Package(
     .firebase,
     .firebaseFirestoreSwift,
     .workout,
+    .workoutListClient,
+    .createWorkout
+  ]),
+  Source(name: "CreateWorkout", dependencies: [
+    .composableArchitecture,
+    .failure,
+    .firebase,
+    .firebaseFirestoreSwift,
+    .workout,
     .workoutListClient
   ]),
   Source(name: "Settings", dependencies: [
@@ -124,6 +133,7 @@ extension Target.Dependency {
   static let exercise: Self = "Exercise"
   static let workout: Self = "Workout"
   static let workoutList: Self = "WorkoutList"
+  static let createWorkout: Self = "CreateWorkout"
   static let settings: Self = "Settings"
 }
 

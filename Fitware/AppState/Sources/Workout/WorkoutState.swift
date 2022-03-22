@@ -20,7 +20,7 @@ public struct WorkoutState {
     timestamp: Date,
     text: String,
     done: Bool,
-    exercises: IdentifiedArrayOf<ExerciseState>
+    exercises: IdentifiedArrayOf<ExerciseState> = []
   ) {
     self.userID = userID
     self.timestamp = timestamp
@@ -76,3 +76,6 @@ extension WorkoutState: Equatable {}
 extension WorkoutState: Identifiable {}
 extension WorkoutState: Codable {}
 extension WorkoutAction: Equatable {}
+
+
+

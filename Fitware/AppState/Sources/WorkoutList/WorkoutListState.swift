@@ -7,46 +7,43 @@ import Exercise
 import ExerciseListClient
 import Workout
 import WorkoutListClient
+import CreateWorkout
 
 public struct WorkoutListState {
   public let user: User
   public var workouts: IdentifiedArrayOf<WorkoutState>
-  public var exercises: IdentifiedArrayOf<ExerciseState>
+  public var createWorkout: CreateWorkoutState?
   public var alert: AlertState<WorkoutListAction>?
-  @BindableState public var sheet: Bool
   
   public init(
     user: User = Auth.auth().currentUser!,
     workouts: IdentifiedArrayOf<WorkoutState> = [],
-    exercises: IdentifiedArrayOf<ExerciseState> = [],
-    alert: AlertState<WorkoutListAction>? = nil,
-    sheet: Bool = false
+    createWorkout: CreateWorkoutState? = nil,
+    alert: AlertState<WorkoutListAction>? = nil
   ) {
     self.user = user
     self.workouts = workouts
-    self.exercises = exercises
+    self.createWorkout = createWorkout
     self.alert = alert
-    self.sheet = sheet
   }
 }
 
 public enum WorkoutListAction {
   case binding(BindingAction<WorkoutListState>)
+  case createWorkout(CreateWorkoutAction)
   case workouts(id: WorkoutState.ID, action: WorkoutAction)
-  case fetchWorkouts
-  case clearAll
-  case deleteWorkouts([WorkoutState])
-  case fetchWorkoutsResult(Result<[WorkoutState], Failure>)
-  case deleteWorkoutResult(Result<String, Failure>)
-  case clearAllResult(Result<String, Failure>)
-  case dismissAlert
+  case createWorkoutButtonTapped
   
-  // CreateWorkout
-  case exercises(id: ExerciseState.ID, action: ExerciseAction)
-  case fetchExercises
-  case fetchExercisesResult(Result<[ExerciseState], Failure>)
-  case createWorkout
-  case createWorkoutResult(Result<String, Failure>)
+  case fetchWorkouts
+  case fetchWorkoutsResult(Result<[WorkoutState], Failure>)
+  
+  case deleteWorkouts([WorkoutState])
+  case deleteWorkoutResult(Result<String, Failure>)
+  
+  case clearAll
+  case clearAllResult(Result<String, Failure>)
+  
+  case dismissAlert
 }
 
 public struct WorkoutListEnvironment {
@@ -70,49 +67,30 @@ public let workoutListReducer = Reducer<
   WorkoutListAction,
   WorkoutListEnvironment
 >.combine(
-  exerciseReducer.forEach(
-    state: \.exercises,
-    action: /WorkoutListAction.exercises(id:action:),
+  createWorkoutReducer.optional().pullback(
+    state: \.createWorkout,
+    action: /WorkoutListAction.createWorkout,
     environment: {
-      ExerciseEnvironment(
-        mainQueue: $0.mainQueue
+      CreateWorkoutEnvironment(
+        mainQueue: $0.mainQueue,
+        exerciseClient: $0.exerciseClient,
+        workoutListClient: $0.workoutListClient
       )
     }
   ),
   Reducer { state, action, environment in
     switch action {
       
-    case .fetchExercises:
-      return environment.exerciseClient.fetchExercises()
-        .receive(on: environment.mainQueue)
-        .catchToEffect(WorkoutListAction.fetchExercisesResult)
-      
-    case let .fetchExercisesResult(.success(success)):
-      state.exercises = IdentifiedArrayOf(uniqueElements: success)
+    case .createWorkoutButtonTapped:
+      if state.createWorkout == nil {
+        state.createWorkout = CreateWorkoutState(user: state.user)
+      } else {
+        state.createWorkout = nil
+      }
       return .none
       
-    case let .fetchExercisesResult(.failure(error)):
-      return .none
-      
-    case .createWorkout:
-      return environment.workoutListClient.createWorkout(
-        WorkoutState(
-          userID: state.user.uid,
-          timestamp: Date(),
-          text: "Workout \(state.workouts.count)",
-          done: false,
-          exercises: [randomExercises.randomElement()!]
-        )
-      )
-      .receive(on: environment.mainQueue)
-      .catchToEffect(WorkoutListAction.createWorkoutResult)
-      
-    case let .createWorkoutResult(.success(message)):
-      //state.alert = AlertState(title: TextState(message))
-      return .none
-      
-    case let .createWorkoutResult(.failure(error)):
-      state.alert = AlertState(title: TextState(error.localizedDescription))
+    case .createWorkout(.createWorkoutResult(.success)):
+      state.createWorkout = nil
       return .none
       
     case .fetchWorkouts:
@@ -150,11 +128,11 @@ public let workoutListReducer = Reducer<
       
     case .clearAllResult:
       return .none
-      
-    case .exercises:
+            
+    case .workouts:
       return .none
       
-    case .workouts:
+    case .createWorkout:
       return .none
       
     case .dismissAlert:
