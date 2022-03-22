@@ -13,7 +13,7 @@ struct iOS_UserView: View {
         state: \.workoutList,
         action: UserAction.workoutList
       ))
-      .tabItem { Label("Workouts", systemImage: "house") }
+      .tabItem { Label("Workouts", systemImage: "doc.text.image") }
       
       iOS_ExerciseListView(store: store.scope(
         state: \.exerciseList,

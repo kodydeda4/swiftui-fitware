@@ -10,34 +10,35 @@ struct iOS_CreateWorkoutView: View {
     WithViewStore(store) { viewStore in
       NavigationView {
         List {
-          Section {
-            TextField("Name", text: viewStore.binding(\.$name))
-          }
-          Section {
-            Button("Create") {
-              viewStore.send(.createWorkout)
+          Section("Details") {
+            HStack {
+              Text("Name:")
+                .bold()
+              TextField("Name", text: viewStore.binding(\.$name))
             }
-            .foregroundColor(.blue)
           }
-
           Section("Exercises") {
             ForEachStore(store.scope(
               state: \.exercises,
               action: CreateWorkoutAction.exercises
             )) { childStore in
               WithViewStore(childStore) { childViewStore in
-                CellView(store: childStore)
-                  .opacity(
-                    viewStore.selection.contains(childViewStore.state) ? 1 : 0.5
-                  )
+                CellView(
+                  store: childStore,
+                  selected: viewStore.selection.contains(childViewStore.state)
+                )
               }
             }
           }
         }
         .buttonStyle(.plain)
         .navigationTitle("Create Workout")
-        .onAppear {
-          viewStore.send(.fetchExercises)
+        .onAppear { viewStore.send(.fetchExercises) }
+        .toolbar {
+          Button("Done") {
+            viewStore.send(.createWorkout)
+          }
+          .foregroundColor(.blue)
         }
       }
     }
@@ -47,21 +48,24 @@ struct iOS_CreateWorkoutView: View {
 
 private struct CellView: View {
   let store: Store<ExerciseState, ExerciseAction>
+  let selected: Bool
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      HStack {
-        Button(action: {
-          viewStore.send(.addButtonTapped)
-        }) {
-          Image(systemName: "plus")
-            .padding()
-            .background(Color.green)
+      Button(action: {
+        viewStore.send(.addButtonTapped)
+      }) {
+        HStack {
+          Image(systemName: selected ? "minus" : "plus")
+            .frame(width: 20, height: 20)
+            .background(selected ? Color.red : Color.green)
             .foregroundColor(.white)
             .clipShape(Circle())
+          
+          Text(viewStore.name)
         }
-        Text(viewStore.name)
       }
+      .opacity(selected ? 1 : 0.5)
     }
   }
 }

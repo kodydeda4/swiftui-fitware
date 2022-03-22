@@ -17,7 +17,7 @@ public struct CreateWorkoutState {
   public init(
     user: User = Auth.auth().currentUser!,
     exercises: IdentifiedArrayOf<ExerciseState> = [],
-    name: String = "Untitled Workout",
+    name: String = "Untitled",
     selection: Set<ExerciseState> = Set()
   ) {
     self.user = user
