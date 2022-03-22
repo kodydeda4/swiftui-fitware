@@ -12,11 +12,14 @@ struct iOS_CreateWorkoutView: View {
         List {
           Section {
             TextField("Name", text: viewStore.binding(\.$name))
-            
+          }
+          Section {
             Button("Create") {
               viewStore.send(.createWorkout)
             }
+            .foregroundColor(.blue)
           }
+
           Section("Exercises") {
             ForEachStore(store.scope(
               state: \.exercises,

@@ -21,19 +21,18 @@ struct iOS_WorkoutListView: View {
             ), content: iOS_WorkoutNavigationLinkView.init(store:)
           )
         }
-        .navigationTitle("Workouts \(viewStore.workouts.count.description)")
+        .navigationTitle("Workouts")
         .onAppear { viewStore.send(.fetchWorkouts) }
         .refreshable { viewStore.send(.fetchWorkouts) }
         .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
         .toolbar {
           ToolbarItemGroup {
-            Button("Create Workout") {
+            Button("Create") {
               viewStore.send(.createWorkoutButtonTapped)
             }
-            //viewStore.send(.createWorkout)
-            //            Button("Clear All") {
-            //              viewStore.send(.clearAll)
-            //            }
+//            Button("Clear All") {
+//              viewStore.send(.clearAll)
+//            }
           }
         }
         .sheet(isPresented: viewStore.binding(
@@ -45,6 +44,13 @@ struct iOS_WorkoutListView: View {
             action: WorkoutListAction.createWorkout
           ), then: iOS_CreateWorkoutView.init(store:))
         }
+        .overlay(
+          Text("No Results")
+            .font(.title)
+            .foregroundColor(.gray)
+            .opacity(0.5)
+            .opacity(viewStore.workouts.isEmpty ? 1 : 0)
+        )
       }
     }
   }
