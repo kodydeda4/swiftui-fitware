@@ -29,6 +29,9 @@ struct iOS_WorkoutListView: View {
             Button("Create Workout") {
               viewStore.send(.createWorkout)
             }
+//            Button("Clear All") {
+//              viewStore.send(.clearAll)
+//            }
           }
         }
       }

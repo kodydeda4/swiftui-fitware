@@ -31,9 +31,11 @@ public enum WorkoutListAction {
   case binding(BindingAction<WorkoutListState>)
   case workouts(id: WorkoutState.ID, action: WorkoutAction)
   case fetchWorkouts
+  case clearAll
   case deleteWorkouts([WorkoutState])
   case fetchWorkoutsResult(Result<[WorkoutState], Failure>)
   case deleteWorkoutResult(Result<String, Failure>)
+  case clearAllResult(Result<String, Failure>)
   case dismissAlert
   
   // CreateWorkout
@@ -136,6 +138,14 @@ public let workoutListReducer = Reducer<
       
     case let .deleteWorkoutResult(.failure(error)):
       state.alert = AlertState(title: TextState(error.localizedDescription))
+      return .none
+      
+    case .clearAll:
+      return environment.workoutListClient.removeWorkout(Array(state.workouts))
+        .receive(on: environment.mainQueue)
+        .catchToEffect(WorkoutListAction.deleteWorkoutResult)
+      
+    case .clearAllResult:
       return .none
       
     case .exercises:
