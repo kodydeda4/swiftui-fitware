@@ -44,19 +44,28 @@ let package = Package(
     .workoutListClient,
     .settings
   ]),
+  Source(name: "Exercise", dependencies: [
+    .composableArchitecture,
+    .failure
+  ]),
   Source(name: "ExerciseList", dependencies: [
     .composableArchitecture,
     .failure,
     .exercise,
     .exerciseListClient,
   ]),
-  Source(name: "Exercise", dependencies: [
+  Source(name: "Workout", dependencies: [
     .composableArchitecture,
-    .failure
+    .failure,
+    .firebase,
+    .firebaseFirestoreSwift,
   ]),
   Source(name: "WorkoutList", dependencies: [
     .composableArchitecture,
     .failure,
+    .firebase,
+    .firebaseFirestoreSwift,
+    .workout,
     .workoutListClient
   ]),
   Source(name: "Settings", dependencies: [
@@ -64,7 +73,6 @@ let package = Package(
     .failure,
     .authClient
   ]),
-  
   
   // MARK: Client
   Source(name: "AuthClient", dependencies: [
@@ -82,7 +90,8 @@ let package = Package(
     .failure,
     .firebase,
     .firebaseFirestoreSwift,
-    .exercise
+    .exercise,
+    .workout
   ]),
   
   // MARK: General
@@ -113,6 +122,7 @@ extension Target.Dependency {
   static let user: Self = "User"
   static let exerciseList: Self = "ExerciseList"
   static let exercise: Self = "Exercise"
+  static let workout: Self = "Workout"
   static let workoutList: Self = "WorkoutList"
   static let settings: Self = "Settings"
 }

@@ -4,6 +4,7 @@ import ComposableArchitecture
 import App
 import WorkoutList
 import WorkoutListClient
+import Workout
 
 struct macOS_WorkoutListView: View {
   let store: Store<WorkoutListState, WorkoutListAction>
@@ -13,8 +14,8 @@ struct macOS_WorkoutListView: View {
       NavigationView {
         List {
           ForEach(viewStore.workouts) { workout in
-            NavigationLink(workout.timestamp.description) {
-              macOS_WorkoutDetailView(workout: workout)
+            NavigationLink(destination: macOS_WorkoutDetailView(workout: workout)) {
+              Text(workout.text)
             }
           }
         }
@@ -35,13 +36,13 @@ struct macOS_WorkoutListView: View {
 }
 
 struct macOS_WorkoutDetailView: View {
-  let workout: Workout
+  let workout: WorkoutState
   
   var body: some View {
     VStack {
       Text("ID \(workout.id!)")
       Text("timestamp \(workout.timestamp.formatted())")
-      Text("text \(workout.timestamp.formatted())")
+      Text("text \(workout.text)")
       Text("done \(workout.done.description)")
       //      Text("exercises \(workout.exercises.count)")
     }

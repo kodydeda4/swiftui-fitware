@@ -47,7 +47,7 @@ public extension AuthClient {
     signOut: {
       Effect
         .task { try Auth.auth().signOut() }
-        .map { "Success" }
+        .map { "Signout Success" }
         .mapError(Failure.init)
         .eraseToEffect()
     }

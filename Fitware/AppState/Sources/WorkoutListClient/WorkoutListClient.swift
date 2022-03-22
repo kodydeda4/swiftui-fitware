@@ -4,19 +4,12 @@ import ComposableArchitecture
 import FirebaseFirestoreSwift
 import Failure
 import Combine
-
-public struct Workout: Equatable, Identifiable, Codable {
-  @DocumentID public var id: String?
-  public let userID: String
-  public var timestamp = Date()
-  public var text: String = "Untitled"
-  public var done: Bool = false
-}
+import Workout
 
 public struct WorkoutListClient {
-  public let fetchWorkouts: () -> Effect<[Workout], Failure>
-  public let createWorkout: () -> Effect<Never, Failure>
-  public let removeWorkout : ([Workout]) -> Effect<Never, Failure>
+  public let fetchWorkouts: () -> Effect<[WorkoutState], Failure>
+  public let createWorkout: (WorkoutState) -> Effect<String, Failure>
+  public let removeWorkout: ([WorkoutState]) -> Effect<String, Failure>
 }
 
 public extension WorkoutListClient {
@@ -27,17 +20,18 @@ public extension WorkoutListClient {
         .collection("workouts")
         .whereField("userID", isEqualTo: Auth.auth().currentUser!.uid)
         .snapshotPublisher()
-        .map({ $0.documents.compactMap({ try? $0.data(as: Workout.self) }) })
+        .map({ $0.documents.compactMap({ try? $0.data(as: WorkoutState.self) }) })
         .mapError(Failure.init)
         .eraseToEffect()
     },
-    createWorkout: {
+    createWorkout: { workout in
       Effect.future { callback in
         do {
           let _ = try Firestore
             .firestore()
             .collection("workouts")
-            .addDocument(from: Workout(userID: Auth.auth().currentUser!.uid, timestamp: Date()))
+            .addDocument(from: workout)
+          callback(.success("Workout created successfully."))
         } catch {
           callback(.failure(.init(error)))
         }

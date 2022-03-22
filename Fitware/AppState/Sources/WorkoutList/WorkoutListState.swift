@@ -1,21 +1,26 @@
 import Combine
 import ComposableArchitecture
 import IdentifiedCollections
-import Exercise
+import Firebase
 import Failure
+import Exercise
 import ExerciseListClient
+import Workout
 import WorkoutListClient
 
 public struct WorkoutListState {
-  public var workouts: IdentifiedArrayOf<Workout>
+  public let user: User
+  public var workouts: IdentifiedArrayOf<WorkoutState>
   public var exercises: IdentifiedArrayOf<ExerciseState>
   public var alert: AlertState<WorkoutListAction>?
-
+  
   public init(
-    workouts: IdentifiedArrayOf<Workout> = [],
+    user: User = Auth.auth().currentUser!,
+    workouts: IdentifiedArrayOf<WorkoutState> = [],
     exercises: IdentifiedArrayOf<ExerciseState> = [],
     alert: AlertState<WorkoutListAction>? = nil
   ) {
+    self.user = user
     self.workouts = workouts
     self.exercises = exercises
     self.alert = alert
@@ -23,18 +28,20 @@ public struct WorkoutListState {
 }
 
 public enum WorkoutListAction {
-  case dismissAlert
   case binding(BindingAction<WorkoutListState>)
-  case exercises(id: ExerciseState.ID, action: ExerciseAction)
+  case workouts(id: WorkoutState.ID, action: WorkoutAction)
+  case fetchWorkouts
+  case deleteWorkouts([WorkoutState])
+  case fetchWorkoutsResult(Result<[WorkoutState], Failure>)
+  case deleteWorkoutResult(Result<String, Failure>)
+  case dismissAlert
   
+  // CreateWorkout
+  case exercises(id: ExerciseState.ID, action: ExerciseAction)
   case fetchExercises
   case fetchExercisesResult(Result<[ExerciseState], Failure>)
-  
-  case fetchWorkouts
-  case fetchWorkoutsResult(Result<[Workout], Failure>)
-  
   case createWorkout
-  case createWorkoutResult(Result<Never, Failure>)
+  case createWorkoutResult(Result<String, Failure>)
 }
 
 public struct WorkoutListEnvironment {
@@ -42,7 +49,11 @@ public struct WorkoutListEnvironment {
   public let exerciseClient: ExerciseListClient
   public let workoutListClient: WorkoutListClient
   
-  public init(mainQueue: AnySchedulerOf<DispatchQueue>, exerciseClient: ExerciseListClient, workoutListClient: WorkoutListClient) {
+  public init(
+    mainQueue: AnySchedulerOf<DispatchQueue>,
+    exerciseClient: ExerciseListClient,
+    workoutListClient: WorkoutListClient
+  ) {
     self.mainQueue = mainQueue
     self.exerciseClient = exerciseClient
     self.workoutListClient = workoutListClient
@@ -57,7 +68,11 @@ public let workoutListReducer = Reducer<
   exerciseReducer.forEach(
     state: \.exercises,
     action: /WorkoutListAction.exercises(id:action:),
-    environment: { ExerciseEnvironment(mainQueue: $0.mainQueue) }
+    environment: {
+      ExerciseEnvironment(
+        mainQueue: $0.mainQueue
+      )
+    }
   ),
   Reducer { state, action, environment in
     switch action {
@@ -74,42 +89,66 @@ public let workoutListReducer = Reducer<
     case let .fetchExercisesResult(.failure(error)):
       return .none
       
-    case .exercises:
-      return .none
-      
+      //Workout(userID: Auth.auth().currentUser!.uid, timestamp: Date()
     case .createWorkout:
-      return environment.workoutListClient.createWorkout()
-        .receive(on: environment.mainQueue)
-        .catchToEffect(WorkoutListAction.createWorkoutResult)
-    
-    case .createWorkoutResult(.success):
-      state.alert = AlertState(title: TextState("Success"))
+      return environment.workoutListClient.createWorkout(
+        WorkoutState(
+          userID: state.user.uid,
+          timestamp: Date(),
+          text: "Workout \(state.workouts.count)",
+          done: false
+        )
+      )
+      .receive(on: environment.mainQueue)
+      .catchToEffect(WorkoutListAction.createWorkoutResult)
+      
+    case let .createWorkoutResult(.success(message)):
+      state.alert = AlertState(title: TextState(message))
       return .none
       
     case let .createWorkoutResult(.failure(error)):
       state.alert = AlertState(title: TextState(error.localizedDescription))
-      return .none
-
-    case .dismissAlert:
-      return .none
-      
-    case .binding:
       return .none
       
     case .fetchWorkouts:
       return environment.workoutListClient.fetchWorkouts()
         .receive(on: environment.mainQueue)
         .catchToEffect(WorkoutListAction.fetchWorkoutsResult)
-
+      
     case let .fetchWorkoutsResult(.success(success)):
       state.workouts = IdentifiedArrayOf(uniqueElements: success)
-      state.alert = AlertState(title: TextState("Success"))
       return .none
       
     case let .fetchWorkoutsResult(.failure(error)):
       state.alert = AlertState(title: TextState(error.localizedDescription))
       return .none
-
+      
+    case let .workouts(id, .deleteButtonTapped):
+      return Effect(value: .deleteWorkouts([state.workouts[id: id]!]))
+      
+    case let .deleteWorkouts(workouts):
+      return environment.workoutListClient.removeWorkout(workouts)
+        .receive(on: environment.mainQueue)
+        .catchToEffect(WorkoutListAction.deleteWorkoutResult)
+    
+    case .deleteWorkoutResult(.success):
+      return .none
+      
+    case let .deleteWorkoutResult(.failure(error)):
+      state.alert = AlertState(title: TextState(error.localizedDescription))
+      return .none
+      
+    case .exercises:
+      return .none
+      
+    case .workouts:
+      return .none
+      
+    case .dismissAlert:
+      return .none
+      
+    case .binding:
+      return .none
     }
   }.binding()
 )
