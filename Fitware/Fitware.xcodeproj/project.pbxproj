@@ -33,6 +33,10 @@
 		334F3F9C27EBAD4E007156CC /* 07-ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9A27EBAD4E007156CC /* 07-ExerciseView.swift */; };
 		334F3F9E27EBAD81007156CC /* 04-WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9D27EBAD81007156CC /* 04-WorkoutView.swift */; };
 		334F3F9F27EBAD81007156CC /* 04-WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9D27EBAD81007156CC /* 04-WorkoutView.swift */; };
+		334F3FA227EBB2B9007156CC /* PreviewDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3FA127EBB2B9007156CC /* PreviewDevice+Extensions.swift */; };
+		334F3FA327EBB2B9007156CC /* PreviewDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3FA127EBB2B9007156CC /* PreviewDevice+Extensions.swift */; };
+		334F3FA527EBB39B007156CC /* MultiDevicePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3FA427EBB39B007156CC /* MultiDevicePreview.swift */; };
+		334F3FA627EBB39B007156CC /* MultiDevicePreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3FA427EBB39B007156CC /* MultiDevicePreview.swift */; };
 		3383958027E4C7A9000376BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3383957F27E4C7A9000376BF /* GoogleService-Info.plist */; };
 		3383958127E4C7A9000376BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3383957F27E4C7A9000376BF /* GoogleService-Info.plist */; };
 		3383959727E4CFFD000376BF /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 3383959627E4CFFD000376BF /* App */; };
@@ -56,6 +60,8 @@
 		334F3F9727EBAC8B007156CC /* 06-ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "06-ExerciseListView.swift"; sourceTree = "<group>"; };
 		334F3F9A27EBAD4E007156CC /* 07-ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "07-ExerciseView.swift"; sourceTree = "<group>"; };
 		334F3F9D27EBAD81007156CC /* 04-WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "04-WorkoutView.swift"; sourceTree = "<group>"; };
+		334F3FA127EBB2B9007156CC /* PreviewDevice+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PreviewDevice+Extensions.swift"; sourceTree = "<group>"; };
+		334F3FA427EBB39B007156CC /* MultiDevicePreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiDevicePreview.swift; sourceTree = "<group>"; };
 		3383957F27E4C7A9000376BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3383958227E4CBE9000376BF /* iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS-Info.plist"; sourceTree = "<group>"; };
 		3383959527E4CD6E000376BF /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
@@ -93,7 +99,7 @@
 				334F3F9727EBAC8B007156CC /* 06-ExerciseListView.swift */,
 				334F3F9A27EBAD4E007156CC /* 07-ExerciseView.swift */,
 				334F3F9127EBABD9007156CC /* 08-SettingsView.swift */,
-				333B9D4E27EAAFEB005DB437 /* ToggleButton.swift */,
+				334F3FA027EBB296007156CC /* General */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -128,6 +134,16 @@
 				334E419527E4C6D9006AD09D /* Fitware.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		334F3FA027EBB296007156CC /* General */ = {
+			isa = PBXGroup;
+			children = (
+				333B9D4E27EAAFEB005DB437 /* ToggleButton.swift */,
+				334F3FA427EBB39B007156CC /* MultiDevicePreview.swift */,
+				334F3FA127EBB2B9007156CC /* PreviewDevice+Extensions.swift */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +256,7 @@
 			files = (
 				334F3F9B27EBAD4E007156CC /* 07-ExerciseView.swift in Sources */,
 				334F3F9527EBAC4D007156CC /* 03-WorkoutListView.swift in Sources */,
+				334F3FA227EBB2B9007156CC /* PreviewDevice+Extensions.swift in Sources */,
 				334F3F8C27EBAB75007156CC /* 05-CreateWorkoutView.swift in Sources */,
 				334F3F9827EBAC8B007156CC /* 06-ExerciseListView.swift in Sources */,
 				334F3F8927EBAB1C007156CC /* 01-AuthView.swift in Sources */,
@@ -249,6 +266,7 @@
 				334F3F9E27EBAD81007156CC /* 04-WorkoutView.swift in Sources */,
 				334F3F8627EBAAEF007156CC /* 00-AppView.swift in Sources */,
 				333B9D4F27EAAFEB005DB437 /* ToggleButton.swift in Sources */,
+				334F3FA527EBB39B007156CC /* MultiDevicePreview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +276,7 @@
 			files = (
 				334F3F9327EBABD9007156CC /* 08-SettingsView.swift in Sources */,
 				334F3F9627EBAC4D007156CC /* 03-WorkoutListView.swift in Sources */,
+				334F3FA327EBB2B9007156CC /* PreviewDevice+Extensions.swift in Sources */,
 				333B9D5027EAAFEB005DB437 /* ToggleButton.swift in Sources */,
 				334F3F9F27EBAD81007156CC /* 04-WorkoutView.swift in Sources */,
 				334F3F8A27EBAB1C007156CC /* 01-AuthView.swift in Sources */,
@@ -267,6 +286,7 @@
 				334F3F9C27EBAD4E007156CC /* 07-ExerciseView.swift in Sources */,
 				334F3F8D27EBAB75007156CC /* 05-CreateWorkoutView.swift in Sources */,
 				334F3F9027EBABA2007156CC /* 02-UserView.swift in Sources */,
+				334F3FA627EBB39B007156CC /* MultiDevicePreview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

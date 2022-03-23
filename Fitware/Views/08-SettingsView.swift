@@ -20,7 +20,7 @@ struct SettingsView: View {
               .foregroundColor(.gray)
           }
           .frame(maxWidth: .infinity, alignment: .center)
-//          .listRowSeparator(.hidden)
+          //          .listRowSeparator(.hidden)
           .listRowBackground(Color.clear)
           
           Section {
@@ -31,7 +31,7 @@ struct SettingsView: View {
           }
         }
         .navigationTitle("Account")
-//        .navigationBarTitleDisplayMode(.inline)
+        //        .navigationBarTitleDisplayMode(.inline)
         .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
       }
     }
@@ -70,12 +70,14 @@ private struct Avatar: View {
     .frame(width: 75, height: 75)
     .background(GroupBox { Color.clear })
     .clipShape(Circle())
-
+    
   }
 }
 
 struct SettingsView_Previews: PreviewProvider {
   static var previews: some View {
-    SettingsView(store: SettingsState.defaultStore)
+    MultiDevicePreview {
+      SettingsView(store: SettingsState.defaultStore)
+    }
   }
 }
