@@ -1,8 +1,8 @@
 import SwiftUI
-import Workout
 import ComposableArchitecture
+import Workout
 
-struct iOS_WorkoutView: View {
+struct WorkoutView: View {
   let store: Store<WorkoutState, WorkoutAction>
   
   var body: some View {
@@ -18,7 +18,7 @@ struct iOS_WorkoutView: View {
           ForEachStore(store.scope(
             state: \.exercises,
             action: WorkoutAction.exercises
-          ), content: iOS_ExerciseView.init(store:))
+          ), content: ExerciseView.init(store:))
         }
       }
       .navigationTitle(viewStore.text)
@@ -26,8 +26,9 @@ struct iOS_WorkoutView: View {
   }
 }
 
-//struct iOS_WorkoutView_Previews: PreviewProvider {
+
+//struct WorkoutView_Previews: PreviewProvider {
 //  static var previews: some View {
-//    iOS_WorkoutView(store: WorkoutState.defaultStore)
+//    WorkoutView(store: WorkoutState.defaultStore)
 //  }
 //}

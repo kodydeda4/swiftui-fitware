@@ -1,19 +1,17 @@
 import SwiftUI
 import ComposableArchitecture
-import Auth
 import AuthenticationServices
+import Auth
 
-struct macOS_AuthView: View {
+struct AuthView: View {
   let store: Store<AuthState, AuthAction>
-
+  
   var body: some View {
     WithViewStore(store) { viewStore in
       NavigationView {
-        List {
-          
-        }
-        .listStyle(.sidebar)
-        
+        #if os(macOS)
+        List {}
+        #endif
         List {
           Section("Email") {
             TextField("Email", text: viewStore.binding(\.$email))
@@ -27,8 +25,8 @@ struct macOS_AuthView: View {
             }
           }
         }
-        .onAppear { viewStore.send(.signInCachedUser) }
         .navigationTitle("Sign In")
+        .onAppear { viewStore.send(.signInCachedUser) }
         .toolbar {
           Button("Guest") {
             viewStore.send(.signInAnonymously)
@@ -39,8 +37,8 @@ struct macOS_AuthView: View {
   }
 }
 
-struct macOS_AuthView_Previews: PreviewProvider {
+struct AuthView_Previews: PreviewProvider {
   static var previews: some View {
-    macOS_AuthView(store: AuthState.defaultStore)
+    AuthView(store: AuthState.defaultStore)
   }
 }

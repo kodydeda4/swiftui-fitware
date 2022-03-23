@@ -7,7 +7,7 @@ import WorkoutList
 import WorkoutListClient
 import Exercise
 
-struct iOS_WorkoutListView: View {
+struct WorkoutListView: View {
   let store: Store<WorkoutListState, WorkoutListAction>
   
   var body: some View {
@@ -18,7 +18,7 @@ struct iOS_WorkoutListView: View {
             store.scope(
               state: \.workouts,
               action: WorkoutListAction.workouts
-            ), content: iOS_WorkoutNavigationLinkView.init(store:)
+            ), content: WorkoutNavigationLinkView.init(store:)
           )
         }
         .navigationTitle("Workouts")
@@ -30,9 +30,9 @@ struct iOS_WorkoutListView: View {
             Button("Create") {
               viewStore.send(.createWorkoutButtonTapped)
             }
-//            Button("Clear All") {
-//              viewStore.send(.clearAll)
-//            }
+            //            Button("Clear All") {
+            //              viewStore.send(.clearAll)
+            //            }
           }
         }
         .sheet(isPresented: viewStore.binding(
@@ -42,7 +42,7 @@ struct iOS_WorkoutListView: View {
           IfLetStore(store.scope(
             state: \.createWorkout,
             action: WorkoutListAction.createWorkout
-          ), then: iOS_CreateWorkoutView.init(store:))
+          ), then: CreateWorkoutView.init(store:))
         }
         .overlay(
           Text("No Results")
@@ -56,12 +56,12 @@ struct iOS_WorkoutListView: View {
   }
 }
 
-struct iOS_WorkoutNavigationLinkView: View {
+struct WorkoutNavigationLinkView: View {
   let store: Store<WorkoutState, WorkoutAction>
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      NavigationLink(destination: iOS_WorkoutView(store: store)) {
+      NavigationLink(destination: WorkoutView(store: store)) {
         Text(viewStore.text)
       }
       .swipeActions(edge: .trailing) {
@@ -73,7 +73,7 @@ struct iOS_WorkoutNavigationLinkView: View {
   }
 }
 
-private struct iOS_ExerciseCellView: View {
+private struct ExerciseCellView: View {
   let store: Store<ExerciseState, ExerciseAction>
   
   var body: some View {
@@ -83,10 +83,8 @@ private struct iOS_ExerciseCellView: View {
     }
   }
 }
-
-// MARK: SwiftUI Previews
-struct iOS_WorkoutListView_Previews: PreviewProvider {
+struct WorkoutListView_Previews: PreviewProvider {
   static var previews: some View {
-    iOS_WorkoutListView(store: WorkoutListState.defaultStore)
+    WorkoutListView(store: WorkoutListState.defaultStore)
   }
 }

@@ -2,7 +2,7 @@ import SwiftUI
 import ComposableArchitecture
 import App
 
-struct iOS_AppView: View {
+struct AppView: View {
   let store: Store<AppState, AppAction> = AppState.defaultStore
   
   var body: some View {
@@ -11,22 +11,20 @@ struct iOS_AppView: View {
         CaseLet(
           state: /AppState.auth,
           action: AppAction.auth,
-          then: iOS_AuthView.init(store:)
+          then: AuthView.init(store:)
         )
         CaseLet(
           state: /AppState.user,
           action: AppAction.user,
-          then: iOS_UserView.init(store:)
+          then: UserView.init(store:)
         )
       }
     }
   }
 }
 
-
-// MARK: Previews
-struct iOS_AppView_Previews: PreviewProvider {
+struct AppView_Previews: PreviewProvider {
   static var previews: some View {
-    iOS_AppView()
+    AppView()
   }
 }

@@ -2,7 +2,7 @@ import SwiftUI
 import ComposableArchitecture
 import Settings
 
-struct iOS_SettingsView: View {
+struct SettingsView: View {
   let store: Store<SettingsState, SettingsAction>
   
   var body: some View {
@@ -20,7 +20,7 @@ struct iOS_SettingsView: View {
               .foregroundColor(.gray)
           }
           .frame(maxWidth: .infinity, alignment: .center)
-          .listRowSeparator(.hidden)
+//          .listRowSeparator(.hidden)
           .listRowBackground(Color.clear)
           
           Section {
@@ -31,14 +31,14 @@ struct iOS_SettingsView: View {
           }
         }
         .navigationTitle("Account")
-        .navigationBarTitleDisplayMode(.inline)
+//        .navigationBarTitleDisplayMode(.inline)
         .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
       }
     }
   }
 }
 
-struct Avatar: View {
+private struct Avatar: View {
   let url: URL?
   var body: some View {
     AsyncImage(
@@ -74,8 +74,8 @@ struct Avatar: View {
   }
 }
 
-struct iOS_SettingsView_Previews: PreviewProvider {
+struct SettingsView_Previews: PreviewProvider {
   static var previews: some View {
-    iOS_SettingsView(store: SettingsState.defaultStore)
+    SettingsView(store: SettingsState.defaultStore)
   }
 }

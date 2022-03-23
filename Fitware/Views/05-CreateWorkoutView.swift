@@ -3,37 +3,38 @@ import ComposableArchitecture
 import CreateWorkout
 import Exercise
 
-struct iOS_CreateWorkoutView: View {
+struct CreateWorkoutView: View {
   let store: Store<CreateWorkoutState, CreateWorkoutAction>
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      NavigationView {
-        List {
-          Section("Details") {
-            HStack {
-              Text("Name:")
-                .bold()
-              TextField("Name", text: viewStore.binding(\.$name))
-            }
-          }
-          Section("Exercises") {
-            ForEachStore(store.scope(
-              state: \.exercises,
-              action: CreateWorkoutAction.exercises
-            ),content: CellView.init(store:))
+      List {
+        Section("Details") {
+          HStack {
+            Text("Name:")
+              .bold()
+            TextField("Name", text: viewStore.binding(\.$name))
           }
         }
-        .buttonStyle(.plain)
-        .navigationTitle("Create Workout")
-        .onAppear { viewStore.send(.fetchExercises) }
-        .toolbar {
-          Button("Done") {
-            viewStore.send(.createWorkout)
-          }
-          .foregroundColor(.blue)
+        Section("Exercises") {
+          ForEachStore(store.scope(
+            state: \.exercises,
+            action: CreateWorkoutAction.exercises
+          ),content: CellView.init(store:))
         }
       }
+      .buttonStyle(.plain)
+      .navigationTitle("Create Workout")
+      .onAppear { viewStore.send(.fetchExercises) }
+      .toolbar {
+        Button("Done") {
+          viewStore.send(.createWorkout)
+        }
+        .foregroundColor(.blue)
+      }
+#if os(macOS)
+      .frame(width: 500, height: 500)
+#endif
     }
   }
 }
@@ -63,8 +64,8 @@ private struct CellView: View {
 
 
 
-struct iOS_CreateWorkoutView_Previews: PreviewProvider {
+struct CreateWorkoutView_Previews: PreviewProvider {
   static var previews: some View {
-    iOS_CreateWorkoutView(store: CreateWorkoutState.defaultStore)
+    CreateWorkoutView(store: CreateWorkoutState.defaultStore)
   }
 }

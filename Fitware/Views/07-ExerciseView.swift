@@ -1,8 +1,8 @@
 import SwiftUI
-import Exercise
 import ComposableArchitecture
+import Exercise
 
-struct macOS_ExerciseView: View {
+struct ExerciseView: View {
   let store: Store<ExerciseState, ExerciseAction>
   let url = "https://www.id-design.com/videos/21021201-Sitting-Toe-Pull-Calf-Stretch_Calves_.mp4"
   
@@ -10,8 +10,8 @@ struct macOS_ExerciseView: View {
     WithViewStore(store) { viewStore in
       NavigationLink(viewStore.name) {
         List {
-//          VideoPlayer(player: AVPlayer(url: URL(string: url)!))
-//            .aspectRatio(1920/1080, contentMode: .fit)
+          //          VideoPlayer(player: AVPlayer(url: URL(string: url)!))
+          //            .aspectRatio(1920/1080, contentMode: .fit)
           Section("Details") {
             prompt("ID", "\(viewStore.id)")
             prompt("Name", viewStore.name)
@@ -46,9 +46,8 @@ struct macOS_ExerciseView: View {
   }
 }
 
-// MARK: SwiftUI Previews
-struct macOS_ExerciseView_Previews: PreviewProvider {
+struct ExerciseView_Previews: PreviewProvider {
   static var previews: some View {
-    macOS_ExerciseView(store: ExerciseState.defaultStore)
+    ExerciseView(store: ExerciseState.defaultStore)
   }
 }

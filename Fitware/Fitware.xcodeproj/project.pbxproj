@@ -7,31 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		330D486127EA4A290011A95C /* iOS_CreateWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330D486027EA4A290011A95C /* iOS_CreateWorkoutView.swift */; };
-		331F92FF27EA32CA00AD6772 /* iOS_WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F92FE27EA32CA00AD6772 /* iOS_WorkoutView.swift */; };
 		331F930427EA3BC900AD6772 /* ExerciseList in Resources */ = {isa = PBXBuildFile; fileRef = 331F930327EA3BC900AD6772 /* ExerciseList */; };
 		331F930527EA3BC900AD6772 /* ExerciseList in Resources */ = {isa = PBXBuildFile; fileRef = 331F930327EA3BC900AD6772 /* ExerciseList */; };
-		331F95B027E53E1500863C09 /* iOS_SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F95AF27E53E1500863C09 /* iOS_SettingsView.swift */; };
-		331F95B227E53EB800863C09 /* macOS_SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F95B127E53EB800863C09 /* macOS_SettingsView.swift */; };
-		3328D27027E4EDE300A7F871 /* macOS_AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D26F27E4EDE300A7F871 /* macOS_AuthView.swift */; };
-		3328D27427E4EE3B00A7F871 /* iOS_AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D27327E4EE3B00A7F871 /* iOS_AuthView.swift */; };
-		3328D27527E4EF2200A7F871 /* iOS_AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D27327E4EE3B00A7F871 /* iOS_AuthView.swift */; };
-		3328D27727E4EFEA00A7F871 /* iOS_ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D27627E4EFEA00A7F871 /* iOS_ExerciseListView.swift */; };
-		3328D27927E4F01E00A7F871 /* macOS_ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D27827E4F01E00A7F871 /* macOS_ExerciseListView.swift */; };
-		3328D28127E4F40B00A7F871 /* iOS_AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D28027E4F40B00A7F871 /* iOS_AppView.swift */; };
-		3328D28327E4F4A200A7F871 /* iOS_ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D28227E4F4A200A7F871 /* iOS_ExerciseView.swift */; };
-		3328D28527E4F4AF00A7F871 /* macOS_ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D28427E4F4AF00A7F871 /* macOS_ExerciseView.swift */; };
-		3328D28727E4F4C600A7F871 /* iOS_UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D28627E4F4C600A7F871 /* iOS_UserView.swift */; };
-		3328D28B27E4F50A00A7F871 /* macOS_AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D28A27E4F50A00A7F871 /* macOS_AppView.swift */; };
-		3328D28D27E4F6BE00A7F871 /* macOS_UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D28C27E4F6BE00A7F871 /* macOS_UserView.swift */; };
 		333B9D4F27EAAFEB005DB437 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333B9D4E27EAAFEB005DB437 /* ToggleButton.swift */; };
 		333B9D5027EAAFEB005DB437 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333B9D4E27EAAFEB005DB437 /* ToggleButton.swift */; };
 		334E419827E4C6D9006AD09D /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E418827E4C6D8006AD09D /* Main.swift */; };
 		334E419927E4C6D9006AD09D /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E418827E4C6D8006AD09D /* Main.swift */; };
 		334E419C27E4C6D9006AD09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 334E418A27E4C6D8006AD09D /* Assets.xcassets */; };
 		334E419D27E4C6D9006AD09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 334E418A27E4C6D8006AD09D /* Assets.xcassets */; };
-		3370445D27E506CE000E0154 /* iOS_WorkoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3370445C27E506CE000E0154 /* iOS_WorkoutListView.swift */; };
-		3370446127E5134F000E0154 /* macOS_WorkoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3370446027E5134F000E0154 /* macOS_WorkoutListView.swift */; };
+		334F3F8627EBAAEF007156CC /* 00-AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F8527EBAAEF007156CC /* 00-AppView.swift */; };
+		334F3F8727EBAAEF007156CC /* 00-AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F8527EBAAEF007156CC /* 00-AppView.swift */; };
+		334F3F8927EBAB1C007156CC /* 01-AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F8827EBAB1C007156CC /* 01-AuthView.swift */; };
+		334F3F8A27EBAB1C007156CC /* 01-AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F8827EBAB1C007156CC /* 01-AuthView.swift */; };
+		334F3F8C27EBAB75007156CC /* 05-CreateWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F8B27EBAB75007156CC /* 05-CreateWorkoutView.swift */; };
+		334F3F8D27EBAB75007156CC /* 05-CreateWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F8B27EBAB75007156CC /* 05-CreateWorkoutView.swift */; };
+		334F3F8F27EBABA2007156CC /* 02-UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F8E27EBABA2007156CC /* 02-UserView.swift */; };
+		334F3F9027EBABA2007156CC /* 02-UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F8E27EBABA2007156CC /* 02-UserView.swift */; };
+		334F3F9227EBABD9007156CC /* 08-SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9127EBABD9007156CC /* 08-SettingsView.swift */; };
+		334F3F9327EBABD9007156CC /* 08-SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9127EBABD9007156CC /* 08-SettingsView.swift */; };
+		334F3F9527EBAC4D007156CC /* 03-WorkoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9427EBAC4D007156CC /* 03-WorkoutListView.swift */; };
+		334F3F9627EBAC4D007156CC /* 03-WorkoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9427EBAC4D007156CC /* 03-WorkoutListView.swift */; };
+		334F3F9827EBAC8B007156CC /* 06-ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9727EBAC8B007156CC /* 06-ExerciseListView.swift */; };
+		334F3F9927EBAC8B007156CC /* 06-ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9727EBAC8B007156CC /* 06-ExerciseListView.swift */; };
+		334F3F9B27EBAD4E007156CC /* 07-ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9A27EBAD4E007156CC /* 07-ExerciseView.swift */; };
+		334F3F9C27EBAD4E007156CC /* 07-ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9A27EBAD4E007156CC /* 07-ExerciseView.swift */; };
+		334F3F9E27EBAD81007156CC /* 04-WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9D27EBAD81007156CC /* 04-WorkoutView.swift */; };
+		334F3F9F27EBAD81007156CC /* 04-WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9D27EBAD81007156CC /* 04-WorkoutView.swift */; };
 		3383958027E4C7A9000376BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3383957F27E4C7A9000376BF /* GoogleService-Info.plist */; };
 		3383958127E4C7A9000376BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3383957F27E4C7A9000376BF /* GoogleService-Info.plist */; };
 		3383959727E4CFFD000376BF /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 3383959627E4CFFD000376BF /* App */; };
@@ -39,29 +40,22 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		330D486027EA4A290011A95C /* iOS_CreateWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_CreateWorkoutView.swift; sourceTree = "<group>"; };
-		331F92FE27EA32CA00AD6772 /* iOS_WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_WorkoutView.swift; sourceTree = "<group>"; };
 		331F930327EA3BC900AD6772 /* ExerciseList */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExerciseList; sourceTree = "<group>"; };
-		331F95AF27E53E1500863C09 /* iOS_SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_SettingsView.swift; sourceTree = "<group>"; };
-		331F95B127E53EB800863C09 /* macOS_SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_SettingsView.swift; sourceTree = "<group>"; };
-		3328D26F27E4EDE300A7F871 /* macOS_AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_AuthView.swift; sourceTree = "<group>"; };
-		3328D27327E4EE3B00A7F871 /* iOS_AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_AuthView.swift; sourceTree = "<group>"; };
-		3328D27627E4EFEA00A7F871 /* iOS_ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_ExerciseListView.swift; sourceTree = "<group>"; };
-		3328D27827E4F01E00A7F871 /* macOS_ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_ExerciseListView.swift; sourceTree = "<group>"; };
-		3328D28027E4F40B00A7F871 /* iOS_AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_AppView.swift; sourceTree = "<group>"; };
-		3328D28227E4F4A200A7F871 /* iOS_ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_ExerciseView.swift; sourceTree = "<group>"; };
-		3328D28427E4F4AF00A7F871 /* macOS_ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_ExerciseView.swift; sourceTree = "<group>"; };
-		3328D28627E4F4C600A7F871 /* iOS_UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_UserView.swift; sourceTree = "<group>"; };
-		3328D28A27E4F50A00A7F871 /* macOS_AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_AppView.swift; sourceTree = "<group>"; };
-		3328D28C27E4F6BE00A7F871 /* macOS_UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_UserView.swift; sourceTree = "<group>"; };
 		333B9D4E27EAAFEB005DB437 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		334E418827E4C6D8006AD09D /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		334E418A27E4C6D8006AD09D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		334E418F27E4C6D9006AD09D /* Fitware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitware.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		334E419527E4C6D9006AD09D /* Fitware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitware.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		334E419727E4C6D9006AD09D /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		3370445C27E506CE000E0154 /* iOS_WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_WorkoutListView.swift; sourceTree = "<group>"; };
-		3370446027E5134F000E0154 /* macOS_WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_WorkoutListView.swift; sourceTree = "<group>"; };
+		334F3F8527EBAAEF007156CC /* 00-AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "00-AppView.swift"; sourceTree = "<group>"; };
+		334F3F8827EBAB1C007156CC /* 01-AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "01-AuthView.swift"; sourceTree = "<group>"; };
+		334F3F8B27EBAB75007156CC /* 05-CreateWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "05-CreateWorkoutView.swift"; sourceTree = "<group>"; };
+		334F3F8E27EBABA2007156CC /* 02-UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "02-UserView.swift"; sourceTree = "<group>"; };
+		334F3F9127EBABD9007156CC /* 08-SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "08-SettingsView.swift"; sourceTree = "<group>"; };
+		334F3F9427EBAC4D007156CC /* 03-WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "03-WorkoutListView.swift"; sourceTree = "<group>"; };
+		334F3F9727EBAC8B007156CC /* 06-ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "06-ExerciseListView.swift"; sourceTree = "<group>"; };
+		334F3F9A27EBAD4E007156CC /* 07-ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "07-ExerciseView.swift"; sourceTree = "<group>"; };
+		334F3F9D27EBAD81007156CC /* 04-WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "04-WorkoutView.swift"; sourceTree = "<group>"; };
 		3383957F27E4C7A9000376BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3383958227E4CBE9000376BF /* iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS-Info.plist"; sourceTree = "<group>"; };
 		3383959527E4CD6E000376BF /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
@@ -90,8 +84,15 @@
 		331F930627EA3DAE00AD6772 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				334E41A627E4C70B006AD09D /* iOS */,
-				334E419627E4C6D9006AD09D /* macOS */,
+				334F3F8527EBAAEF007156CC /* 00-AppView.swift */,
+				334F3F8827EBAB1C007156CC /* 01-AuthView.swift */,
+				334F3F8E27EBABA2007156CC /* 02-UserView.swift */,
+				334F3F9427EBAC4D007156CC /* 03-WorkoutListView.swift */,
+				334F3F9D27EBAD81007156CC /* 04-WorkoutView.swift */,
+				334F3F8B27EBAB75007156CC /* 05-CreateWorkoutView.swift */,
+				334F3F9727EBAC8B007156CC /* 06-ExerciseListView.swift */,
+				334F3F9A27EBAD4E007156CC /* 07-ExerciseView.swift */,
+				334F3F9127EBABD9007156CC /* 08-SettingsView.swift */,
 				333B9D4E27EAAFEB005DB437 /* ToggleButton.swift */,
 			);
 			path = Views;
@@ -127,36 +128,6 @@
 				334E419527E4C6D9006AD09D /* Fitware.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		334E419627E4C6D9006AD09D /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				3328D28A27E4F50A00A7F871 /* macOS_AppView.swift */,
-				3328D26F27E4EDE300A7F871 /* macOS_AuthView.swift */,
-				3328D27827E4F01E00A7F871 /* macOS_ExerciseListView.swift */,
-				3328D28427E4F4AF00A7F871 /* macOS_ExerciseView.swift */,
-				3370446027E5134F000E0154 /* macOS_WorkoutListView.swift */,
-				331F95B127E53EB800863C09 /* macOS_SettingsView.swift */,
-				3328D28C27E4F6BE00A7F871 /* macOS_UserView.swift */,
-			);
-			path = macOS;
-			sourceTree = "<group>";
-		};
-		334E41A627E4C70B006AD09D /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				3328D28027E4F40B00A7F871 /* iOS_AppView.swift */,
-				3328D27327E4EE3B00A7F871 /* iOS_AuthView.swift */,
-				330D486027EA4A290011A95C /* iOS_CreateWorkoutView.swift */,
-				3370445C27E506CE000E0154 /* iOS_WorkoutListView.swift */,
-				331F92FE27EA32CA00AD6772 /* iOS_WorkoutView.swift */,
-				3328D27627E4EFEA00A7F871 /* iOS_ExerciseListView.swift */,
-				3328D28227E4F4A200A7F871 /* iOS_ExerciseView.swift */,
-				3328D28627E4F4C600A7F871 /* iOS_UserView.swift */,
-				331F95AF27E53E1500863C09 /* iOS_SettingsView.swift */,
-			);
-			path = iOS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,17 +238,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3328D28327E4F4A200A7F871 /* iOS_ExerciseView.swift in Sources */,
-				3370445D27E506CE000E0154 /* iOS_WorkoutListView.swift in Sources */,
-				330D486127EA4A290011A95C /* iOS_CreateWorkoutView.swift in Sources */,
-				331F92FF27EA32CA00AD6772 /* iOS_WorkoutView.swift in Sources */,
+				334F3F9B27EBAD4E007156CC /* 07-ExerciseView.swift in Sources */,
+				334F3F9527EBAC4D007156CC /* 03-WorkoutListView.swift in Sources */,
+				334F3F8C27EBAB75007156CC /* 05-CreateWorkoutView.swift in Sources */,
+				334F3F9827EBAC8B007156CC /* 06-ExerciseListView.swift in Sources */,
+				334F3F8927EBAB1C007156CC /* 01-AuthView.swift in Sources */,
 				334E419827E4C6D9006AD09D /* Main.swift in Sources */,
-				3328D28727E4F4C600A7F871 /* iOS_UserView.swift in Sources */,
-				3328D27427E4EE3B00A7F871 /* iOS_AuthView.swift in Sources */,
-				3328D27727E4EFEA00A7F871 /* iOS_ExerciseListView.swift in Sources */,
+				334F3F8F27EBABA2007156CC /* 02-UserView.swift in Sources */,
+				334F3F9227EBABD9007156CC /* 08-SettingsView.swift in Sources */,
+				334F3F9E27EBAD81007156CC /* 04-WorkoutView.swift in Sources */,
+				334F3F8627EBAAEF007156CC /* 00-AppView.swift in Sources */,
 				333B9D4F27EAAFEB005DB437 /* ToggleButton.swift in Sources */,
-				3328D28127E4F40B00A7F871 /* iOS_AppView.swift in Sources */,
-				331F95B027E53E1500863C09 /* iOS_SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,16 +256,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3328D28527E4F4AF00A7F871 /* macOS_ExerciseView.swift in Sources */,
+				334F3F9327EBABD9007156CC /* 08-SettingsView.swift in Sources */,
+				334F3F9627EBAC4D007156CC /* 03-WorkoutListView.swift in Sources */,
 				333B9D5027EAAFEB005DB437 /* ToggleButton.swift in Sources */,
-				3328D28D27E4F6BE00A7F871 /* macOS_UserView.swift in Sources */,
-				331F95B227E53EB800863C09 /* macOS_SettingsView.swift in Sources */,
-				3370446127E5134F000E0154 /* macOS_WorkoutListView.swift in Sources */,
+				334F3F9F27EBAD81007156CC /* 04-WorkoutView.swift in Sources */,
+				334F3F8A27EBAB1C007156CC /* 01-AuthView.swift in Sources */,
+				334F3F9927EBAC8B007156CC /* 06-ExerciseListView.swift in Sources */,
+				334F3F8727EBAAEF007156CC /* 00-AppView.swift in Sources */,
 				334E419927E4C6D9006AD09D /* Main.swift in Sources */,
-				3328D28B27E4F50A00A7F871 /* macOS_AppView.swift in Sources */,
-				3328D27527E4EF2200A7F871 /* iOS_AuthView.swift in Sources */,
-				3328D27927E4F01E00A7F871 /* macOS_ExerciseListView.swift in Sources */,
-				3328D27027E4EDE300A7F871 /* macOS_AuthView.swift in Sources */,
+				334F3F9C27EBAD4E007156CC /* 07-ExerciseView.swift in Sources */,
+				334F3F8D27EBAB75007156CC /* 05-CreateWorkoutView.swift in Sources */,
+				334F3F9027EBABA2007156CC /* 02-UserView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
