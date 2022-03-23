@@ -48,8 +48,6 @@ struct ExerciseView: View {
 
 struct ExerciseView_Previews: PreviewProvider {
   static var previews: some View {
-    MultiDevicePreview {
-      ExerciseView(store: ExerciseState.defaultStore)
-    }
+    ExerciseView(store: ExerciseState.defaultStore)
   }
 }

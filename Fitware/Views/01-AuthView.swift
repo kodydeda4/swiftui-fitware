@@ -9,9 +9,9 @@ struct AuthView: View {
   var body: some View {
     WithViewStore(store) { viewStore in
       NavigationView {
-#if os(macOS)
+        #if os(macOS)
         List {}
-#endif
+        #endif
         List {
           Section("Email") {
             TextField("Email", text: viewStore.binding(\.$email))
@@ -39,8 +39,6 @@ struct AuthView: View {
 
 struct AuthView_Previews: PreviewProvider {
   static var previews: some View {
-    MultiDevicePreview {
-      AuthView(store: AuthState.defaultStore)
-    }
+    AuthView(store: AuthState.defaultStore)
   }
 }

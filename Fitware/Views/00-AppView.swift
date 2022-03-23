@@ -25,8 +25,6 @@ struct AppView: View {
 
 struct AppView_Previews: PreviewProvider {
   static var previews: some View {
-    MultiDevicePreview {
-      AppView()
-    }
+    AppView()
   }
 }

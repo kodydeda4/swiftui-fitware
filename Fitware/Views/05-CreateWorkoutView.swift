@@ -61,11 +61,11 @@ private struct CellView: View {
   }
 }
 
+
+
+
 struct CreateWorkoutView_Previews: PreviewProvider {
   static var previews: some View {
-    MultiDevicePreview {
-      CreateWorkoutView(store: CreateWorkoutState.defaultStore)
-    }
+    CreateWorkoutView(store: CreateWorkoutState.defaultStore)
   }
 }
-

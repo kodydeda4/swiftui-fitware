@@ -68,7 +68,7 @@ struct UserView: View {
         }
         .listStyle(.sidebar)
       }
-#endif
+      #endif
     }
   }
 }
@@ -90,8 +90,6 @@ private extension UserState.Route {
 
 struct UserView_Previews: PreviewProvider {
   static var previews: some View {
-    MultiDevicePreview {
-      UserView(store: UserState.defaultStore)
-    }
+    UserView(store: UserState.defaultStore)
   }
 }

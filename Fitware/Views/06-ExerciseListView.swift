@@ -20,8 +20,8 @@ struct ExerciseListView: View {
         .onAppear { viewStore.send(.fetchExercises) }
         .searchable(
           text: viewStore.binding(\.$searchText)
-          //          ,
-          //          placement: .navigationBarDrawer(displayMode: .always)
+//          ,
+//          placement: .navigationBarDrawer(displayMode: .always)
         )
       }
     }
@@ -30,9 +30,16 @@ struct ExerciseListView: View {
 
 struct ExerciseListView_Previews: PreviewProvider {
   static var previews: some View {
-    MultiDevicePreview {
-      ExerciseListView(store: ExerciseListState.defaultStore)
-    }
+    ExerciseListView(store: ExerciseListState.defaultStore)
+      .previewDevice(.iPhone13ProMax)
+    
+    ExerciseListView(store: ExerciseListState.defaultStore)
+      .previewDevice(.mac)
+
   }
 }
 
+extension PreviewDevice {
+  static let iPhone13ProMax = PreviewDevice(rawValue: "iPhone 13 Pro Max")
+  static let mac = PreviewDevice(rawValue: "mac")
+}
