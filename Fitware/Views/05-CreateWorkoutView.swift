@@ -27,14 +27,26 @@ struct CreateWorkoutView: View {
       .navigationTitle("Create Workout")
       .onAppear { viewStore.send(.fetchExercises) }
       .toolbar {
-        Button("Done") {
-          viewStore.send(.createWorkout)
+        ToolbarItemGroup {
+          Button("Done") {
+            viewStore.send(.createWorkout)
+          }
+          .foregroundColor(.blue)
         }
-        .foregroundColor(.blue)
       }
-#if os(macOS)
+#if os(iOS)
+      .navigationView()
+#elseif os(macOS)
       .frame(width: 500, height: 500)
 #endif
+    }
+  }
+}
+
+private extension View {
+  func navigationView() -> some View {
+    NavigationView {
+      self
     }
   }
 }
@@ -47,13 +59,25 @@ private struct CellView: View {
     WithViewStore(store) { viewStore in
       ToggleButton(toggle: viewStore.binding(\.$selected)) {
         HStack {
+          RoundedRectangle(cornerRadius: 12, style: .continuous)
+            .foregroundColor(.accentColor)
+            .frame(width: 34, height: 34)
+          
+          VStack(alignment: .leading) {
+            Text(viewStore.name)
+            Text(viewStore.bodypart)
+              .foregroundColor(.gray)
+          }
+
+          Spacer()
+          
           Image(systemName: viewStore.selected ? "minus" : "plus")
             .frame(width: 20, height: 20)
             .background(viewStore.selected ? Color.red : Color.green)
             .foregroundColor(.white)
             .clipShape(Circle())
           
-          Text(viewStore.name)
+          
         }
       }
       .opacity(viewStore.selected ? 1 : 0.5)

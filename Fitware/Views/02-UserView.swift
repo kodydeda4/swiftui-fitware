@@ -64,7 +64,6 @@ struct UserView: View {
             },
             label: { UserState.Route.settings.label }
           )
-          
         }
         .listStyle(.sidebar)
       }

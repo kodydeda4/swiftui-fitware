@@ -4,8 +4,6 @@ import ComposableArchitecture
 import App
 import Workout
 import WorkoutList
-import WorkoutListClient
-import Exercise
 
 struct WorkoutListView: View {
   let store: Store<WorkoutListState, WorkoutListAction>
@@ -26,13 +24,20 @@ struct WorkoutListView: View {
         .refreshable { viewStore.send(.fetchWorkouts) }
         .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
         .toolbar {
-          ToolbarItemGroup {
-            Button("Create") {
+          Menu(content: {
+            Button(action: {
               viewStore.send(.createWorkoutButtonTapped)
+            }) {
+              Label("Create New", systemImage: "plus")
             }
-            //            Button("Clear All") {
-            //              viewStore.send(.clearAll)
-            //            }
+            Button(
+              role: .destructive,
+              action: { viewStore.send(.clearAll) }
+            ) {
+              Label("Clear All", systemImage: "trash")
+            }
+          }) {
+            Label("Menu", systemImage: "ellipsis.circle")
           }
         }
         .sheet(isPresented: viewStore.binding(
@@ -73,16 +78,6 @@ struct WorkoutNavigationLinkView: View {
   }
 }
 
-private struct ExerciseCellView: View {
-  let store: Store<ExerciseState, ExerciseAction>
-  
-  var body: some View {
-    WithViewStore(store) { viewStore in
-      Text(viewStore.name)
-        .lineLimit(1)
-    }
-  }
-}
 struct WorkoutListView_Previews: PreviewProvider {
   static var previews: some View {
     WorkoutListView(store: WorkoutListState.defaultStore)
