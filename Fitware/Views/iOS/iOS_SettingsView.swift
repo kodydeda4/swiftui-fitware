@@ -10,35 +10,7 @@ struct iOS_SettingsView: View {
       NavigationView {
         List {
           VStack(alignment: .center) {
-            AsyncImage(
-              url: viewStore.user.photoURL ?? URL(string: "https://www.google.com")!,
-              transaction: Transaction(animation: .spring())
-            ) { phase in
-              switch phase {
-                
-              case .empty:
-                ProgressView()
-                
-              case let .success(image):
-                image
-                  .resizable()
-                  .scaledToFill()
-                
-              case .failure:
-                Image(systemName: "person.crop.circle.fill")
-                  .resizable()
-                  .scaledToFit()
-                  .foregroundColor(.gray)
-                
-              @unknown default:
-                Image(systemName: "exclamationmark.icloud")
-                  .resizable()
-                  .scaledToFit()
-              }
-            }
-            .frame(width: 75, height: 75)
-            .background(GroupBox { Color.clear })
-            .clipShape(Circle())
+            Avatar(url: viewStore.user.photoURL)
             
             Text(viewStore.user.displayName ?? "Guest")
               .font(.title2)
@@ -63,6 +35,42 @@ struct iOS_SettingsView: View {
         .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
       }
     }
+  }
+}
+
+struct Avatar: View {
+  let url: URL?
+  var body: some View {
+    AsyncImage(
+      url: url ?? URL(string: "https://www.google.com")!,
+      transaction: Transaction(animation: .spring())
+    ) { phase in
+      switch phase {
+        
+      case .empty:
+        ProgressView()
+        
+      case let .success(image):
+        image
+          .resizable()
+          .scaledToFill()
+        
+      case .failure:
+        Image(systemName: "person.crop.circle.fill")
+          .resizable()
+          .scaledToFit()
+          .foregroundColor(.gray)
+        
+      @unknown default:
+        Image(systemName: "exclamationmark.icloud")
+          .resizable()
+          .scaledToFit()
+      }
+    }
+    .frame(width: 75, height: 75)
+    .background(GroupBox { Color.clear })
+    .clipShape(Circle())
+
   }
 }
 

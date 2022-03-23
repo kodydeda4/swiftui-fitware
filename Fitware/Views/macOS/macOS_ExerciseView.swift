@@ -10,8 +10,8 @@ struct macOS_ExerciseView: View {
     WithViewStore(store) { viewStore in
       NavigationLink(viewStore.name) {
         List {
-          //          VideoPlayer(player: AVPlayer(url: URL(string: url)!))
-          //            .aspectRatio(1920/1080, contentMode: .fit)
+//          VideoPlayer(player: AVPlayer(url: URL(string: url)!))
+//            .aspectRatio(1920/1080, contentMode: .fit)
           Section("Details") {
             prompt("ID", "\(viewStore.id)")
             prompt("Name", viewStore.name)
@@ -19,11 +19,21 @@ struct macOS_ExerciseView: View {
             prompt("Bodypart", viewStore.bodypart)
             prompt("Equipment", viewStore.equipment)
             prompt("Gender", viewStore.gender)
-            prompt("Target", viewStore.primaryMuscle)
-            prompt("Synergist", viewStore.synergist)
+          }
+          
+          Section("Primary") {
+            ForEach(viewStore.primaryMuscles, id: \.self) {
+              Text($0)
+            }
+          }
+          Section("Secondary") {
+            ForEach(viewStore.secondaryMuscles, id: \.self) {
+              Text($0)
+            }
           }
         }
         .lineLimit(1)
+        .navigationTitle(viewStore.name)
       }
     }
   }

@@ -24,6 +24,8 @@
 		3328D28727E4F4C600A7F871 /* iOS_UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D28627E4F4C600A7F871 /* iOS_UserView.swift */; };
 		3328D28B27E4F50A00A7F871 /* macOS_AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D28A27E4F50A00A7F871 /* macOS_AppView.swift */; };
 		3328D28D27E4F6BE00A7F871 /* macOS_UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3328D28C27E4F6BE00A7F871 /* macOS_UserView.swift */; };
+		333B9D4F27EAAFEB005DB437 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333B9D4E27EAAFEB005DB437 /* ToggleButton.swift */; };
+		333B9D5027EAAFEB005DB437 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333B9D4E27EAAFEB005DB437 /* ToggleButton.swift */; };
 		334E419827E4C6D9006AD09D /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E418827E4C6D8006AD09D /* Main.swift */; };
 		334E419927E4C6D9006AD09D /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E418827E4C6D8006AD09D /* Main.swift */; };
 		334E419C27E4C6D9006AD09D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 334E418A27E4C6D8006AD09D /* Assets.xcassets */; };
@@ -52,6 +54,7 @@
 		3328D28627E4F4C600A7F871 /* iOS_UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_UserView.swift; sourceTree = "<group>"; };
 		3328D28A27E4F50A00A7F871 /* macOS_AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_AppView.swift; sourceTree = "<group>"; };
 		3328D28C27E4F6BE00A7F871 /* macOS_UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_UserView.swift; sourceTree = "<group>"; };
+		333B9D4E27EAAFEB005DB437 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		334E418827E4C6D8006AD09D /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		334E418A27E4C6D8006AD09D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		334E418F27E4C6D9006AD09D /* Fitware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fitware.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +92,7 @@
 			children = (
 				334E41A627E4C70B006AD09D /* iOS */,
 				334E419627E4C6D9006AD09D /* macOS */,
+				333B9D4E27EAAFEB005DB437 /* ToggleButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -271,6 +275,7 @@
 				3328D28727E4F4C600A7F871 /* iOS_UserView.swift in Sources */,
 				3328D27427E4EE3B00A7F871 /* iOS_AuthView.swift in Sources */,
 				3328D27727E4EFEA00A7F871 /* iOS_ExerciseListView.swift in Sources */,
+				333B9D4F27EAAFEB005DB437 /* ToggleButton.swift in Sources */,
 				3328D28127E4F40B00A7F871 /* iOS_AppView.swift in Sources */,
 				331F95B027E53E1500863C09 /* iOS_SettingsView.swift in Sources */,
 			);
@@ -281,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3328D28527E4F4AF00A7F871 /* macOS_ExerciseView.swift in Sources */,
+				333B9D5027EAAFEB005DB437 /* ToggleButton.swift in Sources */,
 				3328D28D27E4F6BE00A7F871 /* macOS_UserView.swift in Sources */,
 				331F95B227E53EB800863C09 /* macOS_SettingsView.swift in Sources */,
 				3370446127E5134F000E0154 /* macOS_WorkoutListView.swift in Sources */,

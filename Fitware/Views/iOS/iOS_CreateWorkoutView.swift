@@ -61,11 +61,6 @@ private struct CellView: View {
 }
 
 
-struct ToggleButton<Label>: View where Label: View {
-  @Binding var toggle: Bool
-  @ViewBuilder let label: () -> Label
-  var body: some View { Button(action: { toggle.toggle() }, label: label) }
-}
 
 
 struct iOS_CreateWorkoutView_Previews: PreviewProvider {
