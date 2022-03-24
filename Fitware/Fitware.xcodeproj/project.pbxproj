@@ -37,6 +37,8 @@
 		3396A0FC27E4D9DA008B5F68 /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 3396A0FB27E4D9DA008B5F68 /* App */; };
 		33E39DD327ECFDD200DD85F3 /* ExercisesJSON in Resources */ = {isa = PBXBuildFile; fileRef = 33E39DD227ECFDD200DD85F3 /* ExercisesJSON */; };
 		33E39DD427ECFDD200DD85F3 /* ExercisesJSON in Resources */ = {isa = PBXBuildFile; fileRef = 33E39DD227ECFDD200DD85F3 /* ExercisesJSON */; };
+		33E39DD627ED103300DD85F3 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E39DD527ED103300DD85F3 /* CustomPickerView.swift */; };
+		33E39DD727ED103300DD85F3 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E39DD527ED103300DD85F3 /* CustomPickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,7 @@
 		3383958227E4CBE9000376BF /* iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS-Info.plist"; sourceTree = "<group>"; };
 		3383959527E4CD6E000376BF /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
 		33E39DD227ECFDD200DD85F3 /* ExercisesJSON */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExercisesJSON; sourceTree = "<group>"; };
+		33E39DD527ED103300DD85F3 /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,7 @@
 				334F3F9A27EBAD4E007156CC /* 07-ExerciseView.swift */,
 				334F3F9127EBABD9007156CC /* 08-SettingsView.swift */,
 				333B9D4E27EAAFEB005DB437 /* ToggleButton.swift */,
+				33E39DD527ED103300DD85F3 /* CustomPickerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,6 +251,7 @@
 				334F3F8F27EBABA2007156CC /* 02-UserView.swift in Sources */,
 				334F3F9227EBABD9007156CC /* 08-SettingsView.swift in Sources */,
 				334F3F9E27EBAD81007156CC /* 04-WorkoutView.swift in Sources */,
+				33E39DD627ED103300DD85F3 /* CustomPickerView.swift in Sources */,
 				334F3F8627EBAAEF007156CC /* 00-AppView.swift in Sources */,
 				333B9D4F27EAAFEB005DB437 /* ToggleButton.swift in Sources */,
 			);
@@ -265,6 +270,7 @@
 				334F3F8727EBAAEF007156CC /* 00-AppView.swift in Sources */,
 				334E419927E4C6D9006AD09D /* Main.swift in Sources */,
 				334F3F9C27EBAD4E007156CC /* 07-ExerciseView.swift in Sources */,
+				33E39DD727ED103300DD85F3 /* CustomPickerView.swift in Sources */,
 				334F3F8D27EBAB75007156CC /* 05-CreateWorkoutView.swift in Sources */,
 				334F3F9027EBABA2007156CC /* 02-UserView.swift in Sources */,
 			);

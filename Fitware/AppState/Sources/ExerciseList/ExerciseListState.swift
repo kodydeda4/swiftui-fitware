@@ -7,8 +7,20 @@ import ExerciseListClient
 public struct ExerciseListState {
   public var alert: AlertState<ExerciseListAction>?
   public var exercises: IdentifiedArrayOf<ExerciseState>
-  public var searchResults: IdentifiedArrayOf<ExerciseState> { exercises.search(\.model.name, for: searchText) }
+  public var searchResults: IdentifiedArrayOf<ExerciseState> {
+    exercises.search(\.model.name, for: searchText)
+      .filter({ sex.contains($0.model.sex) })
+//      .filter {
+//        $0.bodyparts
+//      }
+  }
   @BindableState public var searchText: String
+  @BindableState public var bodyparts = Set(BodyPart.allCases)
+  @BindableState public var equipment = Set(Equipment.allCases)
+  @BindableState public var sex       = Set(Sex.allCases)
+  @BindableState public var type      = Set(ExerciseType.allCases)
+  @BindableState public var primary   = Set(Muscle.allCases)
+  @BindableState public var secondary = Set(Muscle.allCases)
   
   public init(
     alert: AlertState<ExerciseListAction>? = nil,
