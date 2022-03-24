@@ -16,8 +16,8 @@ struct ExerciseListView: View {
             CustomPickerView("Equipment", Equipment.allCases,     viewStore.binding(\.$equipment))
             CustomPickerView("Sex",       Sex.allCases,           viewStore.binding(\.$sex))
             CustomPickerView("Type",      ExerciseType.allCases,  viewStore.binding(\.$type))
-            CustomPickerView("Primary",   Muscle.allCases,        viewStore.binding(\.$primary))
-            CustomPickerView("Secondary", Muscle.allCases,        viewStore.binding(\.$secondary))
+//            CustomPickerView("Primary",   Muscle.allCases,        viewStore.binding(\.$primary))
+//            CustomPickerView("Secondary", Muscle.allCases,        viewStore.binding(\.$secondary))
           }
           Section(header: HStack {
             Text("Results")
