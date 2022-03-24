@@ -13,8 +13,9 @@ struct ExerciseListView: View {
           ForEachStore(store.scope(
             state: \.searchResults,
             action: ExerciseListAction.exercises
-          ), content: ExerciseView.init(store:))
+          ), content: ExerciseNavigationLinkView.init(store:))
         }
+        .listStyle(.plain)
         .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
         .navigationTitle("Exercises")
         .onAppear { viewStore.send(.fetchExercises) }

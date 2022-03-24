@@ -18,7 +18,7 @@ struct WorkoutView: View {
           ForEachStore(store.scope(
             state: \.exercises,
             action: WorkoutAction.exercises
-          ), content: ExerciseView.init(store:))
+          ), content: ExerciseNavigationLinkView.init(store:))
         }
       }
       .navigationTitle(viewStore.text)
