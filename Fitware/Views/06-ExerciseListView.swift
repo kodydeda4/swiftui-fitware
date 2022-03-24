@@ -31,15 +31,5 @@ struct ExerciseListView: View {
 struct ExerciseListView_Previews: PreviewProvider {
   static var previews: some View {
     ExerciseListView(store: ExerciseListState.defaultStore)
-      .previewDevice(.iPhone13ProMax)
-    
-    ExerciseListView(store: ExerciseListState.defaultStore)
-      .previewDevice(.mac)
-
   }
-}
-
-extension PreviewDevice {
-  static let iPhone13ProMax = PreviewDevice(rawValue: "iPhone 13 Pro Max")
-  static let mac = PreviewDevice(rawValue: "mac")
 }

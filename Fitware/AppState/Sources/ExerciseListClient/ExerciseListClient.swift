@@ -13,28 +13,17 @@ public extension ExerciseListClient {
       Effect.future { callback in
         do {
           let rv = try JSONDecoder()
-            .decode([ExerciseModel].self, from: Data(contentsOf: url))
-            .map {
-              ExerciseState.init(
-                id: $0.id,
-                name: $0.name,
-                type: $0.type,
-                bodypart: $0.bodypart,
-                equipment: $0.equipment,
-                gender: $0.gender,
-                primaryMuscles: Array($0.target.components(separatedBy: ", ")),
-                secondaryMuscles: Array($0.synergist.components(separatedBy: ", "))
-              )
-            }
-          
+            .decode([Exercise].self, from: Data(contentsOf: url))
+            .map(ExerciseState.init)
+            
           return callback(.success(rv))
         }
         catch {
-          return callback(.failure(Failure("Failed to load")))
+          return callback(.failure(Failure(error.localizedDescription)))
         }
       }
     }
   )
 }
 
-private let url = Bundle.main.url(forResource: "ExerciseList", withExtension: nil)!
+private let url = Bundle.main.url(forResource: "ExercisesJSON", withExtension: nil)!

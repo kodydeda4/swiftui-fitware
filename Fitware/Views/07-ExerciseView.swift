@@ -8,32 +8,36 @@ struct ExerciseView: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      NavigationLink(viewStore.name) {
+      NavigationLink(viewStore.model.name) {
         List {
           //          VideoPlayer(player: AVPlayer(url: URL(string: url)!))
           //            .aspectRatio(1920/1080, contentMode: .fit)
           Section("Details") {
             prompt("ID", "\(viewStore.id)")
-            prompt("Name", viewStore.name)
-            prompt("Type", viewStore.type)
-            prompt("Bodypart", viewStore.bodypart)
-            prompt("Equipment", viewStore.equipment)
-            prompt("Gender", viewStore.gender)
+            prompt("Name", viewStore.model.name)
+            prompt("Type", viewStore.model.type.rawValue)
+            prompt("Equipment", viewStore.model.equipment.rawValue)
+            prompt("Sex", viewStore.model.sex.rawValue)
           }
           
+          Section("Body Parts") {
+            ForEach(viewStore.model.bodypart, id: \.self) {
+              Text($0.rawValue)
+            }
+          }
           Section("Primary") {
-            ForEach(viewStore.primaryMuscles, id: \.self) {
-              Text($0)
+            ForEach(viewStore.model.primaryMuscles, id: \.self) {
+              Text($0.rawValue)
             }
           }
           Section("Secondary") {
-            ForEach(viewStore.secondaryMuscles, id: \.self) {
-              Text($0)
+            ForEach(viewStore.model.secondaryMuscles, id: \.self) {
+              Text($0.rawValue)
             }
           }
         }
         .lineLimit(1)
-        .navigationTitle(viewStore.name)
+        .navigationTitle(viewStore.model.name)
       }
     }
   }

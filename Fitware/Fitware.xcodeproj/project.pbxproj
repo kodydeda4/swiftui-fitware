@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		331F930427EA3BC900AD6772 /* ExerciseList in Resources */ = {isa = PBXBuildFile; fileRef = 331F930327EA3BC900AD6772 /* ExerciseList */; };
-		331F930527EA3BC900AD6772 /* ExerciseList in Resources */ = {isa = PBXBuildFile; fileRef = 331F930327EA3BC900AD6772 /* ExerciseList */; };
 		333B9D4F27EAAFEB005DB437 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333B9D4E27EAAFEB005DB437 /* ToggleButton.swift */; };
 		333B9D5027EAAFEB005DB437 /* ToggleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333B9D4E27EAAFEB005DB437 /* ToggleButton.swift */; };
 		334E419827E4C6D9006AD09D /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334E418827E4C6D8006AD09D /* Main.swift */; };
@@ -37,10 +35,11 @@
 		3383958127E4C7A9000376BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3383957F27E4C7A9000376BF /* GoogleService-Info.plist */; };
 		3383959727E4CFFD000376BF /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 3383959627E4CFFD000376BF /* App */; };
 		3396A0FC27E4D9DA008B5F68 /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 3396A0FB27E4D9DA008B5F68 /* App */; };
+		33E39DD327ECFDD200DD85F3 /* ExercisesJSON in Resources */ = {isa = PBXBuildFile; fileRef = 33E39DD227ECFDD200DD85F3 /* ExercisesJSON */; };
+		33E39DD427ECFDD200DD85F3 /* ExercisesJSON in Resources */ = {isa = PBXBuildFile; fileRef = 33E39DD227ECFDD200DD85F3 /* ExercisesJSON */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		331F930327EA3BC900AD6772 /* ExerciseList */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExerciseList; sourceTree = "<group>"; };
 		333B9D4E27EAAFEB005DB437 /* ToggleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleButton.swift; sourceTree = "<group>"; };
 		334E418827E4C6D8006AD09D /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		334E418A27E4C6D8006AD09D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -59,6 +58,7 @@
 		3383957F27E4C7A9000376BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3383958227E4CBE9000376BF /* iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS-Info.plist"; sourceTree = "<group>"; };
 		3383959527E4CD6E000376BF /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
+		33E39DD227ECFDD200DD85F3 /* ExercisesJSON */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExercisesJSON; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +107,7 @@
 				3383959527E4CD6E000376BF /* iOS.entitlements */,
 				3383958227E4CBE9000376BF /* iOS-Info.plist */,
 				3383957F27E4C7A9000376BF /* GoogleService-Info.plist */,
-				331F930327EA3BC900AD6772 /* ExerciseList */,
+				33E39DD227ECFDD200DD85F3 /* ExercisesJSON */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -215,9 +215,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33E39DD327ECFDD200DD85F3 /* ExercisesJSON in Resources */,
 				334E419C27E4C6D9006AD09D /* Assets.xcassets in Resources */,
 				3383958027E4C7A9000376BF /* GoogleService-Info.plist in Resources */,
-				331F930427EA3BC900AD6772 /* ExerciseList in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,9 +225,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33E39DD427ECFDD200DD85F3 /* ExercisesJSON in Resources */,
 				334E419D27E4C6D9006AD09D /* Assets.xcassets in Resources */,
 				3383958127E4C7A9000376BF /* GoogleService-Info.plist in Resources */,
-				331F930527EA3BC900AD6772 /* ExerciseList in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

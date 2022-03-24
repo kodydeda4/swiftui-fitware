@@ -64,8 +64,8 @@ private struct CellView: View {
             .frame(width: 34, height: 34)
           
           VStack(alignment: .leading) {
-            Text(viewStore.name)
-            Text(viewStore.bodypart)
+            Text(viewStore.model.name)
+            Text(viewStore.model.bodypart.map(\.rawValue).joined(separator: ", "))
               .foregroundColor(.gray)
           }
 
@@ -76,8 +76,6 @@ private struct CellView: View {
             .background(viewStore.selected ? Color.red : Color.green)
             .foregroundColor(.white)
             .clipShape(Circle())
-          
-          
         }
       }
       .opacity(viewStore.selected ? 1 : 0.5)

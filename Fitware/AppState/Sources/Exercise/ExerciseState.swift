@@ -3,26 +3,15 @@ import Failure
 
 public struct ExerciseState {
   public let id: String
-  public let name: String
-  public let type: String
-  public let bodypart: String
-  public let equipment: String
-  public let gender: String
-  public let primaryMuscles: [String]
-  public let secondaryMuscles: [String]
+  public let model: Exercise
   @BindableState public var selected: Bool
   
   public init(
-    id: String, name: String, type: String, bodypart: String, equipment: String, gender: String, primaryMuscles: [String], secondaryMuscles: [String], selected: Bool = false) {
-    self.id = id
-    self.name = name
-    self.type = type
-    self.bodypart = bodypart
-    self.equipment = equipment
-    self.gender = gender
-    self.primaryMuscles = primaryMuscles
-    self.secondaryMuscles = secondaryMuscles
-    self.selected = selected
+    _ model: Exercise
+  ) {
+    self.id = model.id
+    self.model = model
+    self.selected = false
   }
 }
 
@@ -47,7 +36,7 @@ public let exerciseReducer = Reducer<
     
   case .binding:
     return .none
-        
+    
   }
 }.binding()
 
@@ -61,14 +50,25 @@ extension ExerciseAction: BindableAction {}
 public extension ExerciseState {
   static let defaultStore = Store(
     initialState: ExerciseState(
-      id: "510112",
-      name: "Dumbbell Single Power Clean",
-      type: "Strength",
-      bodypart: "Weightlifting",
-      equipment: "Dumbbell",
-      gender: "Male",
-      primaryMuscles: ["Adductor Magnus", "Biceps Brachii", "Clavicular Head"],
-      secondaryMuscles: [""]
+      Exercise(
+        id: "551412",
+        name: "Twist Crunch (Legs Up) (male)",
+        sex: .male,
+        equipment: .bodyWeight,
+        type: .strength,
+        bodypart: [
+          .waist
+        ],
+        primaryMuscles: [
+          .obliques,
+          .rectusAbdominis
+        ],
+        secondaryMuscles: [
+          .quadriceps,
+          .sartorius,
+          .tensorFasciaeLatae
+        ]
+      )
     ),
     reducer: exerciseReducer,
     environment: ExerciseEnvironment(
@@ -76,3 +76,6 @@ public extension ExerciseState {
     )
   )
 }
+
+
+
