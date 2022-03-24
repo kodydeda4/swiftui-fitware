@@ -4,7 +4,7 @@ import Exercise
 import Failure
 
 public struct ExerciseListClient {
-  public let fetchExercises: () -> Effect<[ExerciseState], Failure>
+  public let fetchExercises: () -> Effect<[Exercise], Failure>
 }
 
 public extension ExerciseListClient {
@@ -14,7 +14,6 @@ public extension ExerciseListClient {
         do {
           let rv = try JSONDecoder()
             .decode([Exercise].self, from: Data(contentsOf: url))
-            .map(ExerciseState.init)
             
           return callback(.success(rv))
         }
