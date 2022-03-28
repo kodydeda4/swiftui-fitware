@@ -18,7 +18,7 @@ public struct ExerciseListState {
 
   }
   @BindableState public var searchText: String
-  @BindableState public var bodyparts = Set<BodyPart>()//(BodyPart.allCases)
+  @BindableState public var bodyparts = Set<BodyPart>(BodyPart.allCases)
   @BindableState public var equipment = Set<Equipment>(Equipment.allCases)
   @BindableState public var sex       = Set<Sex>(Sex.allCases)
   @BindableState public var type      = Set<ExerciseType>(ExerciseType.allCases)

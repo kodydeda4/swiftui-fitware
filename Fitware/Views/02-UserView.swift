@@ -2,7 +2,7 @@ import SwiftUI
 import ComposableArchitecture
 import User
 
-struct UserView: View {
+struct HomeView: View {
   let store: Store<UserState, UserAction>
   
   var body: some View {
@@ -89,6 +89,6 @@ private extension UserState.Route {
 
 struct UserView_Previews: PreviewProvider {
   static var previews: some View {
-    UserView(store: UserState.defaultStore)
+    HomeView(store: UserState.defaultStore)
   }
 }

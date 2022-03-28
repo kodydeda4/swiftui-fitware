@@ -16,7 +16,7 @@ struct AppView: View {
         CaseLet(
           state: /AppState.user,
           action: AppAction.user,
-          then: UserView.init(store:)
+          then: HomeView.init(store:)
         )
       }
     }
