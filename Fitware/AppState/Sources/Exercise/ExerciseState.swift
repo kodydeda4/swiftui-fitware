@@ -49,10 +49,12 @@ extension ExerciseAction: BindableAction {}
 
 public extension ExerciseState {
   static let defaultStore = Store(
+    // Update this store, the information is incorrect
     initialState: ExerciseState(
       Exercise(
         id: "551412",
         name: "Twist Crunch (Legs Up) (male)",
+        video: URL(string: "https://www.id-design.com/videos/00011201_3_4_sit_up_waist_fix.mp4")!,
         sex: .male,
         equipment: .bodyWeight,
         type: .strength,

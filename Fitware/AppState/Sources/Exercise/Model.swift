@@ -1,6 +1,9 @@
+import Foundation
+
 public struct Exercise {
   public let id: String
   public let name: String
+  public let video: URL
   public let sex: Sex
   public let equipment: Equipment
   public let type: ExerciseType
@@ -8,9 +11,10 @@ public struct Exercise {
   public let primaryMuscles: [Muscle]
   public let secondaryMuscles: [Muscle]
   
-  public init(id: String, name: String, sex: Sex, equipment: Equipment, type: ExerciseType, bodypart: [BodyPart], primaryMuscles: [Muscle], secondaryMuscles: [Muscle]) {
+  public init(id: String, name: String, video: URL, sex: Sex, equipment: Equipment, type: ExerciseType, bodypart: [BodyPart], primaryMuscles: [Muscle], secondaryMuscles: [Muscle]) {
     self.id = id
     self.name = name
+    self.video = video
     self.sex = sex
     self.equipment = equipment
     self.type = type

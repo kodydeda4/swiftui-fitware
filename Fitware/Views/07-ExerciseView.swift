@@ -1,6 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 import Exercise
+import AVKit
 
 struct ExerciseNavigationLinkView: View {
   let store: Store<ExerciseState, ExerciseAction>
@@ -17,6 +18,9 @@ struct ExerciseNavigationLinkView: View {
   var destination: some View {
     WithViewStore(store) { viewStore in
       List {
+        VideoPlayer(player: AVPlayer(url: viewStore.model.video))
+          .aspectRatio(1920/1080, contentMode: .fit)
+
         Section("Details") {
           prompt("ID", "\(viewStore.id)")
           prompt("Name", viewStore.model.name)
