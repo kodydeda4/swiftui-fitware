@@ -52,23 +52,22 @@ public extension ExerciseState {
     // Update this store, the information is incorrect
     initialState: ExerciseState(
       Exercise(
-        id: "551412",
-        name: "Twist Crunch (Legs Up) (male)",
-        video: URL(string: "https://www.id-design.com/videos/00011201_3_4_sit_up_waist_fix.mp4")!,
+        id: "551612",
+        name: "Lever Reverse Vertical Hack Squat",
+        video: URL(string: "https://www.id-design.com/videos/55161201_lever_reverse_vertical_hack_squat_hips.mp4")!,
         sex: .male,
-        equipment: .bodyWeight,
+        equipment: .leverageMachine,
         type: .strength,
         bodypart: [
-          .waist
+          .hips
         ],
         primaryMuscles: [
-          .obliques,
-          .rectusAbdominis
+          .gluteusMaximus,
+          .quadriceps
         ],
         secondaryMuscles: [
-          .quadriceps,
-          .sartorius,
-          .tensorFasciaeLatae
+          .adductorMagnus,
+          .soleus
         ]
       )
     ),
@@ -78,6 +77,3 @@ public extension ExerciseState {
     )
   )
 }
-
-
-

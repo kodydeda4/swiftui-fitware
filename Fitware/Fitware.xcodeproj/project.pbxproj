@@ -39,6 +39,8 @@
 		33E39DD427ECFDD200DD85F3 /* ExercisesJSON in Resources */ = {isa = PBXBuildFile; fileRef = 33E39DD227ECFDD200DD85F3 /* ExercisesJSON */; };
 		33E39DD627ED103300DD85F3 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E39DD527ED103300DD85F3 /* CustomPickerView.swift */; };
 		33E39DD727ED103300DD85F3 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E39DD527ED103300DD85F3 /* CustomPickerView.swift */; };
+		33FEFFF027F15DCB001CFEEB /* VideoTitles in Resources */ = {isa = PBXBuildFile; fileRef = 33FEFFEF27F15DCB001CFEEB /* VideoTitles */; };
+		33FEFFF127F15DCB001CFEEB /* VideoTitles in Resources */ = {isa = PBXBuildFile; fileRef = 33FEFFEF27F15DCB001CFEEB /* VideoTitles */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,7 @@
 		3383959527E4CD6E000376BF /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
 		33E39DD227ECFDD200DD85F3 /* ExercisesJSON */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExercisesJSON; sourceTree = "<group>"; };
 		33E39DD527ED103300DD85F3 /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
+		33FEFFEF27F15DCB001CFEEB /* VideoTitles */ = {isa = PBXFileReference; lastKnownFileType = text; path = VideoTitles; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,7 @@
 				3383958227E4CBE9000376BF /* iOS-Info.plist */,
 				3383957F27E4C7A9000376BF /* GoogleService-Info.plist */,
 				33E39DD227ECFDD200DD85F3 /* ExercisesJSON */,
+				33FEFFEF27F15DCB001CFEEB /* VideoTitles */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -222,6 +226,7 @@
 				33E39DD327ECFDD200DD85F3 /* ExercisesJSON in Resources */,
 				334E419C27E4C6D9006AD09D /* Assets.xcassets in Resources */,
 				3383958027E4C7A9000376BF /* GoogleService-Info.plist in Resources */,
+				33FEFFF027F15DCB001CFEEB /* VideoTitles in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +237,7 @@
 				33E39DD427ECFDD200DD85F3 /* ExercisesJSON in Resources */,
 				334E419D27E4C6D9006AD09D /* Assets.xcassets in Resources */,
 				3383958127E4C7A9000376BF /* GoogleService-Info.plist in Resources */,
+				33FEFFF127F15DCB001CFEEB /* VideoTitles in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,7 +411,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -437,7 +443,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
