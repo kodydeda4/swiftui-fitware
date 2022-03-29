@@ -15,12 +15,12 @@ struct CreateWorkoutView: View {
               .bold()
             TextField("Name", text: viewStore.binding(\.$name))
           }
-        }
+        }        
         Section("Exercises") {
           ForEachStore(store.scope(
             state: \.exercises,
             action: CreateWorkoutAction.exercises
-          ),content: CellView.init(store:))
+          ), content: CellView.init)
         }
       }
       .buttonStyle(.plain)
@@ -59,26 +59,39 @@ private struct CellView: View {
     WithViewStore(store) { viewStore in
       ToggleButton(toggle: viewStore.binding(\.$selected)) {
         HStack {
-          RoundedRectangle(cornerRadius: 12, style: .continuous)
-            .foregroundColor(.accentColor)
-            .frame(width: 34, height: 34)
-          
-          VStack(alignment: .leading) {
-            Text(viewStore.model.name)
-            Text(viewStore.model.bodyparts.map(\.rawValue).joined(separator: ", "))
+          AsyncImage(
+            url: viewStore.model.photo,
+            content: { $0.resizable().scaledToFill() },
+            placeholder: ProgressView.init
+          )
+          .frame(width: 46, height: 46)
+          .background(GroupBox { Color.clear })
+          .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+          .overlay(
+            RoundedRectangle(cornerRadius: 10, style: .continuous)
+              .strokeBorder(lineWidth: 1, antialiased: true)
               .foregroundColor(.gray)
+          )
+          VStack(alignment: .leading, spacing: 6) {
+            Text(viewStore.model.name.capitalized)
+              .foregroundColor(viewStore.selected ? .accentColor : .primary)
+            
+            HStack {
+              Text(viewStore.model.bodyparts.map(\.rawValue.capitalized).joined(separator: ", "))
+                .font(.caption)
+              
+              Text(viewStore.model.equipment.rawValue.capitalized)
+                .font(.caption)
+                .foregroundColor(.gray)
+              
+              Text(viewStore.model.type.rawValue.capitalized)
+                .font(.caption)
+                .foregroundColor(Color.gray.opacity(0.85))
+            }
           }
-          
-          Spacer()
-          
-          Image(systemName: viewStore.selected ? "minus" : "plus")
-            .frame(width: 20, height: 20)
-            .background(viewStore.selected ? Color.red : Color.green)
-            .foregroundColor(.white)
-            .clipShape(Circle())
         }
       }
-      .opacity(viewStore.selected ? 1 : 0.5)
+      .padding(.vertical, 4)
     }
   }
 }
@@ -89,5 +102,7 @@ private struct CellView: View {
 struct CreateWorkoutView_Previews: PreviewProvider {
   static var previews: some View {
     CreateWorkoutView(store: CreateWorkoutState.defaultStore)
+    
+    CellView(store: ExerciseState.defaultStore)
   }
 }

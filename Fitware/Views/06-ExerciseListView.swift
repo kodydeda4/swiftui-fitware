@@ -29,31 +29,41 @@ struct ExerciseListView: View {
             .font(.title)
             .foregroundColor(.gray)
             .opacity(viewStore.exercises.isEmpty ? 0.5 : 0)
-          )
+        )
         .toolbar {
           ToggleButton(toggle: viewStore.binding(\.$sheet)) {
             Image(systemName: "line.3.horizontal.decrease.circle")
           }
         }
         .sheet(isPresented: viewStore.binding(\.$sheet)) {
-          NavigationView {
-            List {
-              Section("Search") {
-                CustomPickerView("Bodypart",  BodyPart.allCases,      viewStore.binding(\.$query.bodyparts))
-                CustomPickerView("Equipment", Equipment.allCases,     viewStore.binding(\.$query.equipment))
-                CustomPickerView("Sex",       Sex.allCases,           viewStore.binding(\.$query.sex))
-                CustomPickerView("Type",      ExerciseType.allCases,  viewStore.binding(\.$query.type))
-                CustomPickerView("Primary",   Muscle.allCases,        viewStore.binding(\.$query.primary))
-                CustomPickerView("Secondary", Muscle.allCases,        viewStore.binding(\.$query.secondary))
-              }
-            }
-            .navigationTitle("Filter")
+          FilterView(store: store)
+        }
+      }
+    }
+  }
+}
+
+struct FilterView: View {
+  let store: Store<ExerciseListState, ExerciseListAction>
+  
+  var body: some View {
+    WithViewStore(store) { viewStore in
+      NavigationView {
+        List {
+          Section("Search") {
+            CustomPickerView("Bodypart",  BodyPart.allCases,      viewStore.binding(\.$query.bodyparts))
+            CustomPickerView("Equipment", Equipment.allCases,     viewStore.binding(\.$query.equipment))
+            CustomPickerView("Sex",       Sex.allCases,           viewStore.binding(\.$query.sex))
+            CustomPickerView("Type",      ExerciseType.allCases,  viewStore.binding(\.$query.type))
+            CustomPickerView("Primary",   Muscle.allCases,        viewStore.binding(\.$query.primary))
+            CustomPickerView("Secondary", Muscle.allCases,        viewStore.binding(\.$query.secondary))
           }
-          .toolbar {
-            ToggleButton(toggle: viewStore.binding(\.$sheet)) {
-              Text("Close")
-            }
-          }
+        }
+        .navigationTitle("Filter")
+      }
+      .toolbar {
+        ToggleButton(toggle: viewStore.binding(\.$sheet)) {
+          Text("Close")
         }
       }
     }
