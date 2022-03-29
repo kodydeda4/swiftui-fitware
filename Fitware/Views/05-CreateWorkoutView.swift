@@ -15,7 +15,15 @@ struct CreateWorkoutView: View {
               .bold()
             TextField("Name", text: viewStore.binding(\.$name))
           }
-        }        
+        }
+        Section("Search") {
+          CustomPickerView("Bodypart",  BodyPart.allCases,      viewStore.binding(\.$query.bodyparts))
+          CustomPickerView("Equipment", Equipment.allCases,     viewStore.binding(\.$query.equipment))
+          CustomPickerView("Sex",       Sex.allCases,           viewStore.binding(\.$query.sex))
+          CustomPickerView("Type",      ExerciseType.allCases,  viewStore.binding(\.$query.type))
+          CustomPickerView("Primary",   Muscle.allCases,        viewStore.binding(\.$query.primary))
+          CustomPickerView("Secondary", Muscle.allCases,        viewStore.binding(\.$query.secondary))
+        }
         Section("Exercises") {
           ForEachStore(store.scope(
             state: \.exercises,
@@ -28,6 +36,10 @@ struct CreateWorkoutView: View {
       .onAppear { viewStore.send(.fetchExercises) }
       .toolbar {
         ToolbarItemGroup {
+//          ToggleButton(toggle: viewStore.binding(\.$sheet)) {
+//            Image(systemName: "line.3.horizontal.decrease.circle")
+//          }
+//
           Button("Done") {
             viewStore.send(.createWorkout)
           }
@@ -39,9 +51,40 @@ struct CreateWorkoutView: View {
 #elseif os(macOS)
       .frame(width: 500, height: 500)
 #endif
+//      .sheet(isPresented: viewStore.binding(\.$sheet)) {
+//        FilterView(store: store)
+//      }
     }
   }
 }
+
+
+//private struct FilterView: View {
+//  let store: Store<CreateWorkoutState, CreateWorkoutAction>
+//
+//  var body: some View {
+//    WithViewStore(store) { viewStore in
+//      NavigationView {
+//        List {
+//          Section("Search") {
+//            CustomPickerView("Bodypart",  BodyPart.allCases,      viewStore.binding(\.$query.bodyparts))
+//            CustomPickerView("Equipment", Equipment.allCases,     viewStore.binding(\.$query.equipment))
+//            CustomPickerView("Sex",       Sex.allCases,           viewStore.binding(\.$query.sex))
+//            CustomPickerView("Type",      ExerciseType.allCases,  viewStore.binding(\.$query.type))
+//            CustomPickerView("Primary",   Muscle.allCases,        viewStore.binding(\.$query.primary))
+//            CustomPickerView("Secondary", Muscle.allCases,        viewStore.binding(\.$query.secondary))
+//          }
+//        }
+//        .navigationTitle("Filter")
+//      }
+//      .toolbar {
+//        ToggleButton(toggle: viewStore.binding(\.$sheet)) {
+//          Text("Close")
+//        }
+//      }
+//    }
+//  }
+//}
 
 private extension View {
   func navigationView() -> some View {

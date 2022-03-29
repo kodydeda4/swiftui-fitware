@@ -10,23 +10,36 @@ import WorkoutListClient
 
 public struct CreateWorkoutState {
   public let user: User
+  public var inFlight: Bool
+  public var alert: AlertState<CreateWorkoutAction>?
   public var exercises: IdentifiedArrayOf<ExerciseState>
+  @BindableState public var query: ExerciseListQuery
   @BindableState public var name: String
   
   public init(
     user: User = Auth.auth().currentUser!,
+    inFlight: Bool = false,
+    alert: AlertState<CreateWorkoutAction>? = nil,
     exercises: IdentifiedArrayOf<ExerciseState> = [],
-    name: String = "Untitled"
+    query: ExerciseListQuery = .init(),
+    name: String = "\(UUID.init().description)"
   ) {
     self.user = user
+    self.inFlight = inFlight
+    self.alert = alert
     self.exercises = exercises
+    self.query = query
     self.name = name
   }
 }
 
+
 public enum CreateWorkoutAction {
   case binding(BindingAction<CreateWorkoutState>)
   case exercises(id: ExerciseState.ID, action: ExerciseAction)
+  case updateQuery
+  case updateQueryResult(Result<[ExerciseState], Never>)
+  case dismissAlert
   case fetchExercises
   case fetchExercisesResult(Result<[Exercise], Failure>)
   case createWorkout
@@ -66,18 +79,6 @@ public let createWorkoutReducer = Reducer<
   Reducer { state, action, environment in
     switch action {
             
-    case .fetchExercises:
-      return environment.exerciseClient.fetchExercises()
-        .receive(on: environment.mainQueue)
-        .catchToEffect(CreateWorkoutAction.fetchExercisesResult)
-      
-    case let .fetchExercisesResult(.success(success)):
-      state.exercises = IdentifiedArrayOf(uniqueElements: success.map(ExerciseState.init))
-      return .none
-      
-    case let .fetchExercisesResult(.failure(error)):
-      return .none
-      
     case .createWorkout:
       return environment.workoutListClient.createWorkout(WorkoutState(
         userID: state.user.uid,
@@ -88,14 +89,43 @@ public let createWorkoutReducer = Reducer<
       ))
       .receive(on: environment.mainQueue)
       .catchToEffect(CreateWorkoutAction.createWorkoutResult)
-      
+
     case .createWorkoutResult:
       return .none
       
-    case .exercises:
+    case .binding:
+      state.inFlight = true
+      return Effect(value: .updateQuery)
+
+    case .fetchExercises:
+      guard state.exercises.isEmpty else { return .none }
+      return environment.exerciseClient.fetchExercises()
+        .receive(on: environment.mainQueue)
+        .catchToEffect(CreateWorkoutAction.fetchExercisesResult)
+      
+    case let .fetchExercisesResult(.success(success)):
+      state.exercises = IdentifiedArrayOf(uniqueElements: success.map(ExerciseState.init))
       return .none
       
-    case .binding:
+    case let .fetchExercisesResult(.failure(error)):
+      state.alert = AlertState(title: TextState(error.localizedDescription))
+      return .none
+      
+    case .updateQuery:
+      return environment.exerciseClient.search(state.exercises, state.query)
+        .receive(on: environment.mainQueue)
+        .catchToEffect(CreateWorkoutAction.updateQueryResult)
+      
+    case let .updateQueryResult(.success(values)):
+      state.exercises = IdentifiedArrayOf(uniqueElements: values)
+      state.inFlight = false
+      return .none
+      
+    case .dismissAlert:
+      state.alert = nil
+      return .none
+      
+    case .exercises:
       return .none
     }
   }.binding()

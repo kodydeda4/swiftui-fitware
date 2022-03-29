@@ -63,9 +63,6 @@ public let exerciseListReducer = Reducer<
       state.inFlight = true
       return Effect(value: .updateQuery)
 
-    case .binding(keyPath: \.$query):
-      return .none
-      
     case .fetchExercises:
       guard state.exercises.isEmpty else { return .none }
       return environment.exerciseClient.fetchExercises()
@@ -96,9 +93,6 @@ public let exerciseListReducer = Reducer<
       
     case .exercises:
       return .none
-      
-//    case .binding:
-//      return .none
     }
   }.binding()
 )
@@ -116,4 +110,18 @@ public extension ExerciseListState {
       exerciseClient: .live
     )
   )
+}
+
+extension IdentifiedArrayOf where Element: Identifiable {
+  /// Filter by keypath to match search.
+  func search(
+    _ keyPath: KeyPath<Element, String>,
+    for search: String
+  ) -> Self {
+    filter { element in
+      search.isEmpty
+      ? true
+      : element[keyPath: keyPath].localizedCaseInsensitiveContains(search)
+    }
+  }
 }

@@ -43,7 +43,7 @@ struct ExerciseListView: View {
   }
 }
 
-struct FilterView: View {
+private struct FilterView: View {
   let store: Store<ExerciseListState, ExerciseListAction>
   
   var body: some View {

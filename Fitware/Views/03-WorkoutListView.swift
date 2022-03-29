@@ -68,6 +68,7 @@ struct WorkoutNavigationLinkView: View {
     WithViewStore(store) { viewStore in
       NavigationLink(destination: WorkoutView(store: store)) {
         Text(viewStore.text)
+          .lineLimit(1)
       }
       .swipeActions(edge: .trailing) {
         Button(role: .destructive, action: { viewStore.send(.deleteButtonTapped) }) {
