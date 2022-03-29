@@ -3,6 +3,17 @@ import ComposableArchitecture
 import Exercise
 import AVKit
 
+extension Exercise {
+  var photo: URL {
+    let i = video.description
+    let filename = i.suffix(from: i.index(i.startIndex, offsetBy: 32))
+//    let output = "https://www.id-design.com/previews_1920_1080/\(filename.dropLast(4)).jpg"
+    let output = "https://www.id-design.com/previews_640_360/\(filename.dropLast(4)).jpg"
+    return URL(string: output)!
+//  https://www.id-design.com/previews_640_360/55761201_lever_one_arm_incline_chest_press_plate_loaded_chest.jpg
+  }
+}
+
 struct ExerciseNavigationLinkView: View {
   let store: Store<ExerciseState, ExerciseAction>
   
@@ -20,7 +31,7 @@ struct ExerciseNavigationLinkView: View {
       List {
         VideoPlayer(player: AVPlayer(url: viewStore.model.video))
           .aspectRatio(1920/1080, contentMode: .fit)
-
+        
         Section("Details") {
           prompt("ID", "\(viewStore.id)")
           prompt("Name", viewStore.model.name)
@@ -53,10 +64,23 @@ struct ExerciseNavigationLinkView: View {
   var label: some View {
     WithViewStore(store) { viewStore in
       HStack {
-        RoundedRectangle(cornerRadius: 12, style: .continuous)
-          .foregroundColor(.accentColor)
-          .frame(width: 46, height: 46)
-          .padding(.trailing, 2)
+        AsyncImage(
+          url: viewStore.model.photo,
+          content: { $0.resizable().scaledToFill() },
+          placeholder: ProgressView.init
+        )
+        .frame(width: 46, height: 46)
+        .background(GroupBox { Color.clear })
+        .clipShape(
+          RoundedRectangle(cornerRadius: 10, style: .continuous)
+        )
+        .padding(.trailing, 2)
+        .overlay(
+          RoundedRectangle(cornerRadius: 10, style: .continuous)
+            .strokeBorder(lineWidth: 1, antialiased: true)
+            .foregroundColor(Color(.systemGroupedBackground))
+        )
+        
         
         VStack(alignment: .leading, spacing: 6) {
           Text(viewStore.model.name.capitalized)
@@ -87,11 +111,12 @@ struct ExerciseNavigationLinkView: View {
   }
 }
 
-
-
 struct ExerciseView_Previews: PreviewProvider {
   static var previews: some View {
     ExerciseNavigationLinkView(store: ExerciseState.defaultStore)
       .destination
+    
+    ExerciseNavigationLinkView(store: ExerciseState.defaultStore)
+      .label
   }
 }

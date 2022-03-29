@@ -15,7 +15,6 @@ public struct ExerciseListState {
       .filter({ type.contains($0.model.type) })
 //      .filter({ primary.isSuperset(of: Set($0.model.primaryMuscles)) })
 //      .filter({ secondary.isSuperset(of: Set($0.model.secondaryMuscles)) })
-
   }
   @BindableState public var searchText: String
   @BindableState public var bodyparts = Set<BodyPart>(BodyPart.allCases)
