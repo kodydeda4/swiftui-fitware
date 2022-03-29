@@ -35,6 +35,7 @@
 		3383958127E4C7A9000376BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3383957F27E4C7A9000376BF /* GoogleService-Info.plist */; };
 		3383959727E4CFFD000376BF /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 3383959627E4CFFD000376BF /* App */; };
 		3396A0FC27E4D9DA008B5F68 /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 3396A0FB27E4D9DA008B5F68 /* App */; };
+		33D400B227F34DA30030CD01 /* VideoPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 33D400B127F34DA30030CD01 /* VideoPlayer */; };
 		33E39DD327ECFDD200DD85F3 /* ExercisesJSON in Resources */ = {isa = PBXBuildFile; fileRef = 33E39DD227ECFDD200DD85F3 /* ExercisesJSON */; };
 		33E39DD427ECFDD200DD85F3 /* ExercisesJSON in Resources */ = {isa = PBXBuildFile; fileRef = 33E39DD227ECFDD200DD85F3 /* ExercisesJSON */; };
 		33E39DD627ED103300DD85F3 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E39DD527ED103300DD85F3 /* CustomPickerView.swift */; };
@@ -73,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3396A0FC27E4D9DA008B5F68 /* App in Frameworks */,
+				33D400B227F34DA30030CD01 /* VideoPlayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +158,7 @@
 			name = "Fitware (iOS)";
 			packageProductDependencies = (
 				3396A0FB27E4D9DA008B5F68 /* App */,
+				33D400B127F34DA30030CD01 /* VideoPlayer */,
 			);
 			productName = "Fitware (iOS)";
 			productReference = 334E418F27E4C6D9006AD09D /* Fitware.app */;
@@ -208,6 +211,9 @@
 				Base,
 			);
 			mainGroup = 334E418227E4C6D8006AD09D;
+			packageReferences = (
+				33D400B027F34DA30030CD01 /* XCRemoteSwiftPackageReference "VideoPlayer" */,
+			);
 			productRefGroup = 334E419027E4C6D9006AD09D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -549,6 +555,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		33D400B027F34DA30030CD01 /* XCRemoteSwiftPackageReference "VideoPlayer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/wxxsw/VideoPlayer";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		3383959627E4CFFD000376BF /* App */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -557,6 +574,11 @@
 		3396A0FB27E4D9DA008B5F68 /* App */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = App;
+		};
+		33D400B127F34DA30030CD01 /* VideoPlayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 33D400B027F34DA30030CD01 /* XCRemoteSwiftPackageReference "VideoPlayer" */;
+			productName = VideoPlayer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,7 +1,8 @@
 import SwiftUI
 import ComposableArchitecture
 import Exercise
-import AVKit
+//import AVKit
+import VideoPlayer
 
 extension Exercise {
   var photo: URL {
@@ -29,7 +30,11 @@ struct ExerciseNavigationLinkView: View {
   var destination: some View {
     WithViewStore(store) { viewStore in
       List {
-        VideoPlayer(player: AVPlayer(url: viewStore.model.video))
+        
+        VideoPlayer(url: viewStore.model.video, play: .constant(true))
+          .autoReplay(true)
+
+//        VideoPlayer(player: AVPlayer(url: viewStore.model.video))
           .aspectRatio(1920/1080, contentMode: .fit)
         
         Section("Details") {
