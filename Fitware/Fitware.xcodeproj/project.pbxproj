@@ -19,8 +19,8 @@
 		334F3F8A27EBAB1C007156CC /* 01-AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F8827EBAB1C007156CC /* 01-AuthView.swift */; };
 		334F3F8C27EBAB75007156CC /* 05-CreateWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F8B27EBAB75007156CC /* 05-CreateWorkoutView.swift */; };
 		334F3F8D27EBAB75007156CC /* 05-CreateWorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F8B27EBAB75007156CC /* 05-CreateWorkoutView.swift */; };
-		334F3F8F27EBABA2007156CC /* 02-UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F8E27EBABA2007156CC /* 02-UserView.swift */; };
-		334F3F9027EBABA2007156CC /* 02-UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F8E27EBABA2007156CC /* 02-UserView.swift */; };
+		334F3F8F27EBABA2007156CC /* 02-HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F8E27EBABA2007156CC /* 02-HomeView.swift */; };
+		334F3F9027EBABA2007156CC /* 02-HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F8E27EBABA2007156CC /* 02-HomeView.swift */; };
 		334F3F9227EBABD9007156CC /* 08-SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9127EBABD9007156CC /* 08-SettingsView.swift */; };
 		334F3F9327EBABD9007156CC /* 08-SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9127EBABD9007156CC /* 08-SettingsView.swift */; };
 		334F3F9527EBAC4D007156CC /* 03-WorkoutListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9427EBAC4D007156CC /* 03-WorkoutListView.swift */; };
@@ -54,7 +54,7 @@
 		334F3F8527EBAAEF007156CC /* 00-AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "00-AppView.swift"; sourceTree = "<group>"; };
 		334F3F8827EBAB1C007156CC /* 01-AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "01-AuthView.swift"; sourceTree = "<group>"; };
 		334F3F8B27EBAB75007156CC /* 05-CreateWorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "05-CreateWorkoutView.swift"; sourceTree = "<group>"; };
-		334F3F8E27EBABA2007156CC /* 02-UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "02-UserView.swift"; sourceTree = "<group>"; };
+		334F3F8E27EBABA2007156CC /* 02-HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "02-HomeView.swift"; sourceTree = "<group>"; };
 		334F3F9127EBABD9007156CC /* 08-SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "08-SettingsView.swift"; sourceTree = "<group>"; };
 		334F3F9427EBAC4D007156CC /* 03-WorkoutListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "03-WorkoutListView.swift"; sourceTree = "<group>"; };
 		334F3F9727EBAC8B007156CC /* 06-ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "06-ExerciseListView.swift"; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 			children = (
 				334F3F8527EBAAEF007156CC /* 00-AppView.swift */,
 				334F3F8827EBAB1C007156CC /* 01-AuthView.swift */,
-				334F3F8E27EBABA2007156CC /* 02-UserView.swift */,
+				334F3F8E27EBABA2007156CC /* 02-HomeView.swift */,
 				334F3F9427EBAC4D007156CC /* 03-WorkoutListView.swift */,
 				334F3F9D27EBAD81007156CC /* 04-WorkoutView.swift */,
 				334F3F8B27EBAB75007156CC /* 05-CreateWorkoutView.swift */,
@@ -260,7 +260,7 @@
 				334F3F9827EBAC8B007156CC /* 06-ExerciseListView.swift in Sources */,
 				334F3F8927EBAB1C007156CC /* 01-AuthView.swift in Sources */,
 				334E419827E4C6D9006AD09D /* Main.swift in Sources */,
-				334F3F8F27EBABA2007156CC /* 02-UserView.swift in Sources */,
+				334F3F8F27EBABA2007156CC /* 02-HomeView.swift in Sources */,
 				334F3F9227EBABD9007156CC /* 08-SettingsView.swift in Sources */,
 				334F3F9E27EBAD81007156CC /* 04-WorkoutView.swift in Sources */,
 				33E39DD627ED103300DD85F3 /* CustomPickerView.swift in Sources */,
@@ -284,7 +284,7 @@
 				334F3F9C27EBAD4E007156CC /* 07-ExerciseView.swift in Sources */,
 				33E39DD727ED103300DD85F3 /* CustomPickerView.swift in Sources */,
 				334F3F8D27EBAB75007156CC /* 05-CreateWorkoutView.swift in Sources */,
-				334F3F9027EBABA2007156CC /* 02-UserView.swift in Sources */,
+				334F3F9027EBABA2007156CC /* 02-HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

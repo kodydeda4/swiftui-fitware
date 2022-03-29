@@ -30,7 +30,9 @@ struct ExerciseListView: View {
             ), content: ExerciseNavigationLinkView.init(store:))
           }
         }
+#if os(iOS)
         .listStyle(.plain)
+#endif
         .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
         .navigationTitle("Exercises")
         .onAppear { viewStore.send(.fetchExercises) }
@@ -47,6 +49,6 @@ struct ExerciseListView: View {
 struct ExerciseListView_Previews: PreviewProvider {
   static var previews: some View {
     ExerciseListView(store: ExerciseListState.defaultStore)
-//      .preferredColorScheme(.dark)
+    //      .preferredColorScheme(.dark)
   }
 }

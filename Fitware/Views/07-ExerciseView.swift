@@ -1,10 +1,10 @@
 import SwiftUI
 import ComposableArchitecture
 import Exercise
+
+#if os(iOS)
 import VideoPlayer
-
-
-
+#endif
 
 struct ExerciseNavigationLinkView: View {
   let store: Store<ExerciseState, ExerciseAction>
@@ -21,12 +21,11 @@ struct ExerciseNavigationLinkView: View {
   var destination: some View {
     WithViewStore(store) { viewStore in
       List {
-        
+        #if os(iOS)
         VideoPlayer(url: viewStore.model.video, play: .constant(true))
           .autoReplay(true)
-
-//        VideoPlayer(player: AVPlayer(url: viewStore.model.video))
           .aspectRatio(1920/1080, contentMode: .fit)
+        #endif
         
         Section("Details") {
           prompt("ID", "\(viewStore.id)")
@@ -54,7 +53,9 @@ struct ExerciseNavigationLinkView: View {
       }
       .lineLimit(1)
       .navigationTitle(viewStore.model.name)
+      #if os(iOS)
       .navigationBarTitleDisplayMode(.inline)
+      #endif
     }
   }
   
@@ -75,7 +76,7 @@ struct ExerciseNavigationLinkView: View {
         .overlay(
           RoundedRectangle(cornerRadius: 10, style: .continuous)
             .strokeBorder(lineWidth: 1, antialiased: true)
-            .foregroundColor(Color(.systemGroupedBackground))
+            .foregroundColor(.gray)
         )
         
         
