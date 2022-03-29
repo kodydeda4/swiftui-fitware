@@ -32,7 +32,7 @@ struct ExerciseListView: View {
           )
         .toolbar {
           ToggleButton(toggle: viewStore.binding(\.$sheet)) {
-            Image(systemName: "line.3.horizontal.decrease.circle.fill")
+            Image(systemName: "line.3.horizontal.decrease.circle")
           }
         }
         .sheet(isPresented: viewStore.binding(\.$sheet)) {
@@ -48,6 +48,11 @@ struct ExerciseListView: View {
               }
             }
             .navigationTitle("Filter")
+          }
+          .toolbar {
+            ToggleButton(toggle: viewStore.binding(\.$sheet)) {
+              Text("Close")
+            }
           }
         }
       }
