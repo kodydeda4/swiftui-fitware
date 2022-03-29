@@ -54,6 +54,7 @@ struct ExerciseNavigationLinkView: View {
       }
       .lineLimit(1)
       .navigationTitle(viewStore.model.name)
+      .navigationBarTitleDisplayMode(.inline)
     }
   }
   
