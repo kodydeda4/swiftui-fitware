@@ -77,5 +77,18 @@ extension WorkoutState: Identifiable {}
 extension WorkoutState: Codable {}
 extension WorkoutAction: Equatable {}
 
-
-
+public extension WorkoutState {
+  static let defaultStore = Store(
+    initialState: WorkoutState(
+      userID: "",
+      timestamp: .now,
+      text: "Text",
+      done: false,
+      exercises: []
+    ),
+    reducer: workoutReducer,
+    environment: WorkoutEnvironment(
+      mainQueue: .main
+    )
+  )
+}

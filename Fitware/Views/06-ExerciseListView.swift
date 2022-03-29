@@ -49,6 +49,6 @@ struct ExerciseListView: View {
 struct ExerciseListView_Previews: PreviewProvider {
   static var previews: some View {
     ExerciseListView(store: ExerciseListState.defaultStore)
-    //      .preferredColorScheme(.dark)
+          .preferredColorScheme(.dark)
   }
 }

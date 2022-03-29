@@ -72,7 +72,6 @@ struct ExerciseNavigationLinkView: View {
         .clipShape(
           RoundedRectangle(cornerRadius: 10, style: .continuous)
         )
-        .padding(.trailing, 2)
         .overlay(
           RoundedRectangle(cornerRadius: 10, style: .continuous)
             .strokeBorder(lineWidth: 1, antialiased: true)
@@ -109,12 +108,12 @@ struct ExerciseNavigationLinkView: View {
   }
 }
 
-//struct ExerciseView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    ExerciseNavigationLinkView(store: ExerciseState.defaultStore)
-//      .destination
-//
-//    ExerciseNavigationLinkView(store: ExerciseState.defaultStore)
-//      .label
-//  }
-//}
+struct ExerciseView_Previews: PreviewProvider {
+  static var previews: some View {
+    ExerciseNavigationLinkView(store: ExerciseState.defaultStore)
+      .destination
+
+    ExerciseNavigationLinkView(store: ExerciseState.defaultStore)
+      .label
+  }
+}

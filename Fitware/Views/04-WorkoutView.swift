@@ -26,9 +26,8 @@ struct WorkoutView: View {
   }
 }
 
-
-//struct WorkoutView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    WorkoutView(store: WorkoutState.defaultStore)
-//  }
-//}
+struct WorkoutView_Previews: PreviewProvider {
+  static var previews: some View {
+    WorkoutView(store: WorkoutState.defaultStore)
+  }
+}
