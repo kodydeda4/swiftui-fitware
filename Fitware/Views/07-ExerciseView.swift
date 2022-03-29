@@ -75,9 +75,10 @@ struct ExerciseNavigationLinkView: View {
         .overlay(
           RoundedRectangle(cornerRadius: 10, style: .continuous)
             .strokeBorder(lineWidth: 1, antialiased: true)
-            .foregroundColor(.gray)
+            .foregroundColor(
+              .gray
+            )
         )
-        
         
         VStack(alignment: .leading, spacing: 6) {
           Text(viewStore.model.name.capitalized)
