@@ -1,19 +1,10 @@
 import SwiftUI
 import ComposableArchitecture
 import Exercise
-//import AVKit
 import VideoPlayer
 
-extension Exercise {
-  var photo: URL {
-    let i = video.description
-    let filename = i.suffix(from: i.index(i.startIndex, offsetBy: 32))
-//    let output = "https://www.id-design.com/previews_1920_1080/\(filename.dropLast(4)).jpg"
-    let output = "https://www.id-design.com/previews_640_360/\(filename.dropLast(4)).jpg"
-    return URL(string: output)!
-//  https://www.id-design.com/previews_640_360/55761201_lever_one_arm_incline_chest_press_plate_loaded_chest.jpg
-  }
-}
+
+
 
 struct ExerciseNavigationLinkView: View {
   let store: Store<ExerciseState, ExerciseAction>
@@ -46,7 +37,7 @@ struct ExerciseNavigationLinkView: View {
         }
         
         Section("Body Parts") {
-          ForEach(viewStore.model.bodypart, id: \.self) {
+          ForEach(viewStore.model.bodyparts, id: \.self) {
             Text($0.rawValue)
           }
         }
@@ -91,7 +82,7 @@ struct ExerciseNavigationLinkView: View {
           Text(viewStore.model.name.capitalized)
           
           HStack {
-            Text(viewStore.model.bodypart.map(\.rawValue.capitalized).joined(separator: ", "))
+            Text(viewStore.model.bodyparts.map(\.rawValue.capitalized).joined(separator: ", "))
               .font(.caption)
             
             Text(viewStore.model.equipment.rawValue.capitalized)
@@ -116,12 +107,12 @@ struct ExerciseNavigationLinkView: View {
   }
 }
 
-struct ExerciseView_Previews: PreviewProvider {
-  static var previews: some View {
-    ExerciseNavigationLinkView(store: ExerciseState.defaultStore)
-      .destination
-    
-    ExerciseNavigationLinkView(store: ExerciseState.defaultStore)
-      .label
-  }
-}
+//struct ExerciseView_Previews: PreviewProvider {
+//  static var previews: some View {
+//    ExerciseNavigationLinkView(store: ExerciseState.defaultStore)
+//      .destination
+//
+//    ExerciseNavigationLinkView(store: ExerciseState.defaultStore)
+//      .label
+//  }
+//}

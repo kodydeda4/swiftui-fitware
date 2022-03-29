@@ -3,24 +3,33 @@ import Foundation
 public struct Exercise {
   public let id: String
   public let name: String
-  public let video: URL
+  public let media: String
   public let sex: Sex
-  public let equipment: Equipment
   public let type: ExerciseType
-  public let bodypart: [BodyPart]
+  public let equipment: Equipment
+  public let bodyparts: [BodyPart]
   public let primaryMuscles: [Muscle]
   public let secondaryMuscles: [Muscle]
-  
-  public init(id: String, name: String, video: URL, sex: Sex, equipment: Equipment, type: ExerciseType, bodypart: [BodyPart], primaryMuscles: [Muscle], secondaryMuscles: [Muscle]) {
+
+  public init(id: String, name: String, media: String, sex: Sex, type: ExerciseType, equipment: Equipment, bodyparts: [BodyPart], primaryMuscles: [Muscle], secondaryMuscles: [Muscle]) {
     self.id = id
     self.name = name
-    self.video = video
+    self.media = media
     self.sex = sex
-    self.equipment = equipment
     self.type = type
-    self.bodypart = bodypart
+    self.equipment = equipment
+    self.bodyparts = bodyparts
     self.primaryMuscles = primaryMuscles
     self.secondaryMuscles = secondaryMuscles
+  }
+}
+
+public extension Exercise {
+  var photo: URL {
+    URL(string: "https://www.id-design.com/previews_640_360/\(self.media).jpg")!
+  }
+  var video: URL {
+    URL(string: "https://www.id-design.com/videos/\(self.media).mp4")!
   }
 }
 

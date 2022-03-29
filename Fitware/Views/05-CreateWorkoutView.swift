@@ -65,10 +65,10 @@ private struct CellView: View {
           
           VStack(alignment: .leading) {
             Text(viewStore.model.name)
-            Text(viewStore.model.bodypart.map(\.rawValue).joined(separator: ", "))
+            Text(viewStore.model.bodyparts.map(\.rawValue).joined(separator: ", "))
               .foregroundColor(.gray)
           }
-
+          
           Spacer()
           
           Image(systemName: viewStore.selected ? "minus" : "plus")

@@ -9,10 +9,10 @@ public struct ExerciseListState {
   public var exercises: IdentifiedArrayOf<ExerciseState>
   public var searchResults: IdentifiedArrayOf<ExerciseState> {
     exercises.search(\.model.name, for: searchText)
-      .filter({ bodyparts.isSuperset(of: Set($0.model.bodypart)) })
-      .filter({ equipment.contains($0.model.equipment) })
-      .filter({ sex.contains($0.model.sex) })
-      .filter({ type.contains($0.model.type) })
+//      .filter({ bodyparts.isSuperset(of: Set($0.model.bodypart)) })
+//      .filter({ equipment.contains($0.model.equipment) })
+//      .filter({ sex.contains($0.model.sex) })
+//      .filter({ type.contains($0.model.type) })
 //      .filter({ primary.isSuperset(of: Set($0.model.primaryMuscles)) })
 //      .filter({ secondary.isSuperset(of: Set($0.model.secondaryMuscles)) })
   }
