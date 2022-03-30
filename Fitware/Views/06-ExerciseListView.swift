@@ -38,6 +38,11 @@ struct ExerciseListView: View {
         .sheet(isPresented: viewStore.binding(\.$sheet)) {
           FilterView(store: store)
         }
+        
+        Text("No Selection")
+          .font(.title)
+          .foregroundColor(.gray)
+          .opacity(0.5)
       }
     }
   }
