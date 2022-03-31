@@ -8,6 +8,7 @@ let package = Package(
   products: [],
   dependencies: [
     .package(url: "https://github.com/pointfreeco/swift-composable-architecture", from: "0.31.0"),
+    .package(url: "https://github.com/kodydeda4/GymVisual", branch: "main"),
     .package(
       name: "Firebase",
       url: "https://github.com/firebase/firebase-ios-sdk.git",
@@ -46,7 +47,8 @@ let package = Package(
   ]),
   Source(name: "Exercise", dependencies: [
     .composableArchitecture,
-    .failure
+    .failure,
+    .gymVisual
   ]),
   Source(name: "ExerciseList", dependencies: [
     .composableArchitecture,
@@ -93,6 +95,7 @@ let package = Package(
     .composableArchitecture,
     .failure,
     .exercise,
+    .gymVisual
   ]),
   Source(name: "WorkoutListClient", dependencies: [
     .composableArchitecture,
@@ -154,6 +157,10 @@ extension Target.Dependency {
   static let composableArchitecture: Self = .product(
     name: "ComposableArchitecture",
     package: "swift-composable-architecture"
+  )
+  static let gymVisual: Self = .product(
+    name: "GymVisual",
+    package: "GymVisual"
   )
   static let firebase: Self = .product(
     name: "FirebaseAuth",

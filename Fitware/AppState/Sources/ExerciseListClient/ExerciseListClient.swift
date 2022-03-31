@@ -2,6 +2,7 @@ import ComposableArchitecture
 import Combine
 import Exercise
 import Failure
+import GymVisual
 
 public struct ExerciseListClient {
   public let fetchExercises: () -> Effect<[Exercise], Failure>
@@ -11,20 +12,9 @@ public struct ExerciseListClient {
 public extension ExerciseListClient {
   static let live = Self(
     fetchExercises: {
-      Effect.future { callback in
-        do {
-          let rv = try JSONDecoder()
-            .decode([Exercise].self, from: Data(contentsOf: url))
-            
-          return callback(.success(rv))
-        }
-        catch {
-          return callback(.failure(Failure(error.localizedDescription)))
-        }
-      }
+      Effect(value: Exercise.allCases)
     },
     search: { state, query in
-//      Effect(value: [])
       Effect(value: state
         .filter({ query.bodyparts.isSuperset(of: Set($0.model.bodyparts)) })
         .filter({ query.equipment.contains($0.model.equipment) })

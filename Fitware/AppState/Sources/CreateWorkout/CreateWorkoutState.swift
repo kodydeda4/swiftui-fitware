@@ -7,13 +7,14 @@ import Exercise
 import ExerciseListClient
 import Workout
 import WorkoutListClient
+import GymVisual
 
 public struct CreateWorkoutState {
   public let user: User
   public var inFlight: Bool
   public var alert: AlertState<CreateWorkoutAction>?
   public var exercises: IdentifiedArrayOf<ExerciseState>
-  @BindableState public var query: ExerciseListQuery
+//  @BindableState public var query: ExerciseListQuery
   @BindableState public var name: String
   
   public init(
@@ -21,14 +22,14 @@ public struct CreateWorkoutState {
     inFlight: Bool = false,
     alert: AlertState<CreateWorkoutAction>? = nil,
     exercises: IdentifiedArrayOf<ExerciseState> = [],
-    query: ExerciseListQuery = .init(),
+//    query: ExerciseListQuery = .init(),
     name: String = "\(UUID.init().description)"
   ) {
     self.user = user
     self.inFlight = inFlight
     self.alert = alert
     self.exercises = exercises
-    self.query = query
+//    self.query = query
     self.name = name
   }
 }
@@ -112,9 +113,10 @@ public let createWorkoutReducer = Reducer<
       return .none
       
     case .updateQuery:
-      return environment.exerciseClient.search(state.exercises, state.query)
-        .receive(on: environment.mainQueue)
-        .catchToEffect(CreateWorkoutAction.updateQueryResult)
+      return .none
+//      return environment.exerciseClient.search(state.exercises, state.query)
+//        .receive(on: environment.mainQueue)
+//        .catchToEffect(CreateWorkoutAction.updateQueryResult)
       
     case let .updateQueryResult(.success(values)):
       state.exercises = IdentifiedArrayOf(uniqueElements: values)

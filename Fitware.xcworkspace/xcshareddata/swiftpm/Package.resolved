@@ -92,6 +92,15 @@
         }
       },
       {
+        "package": "GymVisual",
+        "repositoryURL": "https://github.com/kodydeda4/GymVisual",
+        "state": {
+          "branch": "main",
+          "revision": "3db2c6cf83b50979fcf5ff34c56aea36f233c883",
+          "version": null
+        }
+      },
+      {
         "package": "leveldb",
         "repositoryURL": "https://github.com/firebase/leveldb.git",
         "state": {

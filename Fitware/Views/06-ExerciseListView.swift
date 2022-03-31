@@ -3,6 +3,7 @@ import ExerciseList
 import ComposableArchitecture
 import App
 import Exercise
+import GymVisual
 
 struct ExerciseListView: View {
   let store: Store<ExerciseListState, ExerciseListAction>

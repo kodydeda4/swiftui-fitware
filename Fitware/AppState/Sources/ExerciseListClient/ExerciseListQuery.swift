@@ -1,4 +1,5 @@
 import Exercise
+import GymVisual
 
 public struct ExerciseListQuery {
   public var searchText: String

@@ -1,8 +1,9 @@
 import ComposableArchitecture
 import Failure
+import GymVisual
 
 public struct ExerciseState {
-  public let id: String
+  public let id: Int
   public let model: Exercise
   @BindableState public var selected: Bool
   
@@ -49,31 +50,19 @@ extension ExerciseAction: BindableAction {}
 
 public extension ExerciseState {
   static let defaultStore = Store(
-    // Update this store, the information is incorrect
-    initialState: ExerciseState(
-      Exercise(
-        id: "551612",
-        name: "Lever Reverse Vertical Hack Squat",
-        media: "55161201_lever_reverse_vertical_hack_squat_hips",
-        sex: .male,
-        type: .strength,
-        equipment: .leverageMachine,
-        bodyparts: [
-          .hips
-        ],
-        primaryMuscles: [
-          .gluteusMaximus,
-          .quadriceps
-        ],
-        secondaryMuscles: [
-          .adductorMagnus,
-          .soleus
-        ]
-      )
-    ),
+    initialState: ExerciseState(.doorwayBicepsCurlUpperArms),
     reducer: exerciseReducer,
     environment: ExerciseEnvironment(
       mainQueue: .main
     )
   )
+}
+
+public extension Exercise {
+  var photo: URL {
+    URL(string: "https://www.id-design.com/previews_640_360/\(media).jpg")!
+  }
+  var video: URL {
+    URL(string: "https://www.id-design.com/videos/\(media).mp4")!
+  }
 }

@@ -2,6 +2,7 @@ import SwiftUI
 import ComposableArchitecture
 import CreateWorkout
 import Exercise
+import GymVisual
 
 struct CreateWorkoutView: View {
   let store: Store<CreateWorkoutState, CreateWorkoutAction>
@@ -16,14 +17,14 @@ struct CreateWorkoutView: View {
             TextField("Name", text: viewStore.binding(\.$name))
           }
         }
-        Section("Search") {
-          CustomPickerView("Bodypart",  BodyPart.allCases,      viewStore.binding(\.$query.bodyparts))
-          CustomPickerView("Equipment", Equipment.allCases,     viewStore.binding(\.$query.equipment))
-          CustomPickerView("Sex",       Sex.allCases,           viewStore.binding(\.$query.sex))
-          CustomPickerView("Type",      ExerciseType.allCases,  viewStore.binding(\.$query.type))
-          CustomPickerView("Primary",   Muscle.allCases,        viewStore.binding(\.$query.primary))
-          CustomPickerView("Secondary", Muscle.allCases,        viewStore.binding(\.$query.secondary))
-        }
+//        Section("Search") {
+//          CustomPickerView("Bodypart",  BodyPart.allCases,      viewStore.binding(\.$query.bodyparts))
+//          CustomPickerView("Equipment", Equipment.allCases,     viewStore.binding(\.$query.equipment))
+//          CustomPickerView("Sex",       Sex.allCases,           viewStore.binding(\.$query.sex))
+//          CustomPickerView("Type",      ExerciseType.allCases,  viewStore.binding(\.$query.type))
+//          CustomPickerView("Primary",   Muscle.allCases,        viewStore.binding(\.$query.primary))
+//          CustomPickerView("Secondary", Muscle.allCases,        viewStore.binding(\.$query.secondary))
+//        }
         Section("Exercises") {
           ForEachStore(store.scope(
             state: \.exercises,

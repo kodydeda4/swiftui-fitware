@@ -3,6 +3,7 @@ import ComposableArchitecture
 import Failure
 import Exercise
 import ExerciseListClient
+import GymVisual
 
 public struct ExerciseListState {
   public var inFlight: Bool
