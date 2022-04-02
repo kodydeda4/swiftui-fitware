@@ -6,56 +6,67 @@ import AVKit
 
 public func TodayView(store: Store<TodayState, TodayAction>) -> some View {
   WithViewStore(store) { viewStore in
-    NavigationView {
-      List {
-        Section {
-          VStack(alignment: .leading, spacing: 8) {
-            Text("push 2".capitalized)
-              .font(.subheadline)
-              .foregroundColor(.accentColor)
-            
-            Text(viewStore.exerciseDescription)
-              .font(.headline)
-              .setListRowSeparator(.hidden)
-            
-            ProgressView(
-              value: Double(viewStore.exercises.filter(\.complete).count),
-              total: Double(viewStore.exercises.count)
-            )
-            
-            Text("John's Push Pull Split")
-              .foregroundStyle(.secondary)
-          }
-        }
-        .listRowBackground(EmptyView())
-        .setListRowSeparator(.hidden, edges: .bottom)
-        
+    List(selection: viewStore.binding(\.$selection)) {
+//      Section {
+        TodayDescription(store)
+//      }
+//      .listRowBackground(EmptyView())
+//      .setListRowSeparator(.hidden, edges: .bottom)
+      
+      Divider()
+      
+      Section {
         ForEachStore(store.scope(
           state: \.exercises,
           action: TodayAction.exercises
         ), content: ExerciseView)
       }
-      .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
-      .navigationTitle("Today")
-      .listStyle(.inset)
-//      .setNavigationBarTitleDisplayMode(.large)
-      .toolbar {
-        Menu(
-          content: {
-            Button(action: {
-              viewStore.send(.submitButtonTapped)
-            }) {
-              Label("Finish Workout", systemImage: "checkmark.square.fill")
-            }
-          },
-          label: {
-            Label("Menu", systemImage: "ellipsis")
+    }
+    .layoutPriority(1)
+    .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
+    .navigationTitle("Today")
+    .listStyle(.inset)
+    .toolbar {
+      Menu(
+        content: {
+          Button(action: {
+            viewStore.send(.submitButtonTapped)
+          }) {
+            Label("Finish Workout", systemImage: "checkmark.square.fill")
           }
-        )
-      }
+        },
+        label: {
+          Label("Menu", systemImage: "ellipsis.circle")
+        }
+      )
     }
   }
 }
+
+// MARK: - Private
+
+private func TodayDescription(_ store: Store<TodayState, TodayAction>) -> some View {
+  WithViewStore(store) { viewStore in
+    VStack(alignment: .leading, spacing: 8) {
+      Text("push 2".capitalized)
+        .font(.subheadline)
+        .foregroundColor(.accentColor)
+      
+      Text(viewStore.exerciseDescription)
+        .font(.headline)
+        .setListRowSeparator(.hidden)
+      
+      ProgressView(
+        value: Double(viewStore.exercises.filter(\.complete).count),
+        total: Double(viewStore.exercises.count)
+      )
+      
+      Text("John's Push Pull Split")
+        .foregroundStyle(.secondary)
+    }
+  }
+}
+
 
 private func ExerciseView(_ store: Store<ExerciseState, ExerciseAction>) -> some View {
   WithViewStore(store) { viewStore in
@@ -140,10 +151,10 @@ private func ExerciseDetailView(_ store: Store<ExerciseState, ExerciseAction>) -
       )
     }
     .lineLimit(1)
-//    .setNavigationBarTitleDisplayMode(.inline)
     .listStyle(.inset)
     .toolbar {
       ToolbarItemGroup {
+        Spacer()
         HStack {
           Button(action: {}) {
             Label("History", systemImage: "clock")
@@ -279,13 +290,6 @@ private extension View {
     self
 #endif
   }
-//  func setNavigationBarTitleDisplayMode(_ displayMode: NavigationBarItem.TitleDisplayMode) -> some View {
-//#if os(iOS)
-//    self.navigationBarTitleDisplayMode(displayMode)
-//#else
-//    self
-//#endif
-//  }
 }
 
 

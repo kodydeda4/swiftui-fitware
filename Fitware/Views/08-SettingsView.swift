@@ -7,33 +7,30 @@ struct SettingsView: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      NavigationView {
-        List {
-          VStack(alignment: .center) {
-            Avatar(url: viewStore.user.photoURL)
-            
-            Text(viewStore.user.displayName ?? "Guest")
-              .font(.title2)
-            
-            Text(viewStore.user.email ?? "email@example.com")
-              .font(.caption)
-              .foregroundColor(.gray)
-          }
-          .frame(maxWidth: .infinity, alignment: .center)
-//          .listRowSeparator(.hidden)
-          .listRowBackground(Color.clear)
+      List {
+        VStack(alignment: .center) {
+          Avatar(url: viewStore.user.photoURL)
           
-          Section {
-            Button("Sign out") {
-              viewStore.send(.signoutButtonTapped)
-            }
-            .foregroundColor(.red)
-          }
+          Text(viewStore.user.displayName ?? "Guest")
+            .font(.title2)
+          
+          Text(viewStore.user.email ?? "email@example.com")
+            .font(.caption)
+            .foregroundColor(.gray)
         }
-        .navigationTitle("Account")
-//        .navigationBarTitleDisplayMode(.inline)
-        .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
+        .frame(maxWidth: .infinity, alignment: .center)
+        //          .listRowSeparator(.hidden)
+        .listRowBackground(Color.clear)
+        
+        Section {
+          Button("Sign out") {
+            viewStore.send(.signoutButtonTapped)
+          }
+          .foregroundColor(.red)
+        }
       }
+      .navigationTitle("Account")
+      .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
     }
   }
 }
@@ -70,7 +67,7 @@ private struct Avatar: View {
     .frame(width: 75, height: 75)
     .background(GroupBox { Color.clear })
     .clipShape(Circle())
-
+    
   }
 }
 

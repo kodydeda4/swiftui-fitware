@@ -19,6 +19,7 @@ public struct TodayState {
     )
     .joined(separator: ", ")
   }
+  @BindableState var selection: ExerciseState?
   
   public init(
     //    user: User = Auth.auth().currentUser!,
@@ -34,6 +35,7 @@ public struct TodayState {
   ) {
     //    self.user = user
     self.exercises = exercises
+    self.selection = exercises.first
   }
 }
 
@@ -80,7 +82,9 @@ public let todayReducer = Reducer<
       
     case .submitButtonTapped:
       if state.complete {
-        return Effect(value: .submit)
+        state.alert = AlertState(
+          title: TextState("Success")
+        )
       } else {
         state.alert = AlertState(
           title: TextState("Are you sure?"),

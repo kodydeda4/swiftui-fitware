@@ -9,86 +9,77 @@ struct HomeView: View {
   var body: some View {
     WithViewStore(store) { viewStore in
 #if os(iOS)
-      TabView {
-        TodayView(store: store.scope(
-          state: \.today,
-          action: UserAction.today
-        ))
+      TabView(selection: viewStore.binding(\.$route)) {
+        NavigationView {
+          TodayView(store: store.scope(state: \.today, action: UserAction.today))
+        }
+        .tag(Optional(UserState.Route.today))
         .tabItem { UserState.Route.today.label }
         
-        WorkoutListView(store: store.scope(
-          state: \.workoutList,
-          action: UserAction.workoutList
-        ))
+        NavigationView {
+          WorkoutListView(store: store.scope(state: \.workoutList, action: UserAction.workoutList))
+        }
+        .tag(Optional(UserState.Route.workoutList))
         .tabItem { UserState.Route.workoutList.label }
         
-        ExerciseListView(store: store.scope(
-          state: \.exerciseList,
-          action: UserAction.exerciseList
-        ))
+        NavigationView {
+          ExerciseListView(store: store.scope(state: \.exerciseList, action: UserAction.exerciseList))
+        }
+        .tag(Optional(UserState.Route.exerciseList))
         .tabItem { UserState.Route.exerciseList.label }
         
-        SettingsView(store: store.scope(
-          state: \.settings,
-          action: UserAction.settings
-        ))
+        NavigationView {
+          SettingsView(store: store.scope(state: \.settings, action: UserAction.settings))
+        }
+        .tag(Optional(UserState.Route.settings))
         .tabItem { UserState.Route.settings.label }
       }
       
 #elseif os(macOS)
       NavigationView {
-        List {
+        List(selection: viewStore.binding(\.$route)) {
           NavigationLink(
-            tag: UserState.Route.today,
-            selection: viewStore.binding(\.$route),
-            destination: {
-              TodayView(store: store.scope(
-                state: \.today,
-                action: UserAction.today
-              ))
-            },
+            destination: { TodayView(store: store.scope(state: \.today, action: UserAction.today)) },
             label: { UserState.Route.today.label }
           )
+          .tag(UserState.Route.today)
+
           NavigationLink(
-            tag: UserState.Route.workoutList,
-            selection: viewStore.binding(\.$route),
-            destination: {
-              WorkoutListView(store: store.scope(
-                state: \.workoutList,
-                action: UserAction.workoutList
-              ))
-            },
+            destination: { WorkoutListView(store: store.scope(state: \.workoutList, action: UserAction.workoutList)) },
             label: { UserState.Route.workoutList.label }
           )
+          .tag(UserState.Route.workoutList)
+
           NavigationLink(
-            tag: UserState.Route.exerciseList,
-            selection: viewStore.binding(\.$route),
-            destination: {
-              ExerciseListView(store: store.scope(
-                state: \.exerciseList,
-                action: UserAction.exerciseList
-              ))
-            },
+            destination: { ExerciseListView(store: store.scope(state: \.exerciseList, action: UserAction.exerciseList)) },
             label: { UserState.Route.exerciseList.label }
           )
+          .tag(UserState.Route.exerciseList)
+          
           NavigationLink(
-            tag: UserState.Route.settings,
-            selection: viewStore.binding(\.$route),
-            destination: {
-              SettingsView(store: store.scope(
-                state: \.settings,
-                action: UserAction.settings
-              ))
-            },
+            destination: { SettingsView(store: store.scope(state: \.settings, action: UserAction.settings)) },
             label: { UserState.Route.settings.label }
           )
+          .tag(UserState.Route.settings)
         }
         .listStyle(.sidebar)
+        
+        TodayView(store: store.scope(
+          state: \.today,
+          action: UserAction.today
+        ))
+        
+        Text("No Selection")
+          .font(.title)
+          .foregroundColor(.gray)
+          .opacity(0.5)
+          .layoutPriority(0)
       }
 #endif
     }
   }
 }
+
 
 
 private extension UserState.Route {
@@ -102,7 +93,7 @@ private extension UserState.Route {
       return Label("Settings", systemImage: "gear")
     case .workoutList:
       return Label("Workouts", systemImage: "clock")
-    
+      
     }
   }
 }

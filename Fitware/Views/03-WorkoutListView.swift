@@ -10,53 +10,51 @@ struct WorkoutListView: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      NavigationView {
-        List {
-          ForEachStore(
-            store.scope(
-              state: \.workouts,
-              action: WorkoutListAction.workouts
-            ), content: WorkoutNavigationLinkView.init(store:)
-          )
-        }
-        .navigationTitle("Workouts")
-        .onAppear { viewStore.send(.fetchWorkouts) }
-        .refreshable { viewStore.send(.fetchWorkouts) }
-        .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
-        .toolbar {
-          Menu(content: {
-            Button(action: {
-              viewStore.send(.createWorkoutButtonTapped)
-            }) {
-              Label("Create New", systemImage: "plus")
-            }
-            Button(
-              role: .destructive,
-              action: { viewStore.send(.clearAll) }
-            ) {
-              Label("Clear All", systemImage: "trash")
-            }
-          }) {
-            Label("Menu", systemImage: "ellipsis.circle")
-          }
-        }
-        .sheet(isPresented: viewStore.binding(
-          get: { $0.createWorkout != nil },
-          send: WorkoutListAction.createWorkoutButtonTapped
-        )) {
-          IfLetStore(store.scope(
-            state: \.createWorkout,
-            action: WorkoutListAction.createWorkout
-          ), then: CreateWorkoutView.init(store:))
-        }
-        .overlay(
-          Text("No Results")
-            .font(.title)
-            .foregroundColor(.gray)
-            .opacity(0.5)
-            .opacity(viewStore.workouts.isEmpty ? 1 : 0)
+      List {
+        ForEachStore(
+          store.scope(
+            state: \.workouts,
+            action: WorkoutListAction.workouts
+          ), content: WorkoutNavigationLinkView.init(store:)
         )
       }
+      .navigationTitle("Workouts")
+      .onAppear { viewStore.send(.fetchWorkouts) }
+      .refreshable { viewStore.send(.fetchWorkouts) }
+      .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
+      .toolbar {
+        Menu(content: {
+          Button(action: {
+            viewStore.send(.createWorkoutButtonTapped)
+          }) {
+            Label("Create New", systemImage: "plus")
+          }
+          Button(
+            role: .destructive,
+            action: { viewStore.send(.clearAll) }
+          ) {
+            Label("Clear All", systemImage: "trash")
+          }
+        }) {
+          Label("Menu", systemImage: "ellipsis.circle")
+        }
+      }
+      .sheet(isPresented: viewStore.binding(
+        get: { $0.createWorkout != nil },
+        send: WorkoutListAction.createWorkoutButtonTapped
+      )) {
+        IfLetStore(store.scope(
+          state: \.createWorkout,
+          action: WorkoutListAction.createWorkout
+        ), then: CreateWorkoutView.init(store:))
+      }
+      .overlay(
+        Text("No Results")
+          .font(.title)
+          .foregroundColor(.gray)
+          .opacity(0.5)
+          .opacity(viewStore.workouts.isEmpty ? 1 : 0)
+      )
     }
   }
 }

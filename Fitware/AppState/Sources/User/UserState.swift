@@ -18,7 +18,7 @@ public struct UserState {
   public var workoutList: WorkoutListState
   public var settings: SettingsState
   
-  public enum Route {
+  public enum Route: Hashable, CaseIterable {
     case today
     case workoutList
     case exerciseList
@@ -27,7 +27,7 @@ public struct UserState {
   
   public init(
     user: User = Auth.auth().currentUser!,
-    route: Route? = .workoutList,
+    route: Route? = .settings,
     today: TodayState = .init(),
     exerciseList: ExerciseListState = .init(),
     workoutList: WorkoutListState = .init(),

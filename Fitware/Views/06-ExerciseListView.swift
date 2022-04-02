@@ -10,41 +10,39 @@ struct ExerciseListView: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      NavigationView {
-        List {
-          ForEachStore(store.scope(
-            state: \.exercises,
-            action: ExerciseListAction.exercises
-          ), content: ExerciseNavigationLinkView.init(store:))
-        }
+      List {
+        ForEachStore(store.scope(
+          state: \.exercises,
+          action: ExerciseListAction.exercises
+        ), content: ExerciseNavigationLinkView.init(store:))
+      }
 #if os(iOS)
-        .listStyle(.plain)
+      .listStyle(.plain)
 #endif
-        .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
-        .navigationTitle("Exercises")
-        .onAppear { viewStore.send(.fetchExercises) }
-        .searchable(text: viewStore.binding(\.$query.searchText))
-        .overlay(ProgressView().opacity(viewStore.inFlight ? 1 : 0))
-        .overlay(
-          Text("No Results")
-            .font(.title)
-            .foregroundColor(.gray)
-            .opacity(viewStore.exercises.isEmpty ? 0.5 : 0)
-        )
-        .toolbar {
-          ToggleButton(toggle: viewStore.binding(\.$sheet)) {
-            Image(systemName: "line.3.horizontal.decrease.circle")
-          }
-        }
-        .sheet(isPresented: viewStore.binding(\.$sheet)) {
-          FilterView(store: store)
-        }
-        
-        Text("No Selection")
+      .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
+      .navigationTitle("Exercises")
+      .onAppear { viewStore.send(.fetchExercises) }
+      .searchable(text: viewStore.binding(\.$query.searchText))
+      .overlay(ProgressView().opacity(viewStore.inFlight ? 1 : 0))
+      .overlay(
+        Text("No Results")
           .font(.title)
           .foregroundColor(.gray)
-          .opacity(0.5)
+          .opacity(viewStore.exercises.isEmpty ? 0.5 : 0)
+      )
+      .toolbar {
+        ToggleButton(toggle: viewStore.binding(\.$sheet)) {
+          Image(systemName: "line.3.horizontal.decrease.circle")
+        }
       }
+      .sheet(isPresented: viewStore.binding(\.$sheet)) {
+        FilterView(store: store)
+      }
+      
+      Text("No Selection")
+        .font(.title)
+        .foregroundColor(.gray)
+        .opacity(0.5)
     }
   }
 }
