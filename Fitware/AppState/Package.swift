@@ -69,6 +69,7 @@ let package = Package(
     .failure,
     .firebase,
     .firebaseFirestoreSwift,
+    .exercise
   ]),
   Source(name: "WorkoutList", dependencies: [
     .composableArchitecture,

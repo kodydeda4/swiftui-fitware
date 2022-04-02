@@ -6,6 +6,12 @@ public struct ExerciseState {
   public let id: Int
   public let model: Exercise
   @BindableState public var selected: Bool
+  @BindableState public var exerciseSets = [
+    ExerciseSet(weight: 35, reps: 16, complete: false, previousWeight: 20, previousReps: 10),
+    ExerciseSet(weight: 45, reps: 14, complete: false),
+    ExerciseSet(weight: 50, reps: 20, complete: false),
+    ExerciseSet(weight: 25, reps: 12, complete: false),
+  ]
   
   public init(
     _ model: Exercise
@@ -65,4 +71,16 @@ public extension Exercise {
   var video: URL {
     URL(string: "https://www.id-design.com/videos/\(media).mp4")!
   }
+}
+
+
+
+// MARK: Temporary
+public struct ExerciseSet: Identifiable, Codable, Hashable, Equatable {
+  public let id = UUID()
+  public var weight: Int
+  public var reps: Int
+  public var complete: Bool
+  public var previousWeight: Int?
+  public var previousReps: Int?
 }

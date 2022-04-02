@@ -1,29 +1,11 @@
 import SwiftUI
 import GymVisual
 import ComposableArchitecture
+import Exercise
+import AVKit
 
-public struct TodayView: View {
-  public let store: Store<TodayState, TodayAction>
-  @State var search = String()
-  @State var selection: Int? = Exercise.bicyclePilates.id
-  private var title: String {
-    Set(exercises.flatMap(\.bodyparts).map(\.rawValue)).joined(separator: ", ")
-  }
-  
-  let exercises: [Exercise] = [
-    .bicyclePilates,
-    .bicepsLegConcentrationCurlUpperArms,
-    .abRollerCrunchWaist,
-    .elbowFlexion,
-    .aboveHeadChestStretchFemaleChest,
-    .archerPullUpBack
-  ]
-  
-  public init(store: Store<TodayState, TodayAction>) {
-    self.store = store
-  }
-  
-  public var body: some View {
+public func TodayView(store: Store<TodayState, TodayAction>) -> some View {
+  WithViewStore(store) { viewStore in
     NavigationView {
       List {
         Section {
@@ -32,33 +14,27 @@ public struct TodayView: View {
               .font(.subheadline)
               .foregroundColor(.accentColor)
             
-            Text(title)
+            Text(viewStore.exerciseDescription)
               .font(.headline)
-              .listRowSeparator(.hidden)
+              .setListRowSeparator(.hidden)
             
             ProgressView(value: 75, total: 100)
             
             Text("John's Push Pull Split")
               .foregroundStyle(.secondary)
-            
           }
         }
-        .listRowSeparator(.hidden, edges: .bottom)
         .listRowBackground(EmptyView())
+        .setListRowSeparator(.hidden, edges: .bottom)
         
-        ForEach(exercises) { exercise in
-          NavigationLink(
-            tag: exercise.id,
-            selection: $selection,
-            destination: { ExerciseDetailView(exercise: exercise) },
-            label: { ExerciseLabelView(exercise: exercise) }
-          )
-        }
+        ForEachStore(store.scope(
+          state: \.exercises,
+          action: TodayAction.exercises
+        ), content: ExerciseView)
       }
       .navigationTitle("Today")
-      .navigationBarTitleDisplayMode(.large)
-      //    .listStyle(.grouped)
       .listStyle(.inset)
+      .setNavigationBarTitleDisplayMode(.large)
       .toolbar {
         Button(action: {}) {
           Label("Menu", systemImage: "ellipsis")
@@ -68,86 +44,71 @@ public struct TodayView: View {
   }
 }
 
-
-private struct ExerciseSet: Identifiable {
-  let id = UUID()
-  var weight: Int
-  var reps: Int
-  var complete: Bool
-  var previousWeight: Int?
-  var previousReps: Int?
-}
-
-private extension Exercise {
-  var photo: URL {
-    URL(string: "https://www.id-design.com/previews_640_360/\(media).jpg")!
-  }
-  var video: URL {
-    URL(string: "https://www.id-design.com/videos/\(media).mp4")!
+private func ExerciseView(_ store: Store<ExerciseState, ExerciseAction>) -> some View {
+  WithViewStore(store) { viewStore in
+    NavigationLink(destination: { ExerciseDetailView(store) }) {
+      HStack {
+        AsyncIcon(viewStore.model.photo)
+        
+        VStack(alignment: .leading, spacing: 6) {
+          Text(viewStore.model.name.capitalized)
+            .bold()
+          
+          Text(viewStore.model.bodyparts.map(\.rawValue.capitalized).joined(separator: ", "))
+            .font(.caption2)
+            .foregroundStyle(.secondary)
+        }
+      }
+      .padding(.vertical, 4)
+      .lineLimit(1)
+    }
   }
 }
 
 // MARK: - Views...
-
-private struct ExerciseLabelView: View {
-  let exercise: Exercise
-  let complete = Bool.random()
-  
-  var body: some View {
-    HStack {
-      AsyncImage(
-        url: exercise.photo,
-        content: { $0.resizable().scaledToFill() },
-        placeholder: ProgressView.init
-      )
-      .frame(width: 46, height: 46)
-      .background(GroupBox { Color.clear })
-      .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-      .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous)
-        .strokeBorder(lineWidth: 0.5, antialiased: true)
-        .foregroundColor(.secondary))
-      
-      VStack(alignment: .leading, spacing: 6) {
-        Text(exercise.name.capitalized)
-          .bold()
-        
-        Text(exercise.bodyparts.map(\.rawValue.capitalized).joined(separator: ", "))
-          .font(.caption2)
-          .foregroundStyle(.secondary)
-      }
-    }
-    .padding(.vertical, 4)
-    .lineLimit(1)
-  }
-}
-
-
-private struct ExerciseDetailView: View {
-  let exercise: Exercise
-  @State var exerciseSets = [
-    ExerciseSet(weight: 35, reps: 16, complete: false, previousWeight: 20, previousReps: 10),
-    ExerciseSet(weight: 45, reps: 14, complete: false),
-    ExerciseSet(weight: 50, reps: 20, complete: false),
-    ExerciseSet(weight: 25, reps: 12, complete: false),
-  ]
-  
-  var body: some View {
+private func ExerciseDetailView(_ store: Store<ExerciseState, ExerciseAction>) -> some View {
+  WithViewStore(store) { viewStore in
     List {
-      header
-        .listRowBackground(EmptyView())
-        .listRowSeparator(.hidden)
-        .padding(.bottom, 32)
-      
-      
+      HStack {
+        Video(viewStore.model.video)
+        
+        VStack(alignment: .leading) {
+          Text(viewStore.model.name)
+            .font(.title)
+            .fontWeight(.semibold)
+          
+          Text(viewStore.model.bodyparts.map(\.rawValue).joined(separator: ", "))
+            .font(.title2)
+            .fontWeight(.semibold)
+            .foregroundColor(.accentColor)
+          
+          Text(viewStore.model.type.rawValue.uppercased())
+            .fontWeight(.semibold)
+            .foregroundColor(.secondary)
+          
+          Text(viewStore.model.equipment.rawValue)
+            .font(.subheadline)
+            .foregroundColor(.secondary)
+          
+          VStack(alignment: .leading) {
+            Text(viewStore.model.primaryMuscles.map(\.rawValue).joined(separator: ", "))
+            Text(viewStore.model.secondaryMuscles.map(\.rawValue).joined(separator: ", "))
+          }
+          .padding(.top)
+          .font(.subheadline)
+          .foregroundColor(.secondary)
+        }
+        .padding(.leading)
+
+        Spacer()
+      }
+      .listRowBackground(EmptyView())
+      .setListRowSeparator(.hidden)
+      .padding(.bottom, 32)
       
       Section(
-        content: {
-          SetView(sets: $exerciseSets)
-          
-        },
-        header: {
-          //          Text("Today's Routine")
-        },
+        content: { ExerciseSetGridView(store) },
+        header: {},
         footer: {
           Button(action: {}) {
             Label("Add Set", systemImage: "plus.circle.fill")
@@ -156,13 +117,12 @@ private struct ExerciseDetailView: View {
           .foregroundColor(.accentColor)
           .frame(maxWidth: .infinity, alignment: .trailing)
           .padding(.trailing)
-          .listRowSeparator(.hidden, edges: .bottom)
+          .setListRowSeparator(.hidden, edges: .bottom)
         }
       )
-      
     }
     .lineLimit(1)
-    .navigationBarTitleDisplayMode(.inline)
+    .setNavigationBarTitleDisplayMode(.inline)
     .listStyle(.inset)
     .toolbar {
       ToolbarItemGroup {
@@ -177,102 +137,28 @@ private struct ExerciseDetailView: View {
       }
     }
   }
-  
-  @ViewBuilder
-  var header: some View {
-    HStack {
-      //      video
-      title
-      Spacer()
-    }
-  }
-  
-  //  var video: some View {
-  //    VideoPlayer(url: exercise.video, play: .constant(true))
-  //      .autoReplay(true)
-  //      .aspectRatio(1920/1080, contentMode: .fit)
-  //      .frame(width: 1920/5, height: 1080/5)
-  //      .background(Color.white)
-  //      .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-  //      .overlay(RoundedRectangle(cornerRadius: 12, style: .continuous)
-  //        .strokeBorder(lineWidth: 1, antialiased: true)
-  //        .foregroundColor(.secondary))
-  //      .background(Color.white)
-  //      .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-  //  }
-  
-  var title: some View {
-    VStack(alignment: .leading) {
-      Text(exercise.name)
-        .font(.title)
-        .fontWeight(.semibold)
-      
-      Text(exercise.bodyparts.map(\.rawValue).joined(separator: ", "))
-        .font(.title2)
-        .fontWeight(.semibold)
-        .foregroundColor(.accentColor)
-      
-      Text(exercise.type.rawValue.uppercased())
-        .fontWeight(.semibold)
-        .foregroundColor(.secondary)
-      
-      Text(exercise.equipment.rawValue)
-        .font(.subheadline)
-        .foregroundColor(.secondary)
-      
-      VStack(alignment: .leading) {
-        Text(exercise.primaryMuscles.map(\.rawValue).joined(separator: ", "))
-        Text(exercise.secondaryMuscles.map(\.rawValue).joined(separator: ", "))
-      }
-      .padding(.top)
-      .font(.subheadline)
-      .foregroundColor(.secondary)
-    }
-    .padding(.leading)
-  }
 }
 
-private struct SetView: View {
-  @Binding var sets: [ExerciseSet]
-  var previousDescription: (ExerciseSet) -> String = { exSet in
-    guard let previousReps = exSet.previousReps,
-          let previousWeight = exSet.previousWeight
-    else { return "_" }
-    
-    return "\(previousReps)x\(previousWeight) lbs"
-  }
-  var previousDescriptionColor: (ExerciseSet) -> Color = { exSet in
-    guard let previousReps = exSet.previousReps,
-          let previousWeight = exSet.previousWeight
-    else { return .secondary }
-    return .primary
-  }
-  
-  var body: some View {
-    header
-    //      .listRowSeparator(.hidden, edges: .top)
-    content
-  }
-  
-  
-  var header: some View {
+private func ExerciseSetGridView(_ store: Store<ExerciseState, ExerciseAction>) -> some View {
+  WithViewStore(store) { viewStore in
     LazyVGrid(columns: Array(repeating: .init(.flexible()), count: 5)) {
       Text("Set")
       Text("Previous")
       Text("Weight")
       Text("Reps")
       Text("Done")
-    }
-    .foregroundStyle(.secondary)
-  }
-  
-  var content: some View {
-    ForEach(Array(zip($sets, sets.indices)), id: \.1) { $exSet, index in
+    }.foregroundStyle(.secondary)
+    
+    ForEach(Array(zip(viewStore.binding(\.$sets), viewStore.sets.indices)), id: \.1) { $exSet, index in
       LazyVGrid(columns: Array(repeating: .init(.flexible()), count: 5)) {
         Text("\(index+1)")
-        Text(previousDescription(exSet)).foregroundColor(previousDescriptionColor(exSet))
-        TextField("\(exSet.weight)", value: $exSet.weight, formatter: NumberFormatter())
-        TextField("\(exSet.reps)", value: $exSet.reps, formatter: NumberFormatter())
+        
+        Text(exSet.previousDescription)
+          .foregroundColor(exSet.previousDescriptionColor)
+        
+        TextField(exSet.weight.description, value: $exSet.weight, formatter: NumberFormatter())
+        TextField(exSet.reps.description, value: $exSet.reps, formatter: NumberFormatter())
+        
         Button(action: { exSet.complete.toggle() }) {
           Image(systemName: exSet.complete ? "checkmark.circle" : "checkmark")
         }
@@ -291,8 +177,95 @@ private struct SetView: View {
   }
 }
 
+
+private func Video(_ url: URL) -> some View {
+  VideoPlayer(player: AVPlayer(url: url))
+    .aspectRatio(1920/1080, contentMode: .fit)
+    .frame(width: 1920/5, height: 1080/5)
+    .background(Color.white)
+    .clipShape(
+      RoundedRectangle(cornerRadius: 12, style: .continuous)
+    )
+    .overlay(
+      RoundedRectangle(cornerRadius: 12, style: .continuous)
+        .strokeBorder(lineWidth: 1, antialiased: true)
+        .foregroundColor(.secondary)
+    )
+    .background(Color.white)
+    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+}
+
+private func AsyncIcon(_ url: URL) -> some View {
+  AsyncImage(
+    url: url,
+    content: { $0.resizable().scaledToFill() },
+    placeholder: ProgressView.init
+  )
+  .frame(width: 46, height: 46)
+  .background(
+    GroupBox { Color.clear }
+  )
+  .clipShape(
+    RoundedRectangle(cornerRadius: 12, style: .continuous)
+  )
+  .overlay(
+    RoundedRectangle(cornerRadius: 12, style: .continuous)
+      .strokeBorder(lineWidth: 0.5, antialiased: true)
+      .foregroundColor(.secondary)
+  )
+}
+
+// MARK: - Helpers
+private extension ExerciseSet {
+  var previousDescription: String {
+    guard let previousReps = previousReps, let previousWeight = previousWeight
+    else { return "_" }
+    return "\(previousReps)x\(previousWeight) lbs"
+  }
+  var previousDescriptionColor: Color {
+    guard let _ = previousReps, let _ = previousWeight
+    else { return .secondary }
+    return .primary
+  }
+}
+
+private extension View {
+  func setListRowSeparator(_ visibility: Visibility, edges: VerticalEdge.Set = .all) -> some View {
+#if os(iOS)
+    self.listRowSeparator(visibility, edges: edges)
+#else
+    self
+#endif
+  }
+  func setNavigationBarTitleDisplayMode(_ displayMode: NavigationBarItem.TitleDisplayMode) -> some View {
+#if os(iOS)
+    self.navigationBarTitleDisplayMode(displayMode)
+#else
+    self
+#endif
+  }
+}
+
+
+
+
+// MARK: - SwiftUI Previews
 struct TodayView_Previews: PreviewProvider {
   static var previews: some View {
     TodayView(store: TodayState.defaultStore)
+      .previewDevice("iPad Pro (11-inch) (3rd generation)")
+      .previewInterfaceOrientation(.landscapeLeft)
+    
+    TodayView(store: TodayState.defaultStore)
+      .previewDevice("iPhone 12 Pro Max")
   }
 }
+
+
+
+
+
+
+
+
+

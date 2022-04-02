@@ -3,16 +3,28 @@ import ComposableArchitecture
 import Exercise
 import ExerciseListClient
 import Firebase
+import GymVisual
 
 public struct TodayState {
-  public var user: User
+  //  public var user: User
   public var exercises: IdentifiedArrayOf<ExerciseState>
-    
+  public var exerciseDescription: String {
+    Set(exercises.flatMap(\.model.bodyparts).map(\.rawValue)).joined(separator: ", ")
+  }
+  
   public init(
-    user: User = Auth.auth().currentUser!,
-    exercises: IdentifiedArrayOf<ExerciseState> = []
+    //    user: User = Auth.auth().currentUser!,
+    exercises: IdentifiedArrayOf<ExerciseState> = IdentifiedArrayOf(uniqueElements: [
+      .bicyclePilates,
+      .bicepsLegConcentrationCurlUpperArms,
+      .abRollerCrunchWaist,
+      .elbowFlexion,
+      .aboveHeadChestStretchFemaleChest,
+      .archerPullUpBack
+    ].map(ExerciseState.init)
+    )
   ) {
-    self.user = user
+    //    self.user = user
     self.exercises = exercises
   }
 }
@@ -25,7 +37,7 @@ public enum TodayAction {
 public struct TodayEnvironment {
   public let mainQueue: AnySchedulerOf<DispatchQueue>
   public let exerciseListClient: ExerciseListClient
-
+  
   public init(
     mainQueue: AnySchedulerOf<DispatchQueue>,
     exerciseListClient: ExerciseListClient
@@ -47,7 +59,7 @@ public let todayReducer = Reducer<
   ),
   Reducer { state, action, environment in
     switch action {
-    
+      
     case .binding:
       return .none
       
@@ -71,3 +83,5 @@ public extension TodayState {
     )
   )
 }
+
+

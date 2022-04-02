@@ -101,7 +101,7 @@ private extension UserState.Route {
     case .settings:
       return Label("Settings", systemImage: "gear")
     case .workoutList:
-      return Label("Workouts", systemImage: "doc.text.image")
+      return Label("Workouts", systemImage: "clock")
     
     }
   }
