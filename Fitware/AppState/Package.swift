@@ -43,7 +43,15 @@ let package = Package(
     .exerciseListClient,
     .workoutList,
     .workoutListClient,
-    .settings
+    .settings,
+    .today
+  ]),
+  Source(name: "Today", dependencies: [
+    .composableArchitecture,
+    .failure,
+    .gymVisual,
+    .firebase,
+    .exerciseListClient
   ]),
   Source(name: "Exercise", dependencies: [
     .composableArchitecture,
@@ -132,6 +140,7 @@ extension Target.Dependency {
   static let app: Self = "App"
   static let auth: Self = "Auth"
   static let user: Self = "User"
+  static let today: Self = "Today"
   static let exerciseList: Self = "ExerciseList"
   static let exercise: Self = "Exercise"
   static let workout: Self = "Workout"

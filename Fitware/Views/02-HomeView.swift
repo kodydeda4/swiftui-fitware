@@ -1,6 +1,7 @@
 import SwiftUI
 import ComposableArchitecture
 import User
+import Today
 
 struct HomeView: View {
   let store: Store<UserState, UserAction>
@@ -9,6 +10,12 @@ struct HomeView: View {
     WithViewStore(store) { viewStore in
 #if os(iOS)
       TabView {
+        TodayView(store: store.scope(
+          state: \.today,
+          action: UserAction.today
+        ))
+        .tabItem { UserState.Route.today.label }
+        
         WorkoutListView(store: store.scope(
           state: \.workoutList,
           action: UserAction.workoutList
@@ -31,6 +38,17 @@ struct HomeView: View {
 #elseif os(macOS)
       NavigationView {
         List {
+          NavigationLink(
+            tag: UserState.Route.today,
+            selection: viewStore.binding(\.$route),
+            destination: {
+              TodayView(store: store.scope(
+                state: \.today,
+                action: UserAction.today
+              ))
+            },
+            label: { UserState.Route.today.label }
+          )
           NavigationLink(
             tag: UserState.Route.workoutList,
             selection: viewStore.binding(\.$route),
@@ -76,12 +94,15 @@ struct HomeView: View {
 private extension UserState.Route {
   var label: some View {
     switch self {
+    case .today:
+      return Label("Today", systemImage: "doc.text.image")
     case .exerciseList:
       return Label("Exercises", systemImage: "doc.plaintext")
     case .settings:
       return Label("Settings", systemImage: "gear")
     case .workoutList:
       return Label("Workouts", systemImage: "doc.text.image")
+    
     }
   }
 }
