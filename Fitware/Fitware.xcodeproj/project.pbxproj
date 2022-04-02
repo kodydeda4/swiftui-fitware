@@ -36,12 +36,8 @@
 		3383959727E4CFFD000376BF /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 3383959627E4CFFD000376BF /* App */; };
 		3396A0FC27E4D9DA008B5F68 /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 3396A0FB27E4D9DA008B5F68 /* App */; };
 		33D400B227F34DA30030CD01 /* VideoPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 33D400B127F34DA30030CD01 /* VideoPlayer */; };
-		33E39DD327ECFDD200DD85F3 /* ExercisesJSON in Resources */ = {isa = PBXBuildFile; fileRef = 33E39DD227ECFDD200DD85F3 /* ExercisesJSON */; };
-		33E39DD427ECFDD200DD85F3 /* ExercisesJSON in Resources */ = {isa = PBXBuildFile; fileRef = 33E39DD227ECFDD200DD85F3 /* ExercisesJSON */; };
 		33E39DD627ED103300DD85F3 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E39DD527ED103300DD85F3 /* CustomPickerView.swift */; };
 		33E39DD727ED103300DD85F3 /* CustomPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33E39DD527ED103300DD85F3 /* CustomPickerView.swift */; };
-		33FEFFF027F15DCB001CFEEB /* VideoTitles in Resources */ = {isa = PBXBuildFile; fileRef = 33FEFFEF27F15DCB001CFEEB /* VideoTitles */; };
-		33FEFFF127F15DCB001CFEEB /* VideoTitles in Resources */ = {isa = PBXBuildFile; fileRef = 33FEFFEF27F15DCB001CFEEB /* VideoTitles */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,9 +59,7 @@
 		3383957F27E4C7A9000376BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3383958227E4CBE9000376BF /* iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS-Info.plist"; sourceTree = "<group>"; };
 		3383959527E4CD6E000376BF /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
-		33E39DD227ECFDD200DD85F3 /* ExercisesJSON */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ExercisesJSON; sourceTree = "<group>"; };
 		33E39DD527ED103300DD85F3 /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
-		33FEFFEF27F15DCB001CFEEB /* VideoTitles */ = {isa = PBXFileReference; lastKnownFileType = text; path = VideoTitles; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +110,6 @@
 				3383959527E4CD6E000376BF /* iOS.entitlements */,
 				3383958227E4CBE9000376BF /* iOS-Info.plist */,
 				3383957F27E4C7A9000376BF /* GoogleService-Info.plist */,
-				33E39DD227ECFDD200DD85F3 /* ExercisesJSON */,
-				33FEFFEF27F15DCB001CFEEB /* VideoTitles */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -229,10 +221,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33E39DD327ECFDD200DD85F3 /* ExercisesJSON in Resources */,
 				334E419C27E4C6D9006AD09D /* Assets.xcassets in Resources */,
 				3383958027E4C7A9000376BF /* GoogleService-Info.plist in Resources */,
-				33FEFFF027F15DCB001CFEEB /* VideoTitles in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,10 +230,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				33E39DD427ECFDD200DD85F3 /* ExercisesJSON in Resources */,
 				334E419D27E4C6D9006AD09D /* Assets.xcassets in Resources */,
 				3383958127E4C7A9000376BF /* GoogleService-Info.plist in Resources */,
-				33FEFFF127F15DCB001CFEEB /* VideoTitles in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

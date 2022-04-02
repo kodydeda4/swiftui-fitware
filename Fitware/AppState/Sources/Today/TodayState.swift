@@ -41,6 +41,7 @@ public struct TodayState {
 
 public enum TodayAction {
   case binding(BindingAction<TodayState>)
+  case onAppear
   case exercises(id: ExerciseState.ID, action: ExerciseAction)
   case submitButtonTapped
   case submit
@@ -76,6 +77,11 @@ public let todayReducer = Reducer<
       
     case .binding:
       return .none
+    
+    case .onAppear:
+      state.selection = state.exercises.first
+      return .none
+      
       
     case .exercises:
       return .none

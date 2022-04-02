@@ -19,8 +19,8 @@ struct SettingsView: View {
             .foregroundColor(.gray)
         }
         .frame(maxWidth: .infinity, alignment: .center)
-        //          .listRowSeparator(.hidden)
         .listRowBackground(Color.clear)
+//        .listRowSeparator(.hidden)
         
         Section {
           Button("Sign out") {

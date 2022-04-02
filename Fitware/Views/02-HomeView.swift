@@ -27,18 +27,36 @@ struct HomeView: View {
   }
 }
 
-
-
 // MARK: - Private
 
 private struct NavLinks: View {
   let store: Store<UserState, UserAction>
-
+  
   var body: some View {
-    Link(.today)        { TodayView(store: store.scope(state: \.today, action: UserAction.today)) }
-    Link(.workoutList)  { WorkoutListView(store: store.scope(state: \.workoutList, action: UserAction.workoutList)) }
-    Link(.exerciseList) { ExerciseListView(store: store.scope(state: \.exerciseList, action: UserAction.exerciseList)) }
-    Link(.settings)     { SettingsView(store: store.scope(state: \.settings, action: UserAction.settings)) }
+    Link(.today) {
+      TodayView(store: store.scope(
+        state: \.today,
+        action: UserAction.today
+      ))
+    }
+    Link(.workoutList)  {
+      WorkoutListView(store: store.scope(
+        state: \.workoutList,
+        action: UserAction.workoutList
+      ))
+    }
+    Link(.exerciseList) {
+      ExerciseListView(store: store.scope(
+        state: \.exerciseList,
+        action: UserAction.exerciseList
+      ))
+    }
+    Link(.settings) {
+      SettingsView(store: store.scope(
+        state: \.settings,
+        action: UserAction.settings
+      ))
+    }
   }
   
   private func label(for route: UserState.Route) -> some View {

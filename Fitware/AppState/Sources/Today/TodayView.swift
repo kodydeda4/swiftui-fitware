@@ -7,13 +7,9 @@ import AVKit
 public func TodayView(store: Store<TodayState, TodayAction>) -> some View {
   WithViewStore(store) { viewStore in
     List(selection: viewStore.binding(\.$selection)) {
-//      Section {
-        TodayDescription(store)
-//      }
-//      .listRowBackground(EmptyView())
-//      .setListRowSeparator(.hidden, edges: .bottom)
-      
-      Divider()
+      #if os(iOS)
+      TodayDescription(store)
+        .listRowSeparator(.hidden, edges: .bottom)
       
       Section {
         ForEachStore(store.scope(
@@ -21,7 +17,17 @@ public func TodayView(store: Store<TodayState, TodayAction>) -> some View {
           action: TodayAction.exercises
         ), content: ExerciseView)
       }
+      
+      #elseif os(macOS)
+      TodayDescription(store)
+      Divider()
+        ForEachStore(store.scope(
+          state: \.exercises,
+          action: TodayAction.exercises
+        ), content: ExerciseView)
+      #endif
     }
+    .onAppear { viewStore.send(.onAppear) }
     .layoutPriority(1)
     .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
     .navigationTitle("Today")
@@ -42,6 +48,22 @@ public func TodayView(store: Store<TodayState, TodayAction>) -> some View {
     }
   }
 }
+
+
+func Section2<Content: View>(
+  @ViewBuilder content: () -> Content
+) -> some View {
+#if os(iOS)
+  Section {
+    content()
+  }
+#else
+  content()
+#endif
+}
+
+
+
 
 // MARK: - Private
 
@@ -89,6 +111,7 @@ private func ExerciseView(_ store: Store<ExerciseState, ExerciseAction>) -> some
       .padding(.vertical, 4)
       .lineLimit(1)
     }
+    .tag(viewStore.state)
   }
 }
 
@@ -271,12 +294,16 @@ private struct ToggleButton<Label>: View where Label: View {
 // MARK: - Private Helpers
 private extension ExerciseSet {
   var previousDescription: String {
-    guard let previousReps = previousReps, let previousWeight = previousWeight
+    guard
+      let previousReps = previousReps,
+      let previousWeight = previousWeight
     else { return "_" }
     return "\(previousReps)x\(previousWeight) lbs"
   }
   var previousDescriptionColor: Color {
-    guard let _ = previousReps, let _ = previousWeight
+    guard
+      let _ = previousReps,
+      let _ = previousWeight
     else { return .secondary }
     return .primary
   }
