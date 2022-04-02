@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/firebase/firebase-ios-sdk.git",
         "state": {
           "branch": null,
-          "revision": "d4c4e8c7b8898ea771e90beab71112ea279d73a5",
-          "version": "8.13.0"
+          "revision": "ccb2bccb82e62ad9e8a4e757a43ce6a04ceae1c9",
+          "version": "8.14.0"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/google/GoogleAppMeasurement.git",
         "state": {
           "branch": null,
-          "revision": "6cc2991c11872510a5314bc112cc7558dd9d046a",
-          "version": "8.12.0"
+          "revision": "9b74e6a3f875208c04c22b39b580a21d4de0f4f9",
+          "version": "8.14.0"
         }
       },
       {
@@ -87,8 +87,8 @@
         "repositoryURL": "https://github.com/google/gtm-session-fetcher.git",
         "state": {
           "branch": null,
-          "revision": "bc6a19702ac76ac4e488b68148710eb815f9bc56",
-          "version": "1.7.0"
+          "revision": "eca9404a18f53727e4698211aaf2615eb93b962a",
+          "version": "1.7.1"
         }
       },
       {
@@ -96,7 +96,7 @@
         "repositoryURL": "https://github.com/kodydeda4/GymVisual",
         "state": {
           "branch": "main",
-          "revision": "3db2c6cf83b50979fcf5ff34c56aea36f233c883",
+          "revision": "a20a6b3ab1ce024f8eb2ffa8e6b50548e1471c86",
           "version": null
         }
       },
@@ -125,6 +125,15 @@
           "branch": null,
           "revision": "611337c330350c9c1823ad6d671e7f936af5ee13",
           "version": "2.0.0"
+        }
+      },
+      {
+        "package": "SimplifySignInWithApple",
+        "repositoryURL": "https://github.com/kodydeda4/SimplifySignInWithApple",
+        "state": {
+          "branch": "main",
+          "revision": "67d6c9323fab4480a539e45a371386377248ba4d",
+          "version": null
         }
       },
       {

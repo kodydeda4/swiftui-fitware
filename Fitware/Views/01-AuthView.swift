@@ -2,6 +2,7 @@ import SwiftUI
 import ComposableArchitecture
 import AuthenticationServices
 import Auth
+import SimplifySignInWithApple
 
 struct AuthView: View {
   let store: Store<AuthState, AuthAction>

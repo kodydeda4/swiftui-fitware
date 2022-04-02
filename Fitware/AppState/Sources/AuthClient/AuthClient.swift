@@ -2,6 +2,7 @@ import Firebase
 import Combine
 import ComposableArchitecture
 import Failure
+import SimplifySignInWithApple
 
 public struct AuthClient {
   public let signInEmailPassword :  (_ email: String, _ password: String) -> Effect<User, Failure>

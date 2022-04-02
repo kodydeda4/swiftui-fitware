@@ -38,7 +38,7 @@ public func TodayView(store: Store<TodayState, TodayAction>) -> some View {
       .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
       .navigationTitle("Today")
       .listStyle(.inset)
-      .setNavigationBarTitleDisplayMode(.large)
+//      .setNavigationBarTitleDisplayMode(.large)
       .toolbar {
         Menu(
           content: {
@@ -140,7 +140,7 @@ private func ExerciseDetailView(_ store: Store<ExerciseState, ExerciseAction>) -
       )
     }
     .lineLimit(1)
-    .setNavigationBarTitleDisplayMode(.inline)
+//    .setNavigationBarTitleDisplayMode(.inline)
     .listStyle(.inset)
     .toolbar {
       ToolbarItemGroup {
@@ -279,14 +279,15 @@ private extension View {
     self
 #endif
   }
-  func setNavigationBarTitleDisplayMode(_ displayMode: NavigationBarItem.TitleDisplayMode) -> some View {
-#if os(iOS)
-    self.navigationBarTitleDisplayMode(displayMode)
-#else
-    self
-#endif
-  }
+//  func setNavigationBarTitleDisplayMode(_ displayMode: NavigationBarItem.TitleDisplayMode) -> some View {
+//#if os(iOS)
+//    self.navigationBarTitleDisplayMode(displayMode)
+//#else
+//    self
+//#endif
+//  }
 }
+
 
 // MARK: - SwiftUI Previews
 struct TodayView_Previews: PreviewProvider {

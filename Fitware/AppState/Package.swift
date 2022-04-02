@@ -9,6 +9,7 @@ let package = Package(
   dependencies: [
     .package(url: "https://github.com/pointfreeco/swift-composable-architecture", from: "0.31.0"),
     .package(url: "https://github.com/kodydeda4/GymVisual", branch: "main"),
+    .package(url: "https://github.com/kodydeda4/SimplifySignInWithApple", branch: "main"),
     .package(
       name: "Firebase",
       url: "https://github.com/firebase/firebase-ios-sdk.git",
@@ -91,7 +92,8 @@ let package = Package(
   Source(name: "Settings", dependencies: [
     .composableArchitecture,
     .failure,
-    .authClient
+    .authClient,
+    .simplifySignInWithApple
   ]),
   
   // MARK: Client
@@ -171,6 +173,10 @@ extension Target.Dependency {
   static let gymVisual: Self = .product(
     name: "GymVisual",
     package: "GymVisual"
+  )
+  static let simplifySignInWithApple: Self = .product(
+    name: "SimplifySignInWithApple",
+    package: "SimplifySignInWithApple"
   )
   static let firebase: Self = .product(
     name: "FirebaseAuth",

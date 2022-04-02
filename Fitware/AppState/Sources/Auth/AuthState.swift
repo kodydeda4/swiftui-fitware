@@ -3,6 +3,7 @@ import ComposableArchitecture
 import AuthenticationServices
 import Failure
 import AuthClient
+import SimplifySignInWithApple
 
 public struct AuthState {
   @BindableState public var email: String

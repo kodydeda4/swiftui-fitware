@@ -17,10 +17,10 @@ public struct ExerciseState {
   @BindableState public var selected: Bool
   @BindableState public var favorite: Bool
   @BindableState public var exerciseSets = [
-    ExerciseSet(weight: 35, reps: 16, previousWeight: 20, previousReps: 10),
-    ExerciseSet(weight: 45, reps: 14),
-    ExerciseSet(weight: 50, reps: 20),
-    ExerciseSet(weight: 25, reps: 12),
+    ExerciseSet(id: UUID(), weight: 35, reps: 16, previousWeight: 20, previousReps: 10),
+    ExerciseSet(id: UUID(), weight: 45, reps: 14),
+    ExerciseSet(id: UUID(), weight: 50, reps: 20),
+    ExerciseSet(id: UUID(), weight: 25, reps: 12),
   ]
   
   public init(
@@ -66,7 +66,7 @@ public let exerciseReducer = Reducer<
     return .none
     
   case .addSet:
-    state.exerciseSets += [ExerciseSet(weight: 35, reps: 16)]
+    state.exerciseSets += [ExerciseSet(id: UUID(), weight: 35, reps: 16)]
     return .none
     
   case let .removeSet(set):
