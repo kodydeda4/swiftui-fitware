@@ -42,7 +42,7 @@ public enum CreateWorkoutAction {
   case updateQueryResult(Result<[ExerciseState], Never>)
   case dismissAlert
   case fetchExercises
-  case fetchExercisesResult(Result<[Exercise], Failure>)
+  case fetchExercisesResult(Result<[ExerciseState], Failure>)
   case createWorkout
   case createWorkoutResult(Result<String, Failure>)
 }
@@ -105,7 +105,7 @@ public let createWorkoutReducer = Reducer<
         .catchToEffect(CreateWorkoutAction.fetchExercisesResult)
       
     case let .fetchExercisesResult(.success(success)):
-      state.exercises = IdentifiedArrayOf(uniqueElements: success.map(ExerciseState.init))
+      state.exercises = IdentifiedArrayOf(uniqueElements: success)
       return .none
       
     case let .fetchExercisesResult(.failure(error)):

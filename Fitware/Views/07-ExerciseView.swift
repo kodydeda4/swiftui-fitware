@@ -22,37 +22,37 @@ struct ExerciseNavigationLinkView: View {
     WithViewStore(store) { viewStore in
       List {
         #if os(iOS)
-        VideoPlayer(url: viewStore.model.video, play: .constant(true))
+        VideoPlayer(url: viewStore.video, play: .constant(true))
           .autoReplay(true)
           .aspectRatio(1920/1080, contentMode: .fit)
         #endif
         
         Section("Details") {
           prompt("ID", "\(viewStore.id)")
-          prompt("Name", viewStore.model.name)
-          prompt("Type", viewStore.model.type.rawValue)
-          prompt("Equipment", viewStore.model.equipment.rawValue)
-          prompt("Sex", viewStore.model.sex.rawValue)
+          prompt("Name", viewStore.name)
+          prompt("Type", viewStore.type.rawValue)
+          prompt("Equipment", viewStore.equipment.rawValue)
+          prompt("Sex", viewStore.sex.rawValue)
         }
         
         Section("Body Parts") {
-          ForEach(viewStore.model.bodyparts, id: \.self) {
+          ForEach(viewStore.bodyparts, id: \.self) {
             Text($0.rawValue)
           }
         }
         Section("Primary") {
-          ForEach(viewStore.model.primaryMuscles, id: \.self) {
+          ForEach(viewStore.primaryMuscles, id: \.self) {
             Text($0.rawValue)
           }
         }
         Section("Secondary") {
-          ForEach(viewStore.model.secondaryMuscles, id: \.self) {
+          ForEach(viewStore.secondaryMuscles, id: \.self) {
             Text($0.rawValue)
           }
         }
       }
       .lineLimit(1)
-      .navigationTitle(viewStore.model.name)
+      .navigationTitle(viewStore.name)
       #if os(iOS)
       .navigationBarTitleDisplayMode(.inline)
       #endif
@@ -63,7 +63,7 @@ struct ExerciseNavigationLinkView: View {
     WithViewStore(store) { viewStore in
       HStack {
         AsyncImage(
-          url: viewStore.model.photo,
+          url: viewStore.photo,
           content: { $0.resizable().scaledToFill() },
           placeholder: ProgressView.init
         )
@@ -81,17 +81,17 @@ struct ExerciseNavigationLinkView: View {
         )
         
         VStack(alignment: .leading, spacing: 6) {
-          Text(viewStore.model.name.capitalized)
+          Text(viewStore.name.capitalized)
           
           HStack {
-            Text(viewStore.model.bodyparts.map(\.rawValue.capitalized).joined(separator: ", "))
+            Text(viewStore.bodyparts.map(\.rawValue.capitalized).joined(separator: ", "))
               .font(.caption)
             
-            Text(viewStore.model.equipment.rawValue.capitalized)
+            Text(viewStore.equipment.rawValue.capitalized)
               .font(.caption)
               .foregroundColor(.gray)
             
-            Text(viewStore.model.type.rawValue.capitalized)
+            Text(viewStore.type.rawValue.capitalized)
               .font(.caption)
               .foregroundColor(Color.gray.opacity(0.85))
           }

@@ -4,12 +4,20 @@ import Exercise
 import ExerciseListClient
 import Firebase
 import GymVisual
+import Failure
 
 public struct TodayState {
   //  public var user: User
   public var exercises: IdentifiedArrayOf<ExerciseState>
+  public var complete: Bool { exercises.filter { !$0.complete }.isEmpty }
+  public var alert: AlertState<TodayAction>?
   public var exerciseDescription: String {
-    Set(exercises.flatMap(\.model.bodyparts).map(\.rawValue)).joined(separator: ", ")
+    Set(
+      exercises
+        .flatMap(\.bodyparts)
+        .map(\.rawValue)
+    )
+    .joined(separator: ", ")
   }
   
   public init(
@@ -21,8 +29,8 @@ public struct TodayState {
       .elbowFlexion,
       .aboveHeadChestStretchFemaleChest,
       .archerPullUpBack
-    ].map(ExerciseState.init)
-    )
+    ].map(ExerciseState.init))
+    
   ) {
     //    self.user = user
     self.exercises = exercises
@@ -32,6 +40,10 @@ public struct TodayState {
 public enum TodayAction {
   case binding(BindingAction<TodayState>)
   case exercises(id: ExerciseState.ID, action: ExerciseAction)
+  case submitButtonTapped
+  case submit
+  case submitResult(Result<String, Failure>)
+  case dismissAlert
 }
 
 public struct TodayEnvironment {
@@ -64,6 +76,35 @@ public let todayReducer = Reducer<
       return .none
       
     case .exercises:
+      return .none
+      
+    case .submitButtonTapped:
+      if state.complete {
+        return Effect(value: .submit)
+      } else {
+        state.alert = AlertState(
+          title: TextState("Are you sure?"),
+          message: TextState("You still have some unfinished exercises!"),
+          primaryButton: .default(
+            TextState("Yes"),
+            action: .send(.submit)
+          ),
+          secondaryButton: .cancel(
+            TextState("Cancel"),
+            action: .send(.dismissAlert)
+          )
+        )
+      }
+      return .none
+      
+    case .submit:
+      return .none
+      
+    case .submitResult:
+      return .none
+      
+    case .dismissAlert:
+      state.alert = nil
       return .none
     }
   }.binding()

@@ -34,7 +34,7 @@ public enum ExerciseListAction {
   case updateQueryResult(Result<[ExerciseState], Never>)
   case dismissAlert
   case fetchExercises
-  case fetchExercisesResult(Result<[Exercise], Failure>)
+  case fetchExercisesResult(Result<[ExerciseState], Failure>)
 }
 
 public struct ExerciseListEnvironment {
@@ -71,7 +71,7 @@ public let exerciseListReducer = Reducer<
         .catchToEffect(ExerciseListAction.fetchExercisesResult)
       
     case let .fetchExercisesResult(.success(success)):
-      state.exercises = IdentifiedArrayOf(uniqueElements: success.map(ExerciseState.init))
+      state.exercises = IdentifiedArrayOf(uniqueElements: success)
       return .none
       
     case let .fetchExercisesResult(.failure(error)):

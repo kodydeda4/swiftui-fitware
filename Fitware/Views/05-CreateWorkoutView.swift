@@ -104,7 +104,7 @@ private struct CellView: View {
       ToggleButton(toggle: viewStore.binding(\.$selected)) {
         HStack {
           AsyncImage(
-            url: viewStore.model.photo,
+            url: viewStore.photo,
             content: { $0.resizable().scaledToFill() },
             placeholder: ProgressView.init
           )
@@ -117,18 +117,18 @@ private struct CellView: View {
               .foregroundColor(.gray)
           )
           VStack(alignment: .leading, spacing: 6) {
-            Text(viewStore.model.name.capitalized)
+            Text(viewStore.name.capitalized)
               .foregroundColor(viewStore.selected ? .accentColor : .primary)
             
             HStack {
-              Text(viewStore.model.bodyparts.map(\.rawValue.capitalized).joined(separator: ", "))
+              Text(viewStore.bodyparts.map(\.rawValue.capitalized).joined(separator: ", "))
                 .font(.caption)
               
-              Text(viewStore.model.equipment.rawValue.capitalized)
+              Text(viewStore.equipment.rawValue.capitalized)
                 .font(.caption)
                 .foregroundColor(.gray)
               
-              Text(viewStore.model.type.rawValue.capitalized)
+              Text(viewStore.type.rawValue.capitalized)
                 .font(.caption)
                 .foregroundColor(Color.gray.opacity(0.85))
             }

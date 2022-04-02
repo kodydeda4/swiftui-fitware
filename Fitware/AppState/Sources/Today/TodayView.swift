@@ -18,7 +18,10 @@ public func TodayView(store: Store<TodayState, TodayAction>) -> some View {
               .font(.headline)
               .setListRowSeparator(.hidden)
             
-            ProgressView(value: 75, total: 100)
+            ProgressView(
+              value: Double(viewStore.exercises.filter(\.complete).count),
+              total: Double(viewStore.exercises.count)
+            )
             
             Text("John's Push Pull Split")
               .foregroundStyle(.secondary)
@@ -32,13 +35,23 @@ public func TodayView(store: Store<TodayState, TodayAction>) -> some View {
           action: TodayAction.exercises
         ), content: ExerciseView)
       }
+      .alert(store.scope(state: \.alert), dismiss: .dismissAlert)
       .navigationTitle("Today")
       .listStyle(.inset)
       .setNavigationBarTitleDisplayMode(.large)
       .toolbar {
-        Button(action: {}) {
-          Label("Menu", systemImage: "ellipsis")
-        }
+        Menu(
+          content: {
+            Button(action: {
+              viewStore.send(.submitButtonTapped)
+            }) {
+              Label("Finish Workout", systemImage: "checkmark.square.fill")
+            }
+          },
+          label: {
+            Label("Menu", systemImage: "ellipsis")
+          }
+        )
       }
     }
   }
@@ -46,15 +59,18 @@ public func TodayView(store: Store<TodayState, TodayAction>) -> some View {
 
 private func ExerciseView(_ store: Store<ExerciseState, ExerciseAction>) -> some View {
   WithViewStore(store) { viewStore in
-    NavigationLink(destination: { ExerciseDetailView(store) }) {
+    NavigationLink(destination: ExerciseDetailView(store)) {
       HStack {
-        AsyncIcon(viewStore.model.photo)
+        Image(systemName: "checkmark.circle")
+          .foregroundColor(viewStore.complete ? .accentColor : .secondary)
+        
+        AsyncIcon(viewStore.photo)
         
         VStack(alignment: .leading, spacing: 6) {
-          Text(viewStore.model.name.capitalized)
+          Text(viewStore.name.capitalized)
             .bold()
           
-          Text(viewStore.model.bodyparts.map(\.rawValue.capitalized).joined(separator: ", "))
+          Text(viewStore.bodyparts.map(\.rawValue.capitalized).joined(separator: ", "))
             .font(.caption2)
             .foregroundStyle(.secondary)
         }
@@ -70,29 +86,29 @@ private func ExerciseDetailView(_ store: Store<ExerciseState, ExerciseAction>) -
   WithViewStore(store) { viewStore in
     List {
       HStack {
-        Video(viewStore.model.video)
+        Video(viewStore.video)
         
         VStack(alignment: .leading) {
-          Text(viewStore.model.name)
+          Text(viewStore.name)
             .font(.title)
             .fontWeight(.semibold)
           
-          Text(viewStore.model.bodyparts.map(\.rawValue).joined(separator: ", "))
+          Text(viewStore.bodyparts.map(\.rawValue).joined(separator: ", "))
             .font(.title2)
             .fontWeight(.semibold)
             .foregroundColor(.accentColor)
           
-          Text(viewStore.model.type.rawValue.uppercased())
+          Text(viewStore.type.rawValue.uppercased())
             .fontWeight(.semibold)
             .foregroundColor(.secondary)
           
-          Text(viewStore.model.equipment.rawValue)
+          Text(viewStore.equipment.rawValue)
             .font(.subheadline)
             .foregroundColor(.secondary)
           
           VStack(alignment: .leading) {
-            Text(viewStore.model.primaryMuscles.map(\.rawValue).joined(separator: ", "))
-            Text(viewStore.model.secondaryMuscles.map(\.rawValue).joined(separator: ", "))
+            Text(viewStore.primaryMuscles.map(\.rawValue).joined(separator: ", "))
+            Text(viewStore.secondaryMuscles.map(\.rawValue).joined(separator: ", "))
           }
           .padding(.top)
           .font(.subheadline)
@@ -110,7 +126,9 @@ private func ExerciseDetailView(_ store: Store<ExerciseState, ExerciseAction>) -
         content: { ExerciseSetGridView(store) },
         header: {},
         footer: {
-          Button(action: {}) {
+          Button(action: {
+            viewStore.send(.addSet)
+          }) {
             Label("Add Set", systemImage: "plus.circle.fill")
           }
           .buttonStyle(.plain)
@@ -130,14 +148,16 @@ private func ExerciseDetailView(_ store: Store<ExerciseState, ExerciseAction>) -
           Button(action: {}) {
             Label("History", systemImage: "clock")
           }
-          Button(action: {}) {
-            Label("Love", systemImage: "heart")
+          ToggleButton(value: viewStore.binding(\.$favorite)) {
+            Label("Favorite", systemImage: viewStore.favorite ? "heart.fill" : "heart")
           }
         }
       }
     }
   }
 }
+
+
 
 private func ExerciseSetGridView(_ store: Store<ExerciseState, ExerciseAction>) -> some View {
   WithViewStore(store) { viewStore in
@@ -183,14 +203,13 @@ private func ExerciseSetGridView(_ store: Store<ExerciseState, ExerciseAction>) 
       .swipeActions {
         Button(
           role: .destructive,
-          action: {},
+          action: { viewStore.send(.removeSet(exerciseSet)) },
           label: { Label("Remove", systemImage: "trash") }
         )
       }
     }
   }
 }
-
 
 private func Video(_ url: URL) -> some View {
   VideoPlayer(player: AVPlayer(url: url))
@@ -229,7 +248,16 @@ private func AsyncIcon(_ url: URL) -> some View {
   )
 }
 
-// MARK: - Helpers
+private struct ToggleButton<Label>: View where Label: View {
+  @Binding var value: Bool
+  @ViewBuilder let label: () -> Label
+  
+  var body: some View {
+    Button(action: { value.toggle() }, label: label)
+  }
+}
+
+// MARK: - Private Helpers
 private extension ExerciseSet {
   var previousDescription: String {
     guard let previousReps = previousReps, let previousWeight = previousWeight
@@ -259,9 +287,6 @@ private extension View {
 #endif
   }
 }
-
-
-
 
 // MARK: - SwiftUI Previews
 struct TodayView_Previews: PreviewProvider {

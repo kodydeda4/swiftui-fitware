@@ -5,23 +5,26 @@ import Failure
 import GymVisual
 
 public struct ExerciseListClient {
-  public let fetchExercises: () -> Effect<[Exercise], Failure>
-  public let search: (_ state: IdentifiedArrayOf<ExerciseState>, _ query: ExerciseListQuery) -> Effect<[ExerciseState], Never>
+  public let fetchExercises: () -> Effect<[ExerciseState], Failure>
+  public let search: (
+    _ state: IdentifiedArrayOf<ExerciseState>,
+    _ query: ExerciseListQuery
+  ) -> Effect<[ExerciseState], Never>
 }
 
 public extension ExerciseListClient {
   static let live = Self(
     fetchExercises: {
-      Effect(value: Exercise.allCases)
+      Effect(value: Exercise.allCases.map(ExerciseState.init))
     },
     search: { state, query in
       Effect(value: state
-        .filter({ query.bodyparts.isSuperset(of: Set($0.model.bodyparts)) })
-        .filter({ query.equipment.contains($0.model.equipment) })
-        .filter({ query.sex.contains($0.model.sex) })
-        .filter({ query.type.contains($0.model.type) })
-        .filter({ query.primary.isSuperset(of: Set($0.model.primaryMuscles)) })
-        .filter({ query.secondary.isSuperset(of: Set($0.model.secondaryMuscles)) })
+        .filter({ query.bodyparts.isSuperset(of: Set($0.bodyparts)) })
+        .filter({ query.equipment.contains($0.equipment) })
+        .filter({ query.sex.contains($0.sex) })
+        .filter({ query.type.contains($0.type) })
+        .filter({ query.primary.isSuperset(of: Set($0.primaryMuscles)) })
+        .filter({ query.secondary.isSuperset(of: Set($0.secondaryMuscles)) })
       )
     }
   )
