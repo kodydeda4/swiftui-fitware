@@ -27,7 +27,7 @@ public struct UserState {
   
   public init(
     user: User = Auth.auth().currentUser!,
-    route: Route? = .settings,
+    route: Route? = .today,
     today: TodayState = .init(),
     exerciseList: ExerciseListState = .init(),
     workoutList: WorkoutListState = .init(),
