@@ -99,7 +99,7 @@ private func ExerciseDetailView(_ store: Store<ExerciseState, ExerciseAction>) -
           .foregroundColor(.secondary)
         }
         .padding(.leading)
-
+        
         Spacer()
       }
       .listRowBackground(EmptyView())
@@ -149,21 +149,35 @@ private func ExerciseSetGridView(_ store: Store<ExerciseState, ExerciseAction>) 
       Text("Done")
     }.foregroundStyle(.secondary)
     
-    ForEach(Array(zip(viewStore.binding(\.$sets), viewStore.sets.indices)), id: \.1) { $exSet, index in
+    ForEach(Array(zip(
+      viewStore.binding(\.$exerciseSets),
+      viewStore.exerciseSets.indices)
+    ), id: \.1) { $exerciseSet, index in
+      
       LazyVGrid(columns: Array(repeating: .init(.flexible()), count: 5)) {
         Text("\(index+1)")
         
-        Text(exSet.previousDescription)
-          .foregroundColor(exSet.previousDescriptionColor)
+        Text(exerciseSet.previousDescription)
+          .foregroundColor(exerciseSet.previousDescriptionColor)
         
-        TextField(exSet.weight.description, value: $exSet.weight, formatter: NumberFormatter())
-        TextField(exSet.reps.description, value: $exSet.reps, formatter: NumberFormatter())
+        TextField(
+          exerciseSet.weight.description,
+          value: $exerciseSet.weight,
+          formatter: NumberFormatter()
+        )
+        TextField(
+          exerciseSet.reps.description,
+          value: $exerciseSet.reps,
+          formatter: NumberFormatter()
+        )
         
-        Button(action: { exSet.complete.toggle() }) {
-          Image(systemName: exSet.complete ? "checkmark.circle" : "checkmark")
-        }
-        .foregroundColor(exSet.complete ? .accentColor : .secondary)
+        Button(
+          action: { exerciseSet.complete.toggle() },
+          label: { Image(systemName: exerciseSet.complete ? "checkmark.circle" : "checkmark") }
+        )
+        .foregroundColor(exerciseSet.complete ? .accentColor : .secondary)
         .buttonStyle(.plain)
+        
       }
       .multilineTextAlignment(.center)
       .swipeActions {
