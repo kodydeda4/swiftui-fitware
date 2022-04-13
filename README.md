@@ -19,8 +19,16 @@ Fitware supports Apple Sign In, email, and guest users.
 
 ## Create Workouts
 
-Fitware uses Firebase & CloudFirestore for storing information about workouts favorited exercises. Create a workout on your mac and finish it on your iPhone!
+Create a workout and have it sync across all your devices! Fitware uses Firebase & CloudFirestore for updating and storing information about what workouts you create and complete.
 
 <img width="1369" alt="Screen Shot 2022-04-13 at 1 23 48 PM" src="https://user-images.githubusercontent.com/45678211/163241038-5c8d11e6-f508-4ef7-a8e0-b65e987fc0c2.png">
 
+## Finish Workouts
+
+Each exercise contains a helpful video, explaining how to complete the exercise and data about how your previous reps.
+
 <img width="585" alt="Screen Shot 2022-04-13 at 1 18 42 PM" src="https://user-images.githubusercontent.com/45678211/163240647-140e1bfb-de7e-4765-951f-e5a932628e87.png">
+
+## 🙏Thank you
+
+Thank you for checking out this repo. -KodyDeda
