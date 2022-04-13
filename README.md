@@ -31,4 +31,16 @@ Each exercise contains a helpful video, explaining how to complete the exercise 
 
 ## 🙏Thank you
 
-Thank you for checking out this repo. -KodyDeda
+Thank you for checking out this repo! Here's a link to some of the helpful resources I used to create it:
+
+**TheComposableArchitecture**  
+https://github.com/pointfreeco/swift-composable-architecture
+
+**PointFree**  
+https://www.pointfree.co
+
+**Firebase**  
+https://github.com/firebase/firebase-ios-sdk
+
+**Apple Developer**   
+https://developer.apple.com
