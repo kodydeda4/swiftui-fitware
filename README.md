@@ -6,7 +6,7 @@ Fitware is a multi-platform fitness app for Apple devices. It currently supports
 
 Currently, Fitware contains over 2,600 different exercises. Exercises can be filtered by equipment, target bodyparts, and muscle groups, etc. Each exercise contains an associated icon and video. 
 
-> 📦 Check out my open-source [SPM Package](https://github.com/kodydeda4/SwiftUI-GymVisual) containing all the exercises.
+> 📦 Check out my open-source [SPM Package](https://github.com/kodydeda4/GymVisual) containing all the exercises.
 
 <img width="1054" alt="exerciselist" src="https://user-images.githubusercontent.com/45678211/163240195-de02027d-4b14-4a86-8c4c-246135153bf4.png">
 
