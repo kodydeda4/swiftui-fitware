@@ -31,8 +31,8 @@
 		334F3F9C27EBAD4E007156CC /* 07-ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9A27EBAD4E007156CC /* 07-ExerciseView.swift */; };
 		334F3F9E27EBAD81007156CC /* 04-WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9D27EBAD81007156CC /* 04-WorkoutView.swift */; };
 		334F3F9F27EBAD81007156CC /* 04-WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 334F3F9D27EBAD81007156CC /* 04-WorkoutView.swift */; };
-		3383958027E4C7A9000376BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3383957F27E4C7A9000376BF /* GoogleService-Info.plist */; };
-		3383958127E4C7A9000376BF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3383957F27E4C7A9000376BF /* GoogleService-Info.plist */; };
+		3368EFA0287B6DDC00103CC9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3368EF9F287B6DDC00103CC9 /* GoogleService-Info.plist */; };
+		3368EFA1287B6DDC00103CC9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3368EF9F287B6DDC00103CC9 /* GoogleService-Info.plist */; };
 		3383959727E4CFFD000376BF /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 3383959627E4CFFD000376BF /* App */; };
 		3396A0FC27E4D9DA008B5F68 /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 3396A0FB27E4D9DA008B5F68 /* App */; };
 		33D400B227F34DA30030CD01 /* VideoPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 33D400B127F34DA30030CD01 /* VideoPlayer */; };
@@ -56,7 +56,7 @@
 		334F3F9727EBAC8B007156CC /* 06-ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "06-ExerciseListView.swift"; sourceTree = "<group>"; };
 		334F3F9A27EBAD4E007156CC /* 07-ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "07-ExerciseView.swift"; sourceTree = "<group>"; };
 		334F3F9D27EBAD81007156CC /* 04-WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "04-WorkoutView.swift"; sourceTree = "<group>"; };
-		3383957F27E4C7A9000376BF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3368EF9F287B6DDC00103CC9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3383958227E4CBE9000376BF /* iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS-Info.plist"; sourceTree = "<group>"; };
 		3383959527E4CD6E000376BF /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
 		33E39DD527ED103300DD85F3 /* CustomPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPickerView.swift; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 				334E419727E4C6D9006AD09D /* macOS.entitlements */,
 				3383959527E4CD6E000376BF /* iOS.entitlements */,
 				3383958227E4CBE9000376BF /* iOS-Info.plist */,
-				3383957F27E4C7A9000376BF /* GoogleService-Info.plist */,
+				3368EF9F287B6DDC00103CC9 /* GoogleService-Info.plist */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -222,7 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				334E419C27E4C6D9006AD09D /* Assets.xcassets in Resources */,
-				3383958027E4C7A9000376BF /* GoogleService-Info.plist in Resources */,
+				3368EFA0287B6DDC00103CC9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,7 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				334E419D27E4C6D9006AD09D /* Assets.xcassets in Resources */,
-				3383958127E4C7A9000376BF /* GoogleService-Info.plist in Resources */,
+				3368EFA1287B6DDC00103CC9 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,7 +411,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = deda.Fitware;
+				PRODUCT_BUNDLE_IDENTIFIER = "deda.Fitware-old";
 				PRODUCT_NAME = Fitware;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -443,7 +443,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = deda.Fitware;
+				PRODUCT_BUNDLE_IDENTIFIER = "deda.Fitware-old";
 				PRODUCT_NAME = Fitware;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -474,7 +474,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = deda.Fitware;
+				PRODUCT_BUNDLE_IDENTIFIER = "deda.Fitware-old";
 				PRODUCT_NAME = Fitware;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -503,7 +503,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.2;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = deda.Fitware;
+				PRODUCT_BUNDLE_IDENTIFIER = "deda.Fitware-old";
 				PRODUCT_NAME = Fitware;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>339441178683-h9l6kmsko7dfutf89ofe10kc4soak8pg.apps.googleusercontent.com</string>
+	<string>339441178683-261lai96euh1ap2e6uap4llqt1lh2bqp.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.339441178683-h9l6kmsko7dfutf89ofe10kc4soak8pg</string>
+	<string>com.googleusercontent.apps.339441178683-261lai96euh1ap2e6uap4llqt1lh2bqp</string>
 	<key>API_KEY</key>
 	<string>AIzaSyDG9mS-RPLrmGSADKsX-zcxa_rQRAMCq2c</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>deda.Fitware</string>
+	<string>deda.Fitware-old</string>
 	<key>PROJECT_ID</key>
 	<string>fitware-dc7ae</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:339441178683:ios:3d4e7d12352f747fb6241e</string>
+	<string>1:339441178683:ios:65e5ce5bab196727b6241e</string>
 </dict>
 </plist>
